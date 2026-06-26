@@ -17,7 +17,7 @@ sources:
 
 # SVG Diagram Style Guide
 
-The canonical visual style for all diagrams across agricidaniel's Claude Code skill repos. Extracted from the 17 production SVGs in claude-ads. Use this as the reference when creating or updating diagrams for any skill repo.
+The canonical visual style for all diagrams across (original author)'s Claude Code skill repos. Extracted from the 17 production SVGs in claude-ads. Use this as the reference when creating or updating diagrams for any skill repo.
 
 ## Font
 

@@ -16,7 +16,7 @@ sources:
 ---
 
 # Claude + Obsidian Ecosystem Research
-> Researched: 2026-04-08 | Goal: survey the Claude + Obsidian ecosystem and identify strong patterns and prior art relevant to claude-obsidian.
+> Researched: 2026-04-08 | Goal: survey the Claude + Obsidian ecosystem and identify strong patterns and prior art relevant to agent-second-brain.
 
 ---
 
@@ -32,8 +32,8 @@ sources:
 
 ## Category 1: LLM Wiki Pattern (Claude Code Plugins)
 
-### AgriciDaniel/claude-obsidian (this project)
-- URL: https://github.com/AgriciDaniel/claude-obsidian
+### LeeHongji/agent-second-brain (this project)
+- URL: https://github.com/LeeHongji/agent-second-brain
 - Version: 1.2.0
 - Skills: /wiki, /wiki-ingest, /wiki-query, /wiki-lint, /save, /autoresearch, /canvas
 - Approach: Hot cache + compounding wiki + Claude Code skills
@@ -221,34 +221,34 @@ sources:
 ## Key Design Patterns Across Ecosystem
 
 ### Pattern 1: Delta Tracking
-Most mature projects (Ar9av/obsidian-wiki) use a `.manifest.json` to track ingested sources — hash, timestamp, which pages produced. Re-ingest only processes changed/new files. Claude-obsidian currently has no delta tracking.
+Most mature projects (Ar9av/obsidian-wiki) use a `.manifest.json` to track ingested sources — hash, timestamp, which pages produced. Re-ingest only processes changed/new files. Agent-second-brain currently has no delta tracking.
 
 ### Pattern 2: Multi-Depth Queries
-rvk7895 implements 3 tiers: Quick (index only), Standard (wiki + web), Deep (parallel agents). Current claude-obsidian has one depth level in wiki-query.
+rvk7895 implements 3 tiers: Quick (index only), Standard (wiki + web), Deep (parallel agents). Current agent-second-brain has one depth level in wiki-query.
 
 ### Pattern 3: Goal Cascade Integration
-ballred's project connects personal productivity (daily/weekly reviews) with the knowledge base. No PKM projects do this today in claude-obsidian.
+ballred's project connects personal productivity (daily/weekly reviews) with the knowledge base. No PKM projects do this today in agent-second-brain.
 
 ### Pattern 4: Auto-Commit Hooks
 ballred uses PostToolUse hooks for auto-git-commit on every file change. This keeps the vault in version control automatically.
 
 ### Pattern 5: Multi-Agent Compatibility
-Ar9av's setup.sh deploys skills to Claude Code + Cursor + Windsurf + Codex + Gemini CLI simultaneously. claude-obsidian is Claude Code only.
+Ar9av's setup.sh deploys skills to Claude Code + Cursor + Windsurf + Codex + Gemini CLI simultaneously. agent-second-brain is Claude Code only.
 
 ### Pattern 6: Hybrid Search
 ekadetov uses qmd (BM25 + vector) instead of simple keyword/index search. Big quality improvement for large vaults.
 
 ### Pattern 7: Emerging Schema
-Ar9av's wiki has no fixed structure upfront — it emerges from the content. Claude-obsidian has a predefined structure.
+Ar9av's wiki has no fixed structure upfront — it emerges from the content. Agent-second-brain has a predefined structure.
 
 ### Pattern 8: Vision Ingestion
-Ar9av supports images/screenshots/whiteboards as ingestable sources (vision model required). Claude-obsidian has no image ingestion.
+Ar9av supports images/screenshots/whiteboards as ingestable sources (vision model required). Agent-second-brain has no image ingestion.
 
 ### Pattern 9: Output Formats
-rvk7895 and ekadetov export to Marp slides and matplotlib charts. Claude-obsidian outputs only Markdown.
+rvk7895 and ekadetov export to Marp slides and matplotlib charts. Agent-second-brain outputs only Markdown.
 
 ### Pattern 10: Vault Adoption
-Both claudesidian and ballred/pkm can be adopted onto existing vaults without destroying structure. Claude-obsidian requires starting fresh.
+Both claudesidian and ballred/pkm can be adopted onto existing vaults without destroying structure. Agent-second-brain requires starting fresh.
 
 ---
 
@@ -262,13 +262,13 @@ From Ar9av README:
 > "The wiki schema isn't fixed upfront. It emerges from your sources."
 
 From kepano/obsidian-skills (Obsidian creator):
-> Uses exact Agent Skills specification format — validates that AgriciDaniel's approach is on spec.
+> Uses exact Agent Skills specification format — validates that (original author)'s approach is on spec.
 
 ---
 
 ## Sources
 
-- https://github.com/AgriciDaniel/claude-obsidian
+- https://github.com/LeeHongji/agent-second-brain
 - https://github.com/heyitsnoah/claudesidian
 - https://github.com/ProfSynapse/claudesidian-mcp
 - https://github.com/YishenTu/claudian

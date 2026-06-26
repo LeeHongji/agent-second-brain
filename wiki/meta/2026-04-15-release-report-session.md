@@ -1,6 +1,7 @@
 ---
 type: meta
 title: "Claude SEO v1.9.0 Release Report Session"
+created: 2026-04-15
 updated: 2026-04-15
 tags:
   - meta
@@ -31,7 +32,7 @@ Date: 2026-04-15 | Output: `~/Desktop/Claude-SEO-v1.9.0-Release-Report.pdf`
 
 | Bug | Root Cause | Fix |
 |-----|-----------|-----|
-| Logo not rendering | Filename has double space: "AI MArketing hub  pro logo with white text.png" | Corrected path in `generate_report()` |
+| Logo not rendering | Filename has double space: "the community logo with white text.png" | Corrected path in `generate_report()` |
 | `file://` images not loading | Spaces in paths not URL-encoded | Added `_file_url()` helper with `urllib.parse.quote()` |
 | Review checker false WARNs | Checked URL-encoded paths against filesystem | `unquote()` before `Path.exists()` |
 | Title page empty bottom half | Fixed `height:297mm` + sparse content | Removed fixed height, added "In This Report" card |
@@ -48,7 +49,7 @@ Date: 2026-04-15 | Output: `~/Desktop/Claude-SEO-v1.9.0-Release-Report.pdf`
 4. **Tables that overflow: replace with paragraphs** — if a table consistently orphans its last rows, a `<p>` with inline `<code>` spans is more reliable.
 5. **Chart figsize controls page fill** — matplotlib figsize directly affects how much of the page the chart occupies. Increase height to fill empty space after a chart.
 6. **`max-height: 165mm` on `.chart-container img`** — good default for charts on their own section page.
-7. **Check filenames carefully** — "AI MArketing hub  pro logo with white text.png" has a double space between "hub" and "pro". `Path.exists()` is the fastest way to catch this.
+7. **Check filenames carefully** — "the community logo with white text.png" has a double space between "hub" and "pro". `Path.exists()` is the fastest way to catch this.
 
 ## Pro Hub Challenge v2 (April)
 

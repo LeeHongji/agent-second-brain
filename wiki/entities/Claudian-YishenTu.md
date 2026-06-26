@@ -10,9 +10,9 @@ tags:
 status: current
 related:
   - "[[cherry-picks]]"
-  - "[[claude-obsidian-ecosystem]]"
+  - "[[agent-second-brain-ecosystem]]"
 sources:
-  - "[[claude-obsidian-ecosystem-research]]"
+  - "[[agent-second-brain-ecosystem-research]]"
 ---
 
 # Claudian (YishenTu/claudian)
@@ -55,5 +55,5 @@ Multiple chat tabs, conversation history, fork, resume, compact mode.
 - Claude files in `vault/.claude/`
 - Transcripts in `~/.claude/projects/`
 
-## Relevance to claude-obsidian
-Claudian is a native plugin (different category) but its Plan Mode, @mention, and inline edit patterns could inspire new features in claude-obsidian skills — particularly for the canvas and wiki-query workflows.
+## Relevance to agent-second-brain
+Claudian is a native plugin (different category) but its Plan Mode, @mention, and inline edit patterns could inspire new features in agent-second-brain skills — particularly for the canvas and wiki-query workflows.

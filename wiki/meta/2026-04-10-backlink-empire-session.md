@@ -12,7 +12,7 @@ tags:
   - rankenstein
 status: complete
 related:
-  - "[[Claude Obsidian]]"
+  - "[[Agent Second Brain]]"
   - "[[Claude Canvas]]"
   - "[[Rankenstein]]"
   - "[[Karpathy LLM Wiki Pattern]]"
@@ -25,21 +25,21 @@ decision_date: 2026-04-10
 
 Two blog posts written, deployed to Vercel, and submitted to Google Indexing API + Bing IndexNow:
 
-1. **claude-obsidian-ai-second-brain** - "I Turned Obsidian Into a Self-Organizing AI Brain"
+1. **agent-second-brain-ai-second-brain** - "I Turned Obsidian Into a Self-Organizing AI Brain"
    - Focus keyword: "obsidian ai second brain"
    - ~2,800 words, 5 repo images/GIFs, 3 SVG charts, 8 sourced statistics
-   - Images from `wiki/meta/` in the claude-obsidian repo (graph view, wiki map, welcome canvas GIF)
-   - Live: agricidaniel.com/blog/claude-obsidian-ai-second-brain
+   - Images from `wiki/meta/` in the agent-second-brain repo (graph view, wiki map, welcome canvas GIF)
+   - Live: 
 
 2. **claude-canvas-ai-visual-production** - "Claude Code Just Turned Obsidian Canvas Into an AI Design Studio"
    - Focus keyword: "obsidian canvas ai"
    - ~2,500 words, 5 screenshots from repo, 2 SVG charts, 7 sourced statistics
    - Images from `assets/screenshots/` in the claude-canvas repo
-   - Live: agricidaniel.com/blog/claude-canvas-ai-visual-production
+   - Live: 
 
 ### Karpathy Gist Comment
 
-Comment posted on Andrej Karpathy's LLM Wiki gist (gist ID: 442a6bf555914893e9891c11519de94f). Links claude-obsidian (358 stars), claude-canvas, and the blog post. Highlights hot cache, contradiction flagging, 8-category lint, and autonomous research loops as differentiators.
+Comment posted on Andrej Karpathy's LLM Wiki gist (gist ID: 442a6bf555914893e9891c11519de94f). Links agent-second-brain (358 stars), claude-canvas, and the blog post. Highlights hot cache, contradiction flagging, 8-category lint, and autonomous research loops as differentiators.
 
 ### GitHub Backlink Empire (26 Repos Updated)
 
@@ -49,11 +49,11 @@ Comment posted on Andrej Karpathy's LLM Wiki gist (gist ID: 442a6bf555914893e989
 
 **Phase 2-5 - README updates:**
 - Added standardized Author section to 25 repos with links to:
-  - agricidaniel.com/about
-  - agricidaniel.com/blog
-  - skool.com/ai-marketing-hub
-  - youtube.com/@AgriciDaniel
-  - github.com/AgriciDaniel
+  - 
+  - 
+  - 
+  - 
+  - github.com/(original author)
 
 **Rankenstein.pro backlinks (5 SEO-relevant repos only):**
 - claude-seo: "Publishing Pipeline" section
@@ -64,7 +64,7 @@ Comment posted on Andrej Karpathy's LLM Wiki gist (gist ID: 442a6bf555914893e989
 
 ### Verification Results
 
-64/65 checks passed. 1 minor note: claude-obsidian uses footer-style attribution instead of formal `## Author` heading (intentional - already had custom attribution).
+64/65 checks passed. 1 minor note: agent-second-brain uses footer-style attribution instead of formal `## Author` heading (intentional - already had custom attribution).
 
 ## Key Decisions
 
@@ -75,9 +75,9 @@ Comment posted on Andrej Karpathy's LLM Wiki gist (gist ID: 442a6bf555914893e989
 
 ## Numbers
 
-- ~87 new backlinks from github.com (DA 96) to agricidaniel.com
+- ~87 new backlinks from github.com (DA 96) to 
 - ~6 backlinks to rankenstein.pro
-- ~25 backlinks to skool.com/ai-marketing-hub
+- ~25 backlinks to 
 - 22 total pages in sitemap (was 20 at session start)
 - 15 total blog posts (was 13)
 

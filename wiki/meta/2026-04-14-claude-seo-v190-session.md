@@ -23,7 +23,7 @@ related:
 
 **Date**: 2026-04-14
 **Duration**: Extended session (~4 hours)
-**Scope**: Integrate 5 community submissions from the AI Marketing Hub Pro Hub Challenge into claude-seo
+**Scope**: Integrate 5 community submissions from the the community Hub Challenge into claude-seo
 
 ## What Was Done
 

@@ -193,7 +193,7 @@ Adversarial review flagged these gaps in v0.1. Each must be decided before the c
 
 ---
 
-## Mapping to Claude-Obsidian
+## Mapping to Agent-Second-Brain
 
 | Mechanism | Status | New | Extends |
 |---|---|---|---|

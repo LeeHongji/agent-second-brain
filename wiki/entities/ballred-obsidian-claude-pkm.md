@@ -12,9 +12,9 @@ status: current
 related:
   - "[[LLM Wiki Pattern]]"
   - "[[cherry-picks]]"
-  - "[[claude-obsidian-ecosystem]]"
+  - "[[agent-second-brain-ecosystem]]"
 sources:
-  - "[[claude-obsidian-ecosystem-research]]"
+  - "[[agent-second-brain-ecosystem-research]]"
 ---
 
 # ballred/obsidian-claude-pkm
@@ -59,7 +59,7 @@ Uses `memory: project` so agents remember patterns across sessions.
 
 Zero dependencies (bash + markdown only). Path-specific rules loaded contextually. Session init surfaces ONE Big Thing, active project count, days since last review.
 
-## Cherry-Picks for claude-obsidian
+## Cherry-Picks for agent-second-brain
 
 - [[cherry-picks#2. Auto-Commit PostToolUse Hook]]
 - [[cherry-picks#7. /adopt — Import Existing Vault]]

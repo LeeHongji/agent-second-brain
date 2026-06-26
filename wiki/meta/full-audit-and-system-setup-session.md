@@ -10,7 +10,7 @@ tags:
   - plugin-install
 status: evergreen
 related:
-  - "[[claude-obsidian-v1.2.0-release-session]]"
+  - "[[agent-second-brain-v1.2.0-release-session]]"
   - "[[getting-started]]"
   - "[[index]]"
 ---
@@ -32,7 +32,7 @@ All 12 areas audited — 3 issues found, all fixed same session.
 | `Cosmic Brain Clean.gif` tracked in git (personal asset) | Removed with `git rm --cached`, added `Cosmic Brain*.gif` to .gitignore |
 | `Cosmic Brain Cover.png` tracked in git (personal asset) | Removed with `git rm --cached`, added `Cosmic Brain*.png` to .gitignore |
 | `Welcome.md` tracked in git (Obsidian personal file) | Removed with `git rm --cached`, added `Welcome.md` to .gitignore |
-| `vault-colors.css` comment said "cosmic-brain vault colors" | Updated to "claude-obsidian vault colors" |
+| `vault-colors.css` comment said "cosmic-brain vault colors" | Updated to "agent-second-brain vault colors" |
 | `docs/superpowers/plans/` not committed | Committed audit plan file |
 
 ### Clean Areas (no issues)
@@ -54,27 +54,27 @@ All 12 areas audited — 3 issues found, all fixed same session.
 
 ## Plugin Installation
 
-claude-obsidian is now installed in the local Claude Code system:
+agent-second-brain is now installed in the local Claude Code system:
 
 ```bash
 # Registered as marketplace
-claude plugin marketplace add AI-Marketing-Hub/claude-obsidian
-# → claude-obsidian-marketplace registered (user scope)
+claude plugin marketplace add original-org/agent-second-brain
+# → agent-second-brain-marketplace registered (user scope)
 
 # Installed plugin
-claude plugin install claude-obsidian
-# → claude-obsidian@claude-obsidian-marketplace (scope: user) ✓
+claude plugin install agent-second-brain
+# → agent-second-brain@agent-second-brain-marketplace (scope: user) ✓
 ```
 
-To verify: `claude plugin list | grep claude-obsidian`
+To verify: `claude plugin list | grep agent-second-brain`
 
 ---
 
 ## System State
 
-- Plugin repo: `~/claude-obsidian/` (git repo, both remotes live)
-- Plugin installed: `claude-obsidian@claude-obsidian-marketplace` (user scope, enabled)
-- Working folder renamed: `~/Desktop/Obsidian & Claude/` → `~/Desktop/claude-obsidian/`
+- Plugin repo: `~/agent-second-brain/` (git repo, both remotes live)
+- Plugin installed: `agent-second-brain@agent-second-brain-marketplace` (user scope, enabled)
+- Working folder renamed: `~/Desktop/Obsidian & Claude/` → `~/Desktop/agent-second-brain/`
 - Karpathy Gist comment drafted (ready to post at gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
 
 ---

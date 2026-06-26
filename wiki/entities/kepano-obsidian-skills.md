@@ -12,9 +12,9 @@ status: current
 related:
   - "[[LLM Wiki Pattern]]"
   - "[[cherry-picks]]"
-  - "[[claude-obsidian-ecosystem]]"
+  - "[[agent-second-brain-ecosystem]]"
 sources:
-  - "[[claude-obsidian-ecosystem-research]]"
+  - "[[agent-second-brain-ecosystem-research]]"
 ---
 
 # kepano/obsidian-skills
@@ -48,13 +48,13 @@ The `defuddle` skill wraps `defuddle-cli`. When ingesting web content, running d
 - Reduces token usage ~40-60% on typical web pages
 - Produces cleaner Markdown that fits better in context window
 
-This is a direct cherry-pick for claude-obsidian's ingest pipeline.
+This is a direct cherry-pick for agent-second-brain's ingest pipeline.
 
 ## Multi-Platform
 
 Works with Claude Code, Codex CLI, and OpenCode out of the box.
 
-## Cherry-Picks for claude-obsidian
+## Cherry-Picks for agent-second-brain
 
 - [[cherry-picks#1. URL Ingestion in /wiki-ingest]] (pair with defuddle)
 - [[cherry-picks#3. defuddle Web Cleaning Skill]]

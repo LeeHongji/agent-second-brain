@@ -1,6 +1,6 @@
 ---
 type: session
-title: "claude-obsidian v1.4 Release Session"
+title: "agent-second-brain v1.4 Release Session"
 created: 2026-04-08
 updated: 2026-04-08
 tags:
@@ -10,16 +10,16 @@ tags:
   - audit-response
 status: evergreen
 related:
-  - "[[claude-obsidian-ecosystem]]"
+  - "[[agent-second-brain-ecosystem]]"
   - "[[cherry-picks]]"
   - "[[full-audit-and-system-setup-session]]"
-  - "[[claude-obsidian-v1.2.0-release-session]]"
+  - "[[agent-second-brain-v1.2.0-release-session]]"
   - "[[LLM Wiki Pattern]]"
 sources:
-  - "[[claude-obsidian-ecosystem-research]]"
+  - "[[agent-second-brain-ecosystem-research]]"
 ---
 
-# claude-obsidian v1.4 Release Session
+# agent-second-brain v1.4 Release Session
 
 A complete release cycle covering v1.1, v1.4.0, and v1.4.1. Includes ecosystem research, external audit response, multi-agent compatibility rollout, full em-dash style cleanup, git history scrub for privacy, and a hotfix for the plugin install command syntax.
 
@@ -33,7 +33,7 @@ A complete release cycle covering v1.1, v1.4.0, and v1.4.1. Includes ecosystem r
 
 ## v1.1: First Feature Release of This Session
 
-Shipped in response to an internal quality check against the wider ecosystem (16+ Claude plus Obsidian projects researched, filed in [[claude-obsidian-ecosystem]]). The highest-value features from competing implementations were cherry-picked and shipped as v1.1.
+Shipped in response to an internal quality check against the wider ecosystem (16+ Claude plus Obsidian projects researched, filed in [[agent-second-brain-ecosystem]]). The highest-value features from competing implementations were cherry-picked and shipped as v1.1.
 
 ### New skills (Agent Skills spec compliant)
 
@@ -106,12 +106,12 @@ Skills are already in the cross-platform Agent Skills format. The only thing mis
 |---|---|
 | `AGENTS.md` | Codex CLI, OpenCode |
 | `GEMINI.md` | Gemini CLI, Antigravity |
-| `.cursor/rules/claude-obsidian.mdc` | Cursor (always-on rules) |
-| `.windsurf/rules/claude-obsidian.md` | Windsurf Cascade |
+| `.cursor/rules/agent-second-brain.mdc` | Cursor (always-on rules) |
+| `.windsurf/rules/agent-second-brain.md` | Windsurf Cascade |
 | `.github/copilot-instructions.md` | GitHub Copilot |
 | `bin/setup-multi-agent.sh` | Idempotent symlink installer that wires up `skills/` into each agent's expected location |
 
-This turns claude-obsidian into a multi-agent plugin at near-zero compatibility cost. Pattern borrowed from [[Ar9av-obsidian-wiki]] which was the reference implementation for multi-agent support.
+This turns agent-second-brain into a multi-agent plugin at near-zero compatibility cost. Pattern borrowed from [[Ar9av-obsidian-wiki]] which was the reference implementation for multi-agent support.
 
 ## Style Cleanup: Em Dash Scrub
 
@@ -159,13 +159,13 @@ A placeholder email `[scrubbed-email]` (which the user confirmed does not exist 
 The v1.4.0 README and install guide showed this install command:
 
 ```bash
-claude plugin install github:AI-Marketing-Hub/claude-obsidian
+claude plugin install github:original-org/agent-second-brain
 ```
 
 This form does not exist in Claude Code. Users trying it see:
 
 ```
-Failed to install plugin "github:AI-Marketing-Hub/claude-obsidian": Plugin "github:AI-Marketing-Hub/claude-obsidian" not found in any configured marketplace
+Failed to install plugin "github:original-org/agent-second-brain": Plugin "github:original-org/agent-second-brain" not found in any configured marketplace
 ```
 
 ### The correct install flow (per `code.claude.com/docs/en/plugin-marketplaces`)
@@ -174,17 +174,17 @@ Plugin installation is a **two-step** process:
 
 ```bash
 # Step 1: add the marketplace catalog
-claude plugin marketplace add AI-Marketing-Hub/claude-obsidian
+claude plugin marketplace add original-org/agent-second-brain
 
 # Step 2: install the plugin from the catalog by name
-claude plugin install claude-obsidian@claude-obsidian-marketplace
+claude plugin install agent-second-brain@agent-second-brain-marketplace
 ```
 
-Where `claude-obsidian` is the plugin name (from `plugin.json`) and `claude-obsidian-marketplace` is the marketplace name (from `marketplace.json`). The `@` delimiter separates them.
+Where `agent-second-brain` is the plugin name (from `plugin.json`) and `agent-second-brain-marketplace` is the marketplace name (from `marketplace.json`). The `@` delimiter separates them.
 
 ### Why the confusion existed
 
-There is no `claude plugin install github:owner/repo` shortcut. The marketplace abstraction is mandatory: Claude Code always fetches via a registered marketplace. A single-repo plugin like claude-obsidian is both the marketplace host and the plugin host, and the user must register the marketplace first before installing any plugin from it.
+There is no `claude plugin install github:owner/repo` shortcut. The marketplace abstraction is mandatory: Claude Code always fetches via a registered marketplace. A single-repo plugin like agent-second-brain is both the marketplace host and the plugin host, and the user must register the marketplace first before installing any plugin from it.
 
 ### Related CLI commands (useful to know)
 
@@ -210,7 +210,7 @@ There is no `claude plugin install github:owner/repo` shortcut. The marketplace 
 After v1.4.1 was published, the user ran the corrected commands and saw:
 
 ```
-claude-obsidian@claude-obsidian-marketplace
+agent-second-brain@agent-second-brain-marketplace
   Version: 1.4.1
   Scope: user
   Status: ✔ enabled
@@ -227,7 +227,7 @@ v1.4.1 installed at user scope and enabled.
 5. **Hook-injected context does not survive context compaction**. Only `CLAUDE.md` does. Any plugin that injects context via SessionStart hooks should also add a PostCompact hook to restore it mid-session.
 6. **`git filter-repo` needs two passes for full scrub**. `--replace-text` handles blob contents, `--replace-message` handles commit messages. Running only one leaves traces.
 7. **`git filter-repo` removes the `origin` remote for safety**. Must re-add it manually before force-pushing.
-8. **Marketplace name and plugin name can differ**. Our marketplace is `claude-obsidian-marketplace`, our plugin is `claude-obsidian`. The `@` delimiter disambiguates them.
+8. **Marketplace name and plugin name can differ**. Our marketplace is `agent-second-brain-marketplace`, our plugin is `agent-second-brain`. The `@` delimiter disambiguates them.
 9. **Style preference: no em dashes anywhere**. Periods, commas, colons, or parentheses instead. Applies to all prose, commit messages, release notes, file content. Hyphens in compound words are fine.
 
 ## Files Created in This Session
@@ -240,27 +240,27 @@ Summary of everything new or newly created:
 | `skills/obsidian-bases/SKILL.md` | skill | Obsidian Bases syntax |
 | `skills/obsidian-markdown/SKILL.md` | skill | Full Obsidian syntax reference |
 | `wiki/meta/dashboard.base` | bases dashboard | 6-view Bases dashboard |
-| `wiki/comparisons/claude-obsidian-ecosystem.md` | comparison | 16+ project feature matrix |
+| `wiki/comparisons/agent-second-brain-ecosystem.md` | comparison | 16+ project feature matrix |
 | `wiki/concepts/cherry-picks.md` | concept | Prioritized feature backlog |
-| `wiki/sources/claude-obsidian-ecosystem-research.md` | source | Research summary |
+| `wiki/sources/agent-second-brain-ecosystem-research.md` | source | Research summary |
 | `wiki/entities/Ar9av-obsidian-wiki.md` | entity | Multi-agent reference implementation |
 | `wiki/entities/Nexus-claudesidian-mcp.md` | entity | Native Obsidian plugin |
 | `wiki/entities/ballred-obsidian-claude-pkm.md` | entity | Goal cascade PKM |
 | `wiki/entities/rvk7895-llm-knowledge-bases.md` | entity | Multi-depth query reference |
 | `wiki/entities/kepano-obsidian-skills.md` | entity | Authoritative skill reference |
 | `wiki/entities/Claudian-YishenTu.md` | entity | Native Obsidian plugin |
-| `.raw/claude-obsidian-ecosystem-research.md` | raw source | Ecosystem research dump |
+| `.raw/agent-second-brain-ecosystem-research.md` | raw source | Ecosystem research dump |
 | `hooks/README.md` | doc | Hook documentation |
 | `AGENTS.md` | bootstrap | Codex CLI / OpenCode |
 | `GEMINI.md` | bootstrap | Gemini CLI / Antigravity |
-| `.cursor/rules/claude-obsidian.mdc` | bootstrap | Cursor rules |
-| `.windsurf/rules/claude-obsidian.md` | bootstrap | Windsurf Cascade |
+| `.cursor/rules/agent-second-brain.mdc` | bootstrap | Cursor rules |
+| `.windsurf/rules/agent-second-brain.md` | bootstrap | Windsurf Cascade |
 | `.github/copilot-instructions.md` | bootstrap | GitHub Copilot |
 | `bin/setup-multi-agent.sh` | script | Multi-agent symlink installer |
 
 ## Current Plugin State
 
-- **Plugin installed**: `claude-obsidian@claude-obsidian-marketplace` version `1.4.1`, user scope, enabled
+- **Plugin installed**: `agent-second-brain@agent-second-brain-marketplace` version `1.4.1`, user scope, enabled
 - **Releases on GitHub**: `v1.1`, `v1.4.0`, `v1.4.1`
 - **10 skills** in `skills/`: wiki, wiki-ingest, wiki-query, wiki-lint, save, autoresearch, canvas, defuddle, obsidian-bases, obsidian-markdown
 - **4 lifecycle hooks** in `hooks/hooks.json`: SessionStart, PostCompact, PostToolUse, Stop

@@ -11,9 +11,9 @@ tags:
 status: current
 related:
   - "[[cherry-picks]]"
-  - "[[claude-obsidian-ecosystem]]"
+  - "[[agent-second-brain-ecosystem]]"
 sources:
-  - "[[claude-obsidian-ecosystem-research]]"
+  - "[[agent-second-brain-ecosystem-research]]"
 ---
 
 # Nexus (formerly Claudesidian MCP)
@@ -44,10 +44,10 @@ Full Obsidian plugin with two modes:
 
 Data stored as JSONL files in `.obsidian/plugins/nexus/data/`. This is included in Obsidian Sync automatically (unlike the `.nexus/` folder of v1). SQLite cache is local-only, rebuilt from JSONL on each device.
 
-## Relevance to claude-obsidian
+## Relevance to agent-second-brain
 
 Nexus is in a different category — it's a native TypeScript Obsidian plugin, not a Claude Code skill plugin. The two don't compete directly, but its workspace memory and task management patterns are cherry-pickable.
 
-## Cherry-Picks for claude-obsidian
+## Cherry-Picks for agent-second-brain
 
 - [[cherry-picks#11. obsidian-memory-mcp Integration]] (different implementation, same concept)

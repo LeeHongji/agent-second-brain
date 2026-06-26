@@ -11,9 +11,9 @@ status: current
 related:
   - "[[LLM Wiki Pattern]]"
   - "[[cherry-picks]]"
-  - "[[claude-obsidian-ecosystem]]"
+  - "[[agent-second-brain-ecosystem]]"
 sources:
-  - "[[claude-obsidian-ecosystem-research]]"
+  - "[[agent-second-brain-ecosystem-research]]"
 ---
 
 # Ar9av/obsidian-wiki
@@ -53,7 +53,7 @@ Framework for AI agents to build and maintain an Obsidian wiki using the Karpath
 ### Vision Support
 Images, screenshots, whiteboard photos ingestable with vision-capable model. Each page gets 1-2 sentence `summary:` in frontmatter for preview without opening.
 
-## Cherry-Picks for claude-obsidian
+## Cherry-Picks for agent-second-brain
 
 - [[cherry-picks#4. Delta Tracking Manifest]]
 - [[cherry-picks#6. /wiki-ingest Vision Support]]

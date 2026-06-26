@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Wiki Index"
-updated: 2026-04-07
+updated: 2026-06-24
 tags:
   - meta
   - index
@@ -23,7 +23,7 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-04-15 | Total pages: 34 | Sources ingested: 2
+Last updated: 2026-06-24 | Total pages: 48 | Sources ingested: 8
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 
@@ -34,7 +34,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[LLM Wiki Pattern]] — the pattern for building persistent, compounding knowledge bases using LLMs (status: mature)
 - [[Hot Cache]] — ~500-word session context file, updated after every ingest and session (status: mature)
 - [[Compounding Knowledge]] — why wiki knowledge grows more valuable over time, unlike RAG (status: mature)
-- [[cherry-picks]] — prioritized feature backlog from ecosystem research; 13 features to add to claude-obsidian (status: current)
+- [[cherry-picks]] — prioritized feature backlog from ecosystem research; 13 features to add to agent-second-brain (status: current)
 - [[SVG Diagram Style Guide]] — canonical visual style for all diagrams: Space Grotesk, #0A0A0A dark theme, #E07850 accent, full design tokens (status: evergreen)
 - [[Pro Hub Challenge]] — community challenge pattern for building claude-seo/claude-blog extensions; first challenge produced 6 submissions, 5 integrated in v1.9.0 (status: evergreen)
 - [[Semantic Topic Clustering]] — SERP-based keyword grouping replacing paid tools; hub-spoke architecture with interactive visualization (status: evergreen)
@@ -44,6 +44,22 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[Persistent Wiki Artifact]]: durable Markdown page as the LLM's memory object, distinct from ephemeral chat turns (status: developing)
 - [[Source-First Synthesis]]: provenance discipline; raw sources stay immutable while the wiki layer is synthesized and cited (status: developing)
 - [[Query-Time Retrieval]]: wiki query path synthesizes with citations; complementary to Obsidian's in-vault search (status: developing)
+- [[Agentic Loop]] — the canonical while-loop-with-tools; the loop IS the agent. Bitter Lesson applies to agents (status: developing, 2026-06-24)
+- [[Augmented LLM]] — Anthropic's base unit: LLM + retrieval + tools + memory (status: developing, 2026-06-24)
+- [[ReAct]] — Thought→Action→Observation, the 2022 default reasoning pattern for tool-using agents (status: developing, 2026-06-24)
+- [[Agentic Workflow Patterns]] — prompt chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer (status: developing, 2026-06-24)
+- [[Reflexion]] — evaluate→critique→retry-with-memory self-improvement layer (status: developing, 2026-06-24)
+- [[Context Engineering]] — tools are ~80% of agent context; engineer outputs/ACI over prompts (status: developing, 2026-06-24)
+- [[Agent Error Propagation]] — why the loop compounds errors and how production contains it (status: developing, 2026-06-24)
+- [[Text-Space Optimization]] — train a frozen LLM by editing skill/prompt text with DL-grade discipline; weights stay frozen (status: developing, 2026-06-25)
+- [[Textual Gradient]] — the text-space analogue of a weight gradient: an edit patch produced by reflecting on failed rollouts (status: developing, 2026-06-25)
+- [[Validation-Gated Skill Update]] — accept a skill edit only if it beats held-out validation; patience + slow update + meta skill (status: developing, 2026-06-25)
+- [[Harness Engineering]] — ★ keystone: the discipline of building the environment that makes a frozen LLM reliable; 5 subsystems; "model smart, harness reliable" (status: developing, 2026-06-25)
+- [[Repository as System of Record]] — the repo IS the harness's memory; progressive disclosure over one giant AGENTS.md (status: developing, 2026-06-25)
+- [[Agent Session Lifecycle]] — START→SELECT→EXECUTE→WRAP UP; init phase, continuity, clean handoff (status: developing, 2026-06-25)
+- [[Agent Scope Control]] — one feature at a time; feature_list.json as machine-readable scope boundary; definition of done (status: developing, 2026-06-25)
+- [[Verification-Gated Completion]] — confidence ≠ correctness; only a full-pipeline run counts as done (status: developing, 2026-06-25)
+- [[Agent Observability]] — runtime logging inside the harness; if you can't see what it did, you can't fix what it broke (status: developing, 2026-06-25)
 
 ---
 
@@ -62,20 +78,30 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 ## Sources
 
-- [[claude-obsidian-ecosystem-research]] — 2026-04-08 | web research across 16+ repos | 8 wiki pages created
+- [[agent-second-brain-ecosystem-research]] — 2026-04-08 | web research across 16+ repos | 8 wiki pages created
+- [[ReAct - Synergizing Reasoning and Acting]] — 2026-06-24 | Yao et al. ICLR 2023, arXiv 2210.03629 | foundational agent-loop paper
+- [[Braintrust - Canonical Agent Loop]] — 2026-06-24 | while-loop-with-tools is canonical; Bitter Lesson for agents (Aug 2025)
+- [[Anthropic - Multi-Agent Research System]] — 2026-06-24 | orchestrator-worker; +90.2% research eval; token use = 80% of variance
+- [[Anthropic - Building Effective Agents]] — 2026-06-24 | workflows-vs-agents; augmented LLM; 5 workflow patterns (Dec 2024)
+- [[The AI Engineer - Single-Agent Patterns]] — 2026-06-24 | ReAct/Plan-Execute/ReWOO/Reflexion comparison (Apr 2026)
+- [[Galileo - Agent Failure Modes]] — 2026-06-24 | 7 failure patterns; error propagation is the reliability killer (Nov 2025)
+- [[SkillOpt]] — 2026-06-25 | Microsoft Research text-space optimizer; trains skill.md like NN weights, +23.5pp on GPT-5.5; 3 concept pages spun off
+- [[Learn-Harness-Engineering]] — 2026-06-25 | WalkingLabs course (12 lectures + 6 projects); harness = env that makes agents reliable; Anthropic $9→$200 experiment; 6 concept pages spun off
+- [[Ian-Xiaohei-Illustrations]] — 2026-06-25 | 🎨 blog 配图 tool: Ian 的「小黑」中文文章配图 Codex Skill; 16:9 手绘白底怪诞风; 写 blog 时用作正文配图
 
 ---
 
 ## Questions
 
 - [[How does the LLM Wiki pattern work]] — how the pattern works and why it outperforms RAG at human scale (status: developing)
+- [[Research - Agentic Loop Engineering]] — autoresearch synthesis: the loop is trivial, engineering lives at tool/context design + error containment (status: developing, 2026-06-24)
 
 ---
 
 ## Comparisons
 
 - [[Wiki vs RAG]] — when to use a wiki knowledge base versus RAG; verdict: wiki wins at <1000 pages
-- [[claude-obsidian-ecosystem]] — feature matrix of 16+ Claude+Obsidian projects; where claude-obsidian wins and gaps
+- [[agent-second-brain-ecosystem]] — feature matrix of 16+ Claude+Obsidian projects; where agent-second-brain wins and gaps
 
 ---
 

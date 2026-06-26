@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Operation Log"
-updated: 2026-04-08
+updated: 2026-06-25
 tags:
   - meta
   - log
@@ -21,20 +21,58 @@ Append-only. New entries go at the TOP. Never edit past entries.
 
 Entry format: `## [YYYY-MM-DD] operation | Title`
 
+## [2026-06-25] ingest | Ian Xiaohei Illustrations (blog 配图 tool)
+- Source: `.raw/articles/ian-xiaohei-illustrations-2026-06-25.md` (hash 08266b28…). Lightweight "记一下" — tool reference, not deep ingest.
+- Summary: [[Ian-Xiaohei-Illustrations]] — Codex Skill by Ian (helloianneo). Generates 16:9 小黑-style body illustrations for Chinese articles (white bg, black hand-drawn, one cognitive anchor/image, 小黑 must carry the action).
+- Pages created: 1 ([[Ian-Xiaohei-Illustrations]]). No concept pages — user said "记一下," kept proportional.
+- Purpose: recorded as the **blog 配图 tool** for future `/release-blog` work; cross-linked to [[Canvas]].
+- Note: Codex-native skill (`Use $` / agents/openai.yaml); flagged a portability gap for Claude Code use.
+
+## [2026-06-25] ingest | Learn Harness Engineering (walkinglabs)
+- Source: `.raw/articles/learn-harness-engineering-2026-06-25.md` (hash 98cf7f8b…). URL ingest via zread (structure + README + EN index + lecture tree) + WebSearch. README is exhaustive; synthesized without per-lecture fetches.
+- Summary: [[Learn-Harness-Engineering]] — WalkingLabs course, 12 lectures + 6 projects. Thesis: "model smart, harness reliable." Harness = 5 subsystems (Instructions/State/Verification/Scope/Session Lifecycle). Evidence: Anthropic Opus 4.5, no-harness $9/20min/failed vs full-harness $200/6h/playable.
+- Pages created: [[Learn-Harness-Engineering]] (source) + [[Harness Engineering]] (★ keystone) + [[Repository as System of Record]], [[Agent Session Lifecycle]], [[Agent Scope Control]], [[Verification-Gated Completion]], [[Agent Observability]] (5 concepts).
+- Pages updated (cross-refs): [[Agentic Loop]], [[Context Engineering]], [[Agent Error Propagation]].
+- Key insight: harness engineering is the UMBRELLA discipline this vault's agent concepts live under — it subsumes Context Engineering (Instructions subsystem), governs the Agentic Loop, and its Verification+Observability subsystems are the structural fix for Agent Error Propagation. Reframes reliability as an environment property, not a model property. Also contextualizes SkillOpt (optimizes one piece of Instructions).
+- Note: DragonScale addresses skipped (flock missing on macOS); manifest updated.
+
+## [2026-06-25] ingest | SkillOpt (microsoft/SkillOpt)
+- Source: `.raw/articles/skillopt-2026-06-25.md` (hash 52826ed9…). URL ingest via zread + WebSearch; README + dl-analogy + training-loop read in full.
+- Summary: [[SkillOpt]] — MS Research 2026 (arXiv 2605.23904). Text-space optimizer: trains the skill.md of a frozen LLM with DL discipline (rollout→reflect→aggregate→select→update→gate + slow/meta at epoch boundary). Zero extra inference calls at deploy. Best/tied on 52/52 cells; GPT-5.5 +23.5/+24.8/+19.1 (chat/Codex/Claude Code).
+- Pages created: [[SkillOpt]] (source), [[Text-Space Optimization]], [[Textual Gradient]], [[Validation-Gated Skill Update]] (3 concepts).
+- Pages updated (cross-refs): [[Context Engineering]], [[Reflexion]], [[Agentic Workflow Patterns]], [[Braintrust - Canonical Agent Loop]].
+- Key insight: SkillOpt is automated context engineering — Reflexion pointed at the persistent skill doc instead of the trajectory buffer, gated by an external held-out score (fixes Reflexion's self-critique blind spot).
+- Note: DragonScale addresses NOT assigned — `allocate-address.sh` needs `flock` (missing on macOS); skipped, consistent with vault state. Manifest updated.
+
+## [2026-06-25] wiki-lint | Health check + safe auto-fixes
+- Scan: 61 pages; 0 BLOCKER. Initial 58 issues → auto-fixed 10, 48 remain (report at [[lint-report-2026-06-25]]).
+- Fixed ✅ (safe items, user-approved): 1 dead link in [[log]] (stray `?` → [[How does the LLM Wiki pattern work]]); added `created`/`updated` to the 6 autoresearch source pages (self-introduced regression 2026-06-24); added `created` to 3 meta pages (release-report, slides-and-release, boundary-frontier).
+- Frontmatter gaps 13 → 4. Dead links 12 → 11 (rest are skill-refs / illustrative / minor, need judgment).
+- DragonScale address: detected enabled but half-adopted (counter=3, 1/61 pages addressed); left for adopt-vs-disable decision. Semantic tiling skipped (ollama not reachable).
+- wiki-lock still skipped on macOS (flock missing); single-writer, safe.
+
+## [2026-06-24] autoresearch | Agentic Loop Engineering
+- Rounds: 2 (broad 5-angle sweep + gap-fill); ~11 web calls total, under budget
+- Sources fetched: 6 (ReAct arXiv, Braintrust, Anthropic ×2, The AI Engineer, Galileo)
+- Pages created: 14 — synthesis [[Research - Agentic Loop Engineering]]; concepts [[Agentic Loop]], [[ReAct]], [[Augmented LLM]], [[Agentic Workflow Patterns]], [[Reflexion]], [[Context Engineering]], [[Agent Error Propagation]]; 6 source pages
+- Key finding: the agent loop is a trivial ~10-line while-loop-with-tools; the engineering lives at tool/context design + the reasoning-control strategy + error containment, not in elaborate frameworks. The Bitter Lesson applies to agents.
+- Contradiction filed: Reflexion helps (HumanEval 80→91%) but a 2025 replication shows single-agent self-critique reinforces blind spots — needs an independent evaluator.
+- Note: wiki-lock was SKIPPED this run — `flock` is unavailable on macOS and the lock script has no fallback. Single-writer session, so the multi-writer corruption risk the locks guard against did not apply. Fix separately: add a flock-missing fallback to scripts/wiki-lock.sh, or `brew install util-linux`.
+
 Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ---
 
 ## [2026-04-24] save | v1.6.0 public release notes (Teams, Karpathy-style)
 - Type: release doc + visual assets
-- Locations (new): `docs/releases/v1.6.0.md` (346 lines, 6 sections, Karpathy-style prose), `wiki/meta/dragonscale-mechanism-overview.svg` (4-mechanism diagram with shared .vault-meta/ gate), `wiki/meta/dragonscale-6-test-flow.svg` (validation timeline), `wiki/meta/dragonscale-frontier-graph.svg` (M4 candidate + 3 filed pages)
+- Locations (new): `the v1.6.0 release notes` (346 lines, 6 sections, Karpathy-style prose), `wiki/meta/dragonscale-mechanism-overview.svg` (4-mechanism diagram with shared .vault-meta/ gate), `wiki/meta/dragonscale-6-test-flow.svg` (validation timeline), `wiki/meta/dragonscale-frontier-graph.svg` (M4 candidate + 3 filed pages)
 - Locations (modified): `wiki/meta/2026-04-24-v1.6.0-release-session.md` (cross-reference added pointing to public release notes)
 - Scope: Teams approach. R1 (chair) wrote 3 original SVGs per SVG Diagram Style Guide. R2 (codex worker) drafted Karpathy-style release prose. R3 (chair) stitched SVGs, pivoted Wikipedia imagery to text links only (no binary vendoring per permission). R4 (codex verifier) returned ACCEPT WITH FIXES, 3 wording fixes on version narrative. R5 (chair) applied fixes, committed.
 - Style: direct, short, signal-dense, lists over prose, no em dashes, no marketing terms. Verifier confirmed zero em-dashes and zero banned marketing language ('revolutionary', 'seamless', 'world-class', 'game-changing', 'unlock', 'transform').
-- Distribution (all three destinations covered): (1) `docs/releases/v1.6.0.md` public-facing file (commit `85515bb`), (2) `wiki/meta/2026-04-24-v1.6.0-release-session.md` internal engineering record (cross-linked), (3) GitHub Release body (user to paste from docs/releases/v1.6.0.md when ready to `gh release create v1.6.0`).
+- Distribution (all three destinations covered): (1) `the v1.6.0 release notes` public-facing file (commit `85515bb`), (2) `wiki/meta/2026-04-24-v1.6.0-release-session.md` internal engineering record (cross-linked), (3) GitHub Release body (user to paste from the v1.6.0 release notes when ready to `gh release create v1.6.0`).
 - Wikipedia imagery: referenced as text link to `https://en.wikipedia.org/wiki/Dragon_curve` rather than hotlinked or vendored. Cleaner license-wise (no CC-BY-SA attribution needed) and no external dependency. The 3 original SVGs carry the visual load instead.
-- PII scan post-write: `docs/releases/v1.6.0.md` + all three SVGs are clean. No `/home/` paths, no real emails, no tokens.
-- Next recommended: user runs `gh release create v1.6.0 --notes-file docs/releases/v1.6.0.md` when ready to cut the public release. This also creates the annotated tag.
+- PII scan post-write: `the v1.6.0 release notes` + all three SVGs are clean. No `/home/` paths, no real emails, no tokens.
+- Next recommended: user runs `gh release create v1.6.0 --notes-file the v1.6.0 release notes` when ready to cut the public release. This also creates the annotated tag.
 
 ## [2026-04-24] save | DragonScale end-to-end validation pass (Teams, 6 tests)
 - Type: validation + first real fold + first real autoresearch
@@ -50,7 +88,7 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 - Scope: six-test menu the user approved. Codex gpt-5.4 for T1/T4/T6 (sub-agent delegation); chair for T0/T2/T3 (one-shot shell) and all integration (index, log, hot, commit).
 - Style: all new content uses colons or parens instead of em-dashes. Pre-existing em-dashes in index entries and wiki/concepts/_index.md left as-is (clean-room boundary; deferred to F-slice style pass).
 - Tests still green: `make test` passes (74+ assertions).
-- Integration: chair added the 3 new concepts to `wiki/index.md` and `wiki/concepts/_index.md` with colon-style descriptions so the fresh pages are discoverable. The cluster extends `[[How does the LLM Wiki pattern work?]]` and cross-references `[[LLM Wiki Pattern]]`.
+- Integration: chair added the 3 new concepts to `wiki/index.md` and `wiki/concepts/_index.md` with colon-style descriptions so the fresh pages are discoverable. The cluster extends `[[How does the LLM Wiki pattern work]]` and cross-references `[[LLM Wiki Pattern]]`.
 - Next recommended slice: either (G) commit this test batch and declare v1.6.0 validated, or (H) run a second fold k=3 now that 8 newer entries exist above this one and close the hierarchical-fold-not-yet-supported loop in a future phase.
 
 ## [2026-04-24] save | v1.6.0 closeout (Teams, chair-led)
@@ -145,7 +183,7 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 - Location: wiki/meta/2026-04-15-slides-and-release-session.md
 - From: built 15-slide HTML presentation deck (v190.html), fixed hardcoded path in release_report.py, pushed 68 files to GitHub, tagged v1.9.0, created GitHub release with PDF asset
 - Key lessons: Path.home() not hardcoded paths, git pull --rebase before big pushes, Chrome blocks file:// cross-origin images, .claude/ always in .gitignore
-- Release: https://github.com/AgriciDaniel/claude-seo/releases/tag/v1.9.0
+- Release: https://github.com/(original author)/claude-seo/releases/tag/v1.9.0
 
 ## [2026-04-15] save | Claude SEO v1.9.0 Release Report — PDF Complete
 - Type: session
@@ -172,27 +210,27 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 ## [2026-04-14] save | Community CTA Footer Rollout
 - Type: decision
 - Location: wiki/meta/2026-04-14-community-cta-rollout.md
-- From: session adding Skool community footer to 6 skill repos (claude-ads, claude-seo, claude-obsidian, claude-blog, banana-claude, claude-cybersecurity)
+- From: session adding Skool community footer to 6 skill repos (claude-ads, claude-seo, agent-second-brain, claude-blog, banana-claude, claude-cybersecurity)
 - Key insight: frequency calibration per tool type; single-point orchestrator instruction pattern
 
 ## [2026-04-10] save | Backlink Empire - Blog Posts, Karpathy Gist, GitHub Cross-Linking
 - Type: session
 - Location: wiki/meta/2026-04-10-backlink-empire-session.md
-- From: full session covering blog creation (claude-obsidian + claude-canvas), Karpathy gist comment, 26 GitHub README updates with Author/community/backlink sections, homepage URLs on 10 repos, topics on 25 repos, rankenstein.pro backlinks on 5 SEO repos
-- Blog posts: agricidaniel.com/blog/claude-obsidian-ai-second-brain, agricidaniel.com/blog/claude-canvas-ai-visual-production
+- From: full session covering blog creation (agent-second-brain + claude-canvas), Karpathy gist comment, 26 GitHub README updates with Author/community/backlink sections, homepage URLs on 10 repos, topics on 25 repos, rankenstein.pro backlinks on 5 SEO repos
+- Blog posts:  
 - Impact: ~87 new backlinks from DA 96 github.com, 6 rankenstein.pro backlinks, 25 Skool community links
 
-## [2026-04-08] save | claude-obsidian v1.4 Release Session
+## [2026-04-08] save | agent-second-brain v1.4 Release Session
 - Type: session
-- Location: wiki/meta/claude-obsidian-v1.4-release-session.md
+- Location: wiki/meta/agent-second-brain-v1.4-release-session.md
 - From: full release cycle covering v1.1 (URL/vision/delta tracking, 3 new skills), v1.4.0 (audit response, multi-agent compat, Bases dashboard, em dash scrub, security history rewrite), and v1.4.1 (plugin install command hotfix)
 - Key lessons: plugin install is 2-step (marketplace add then install), allowed-tools is not valid frontmatter, Bases uses filters/views/formulas not Dataview syntax, hook context does not survive compaction, git filter-repo needs 2 passes for full scrub
 
 ## [2026-04-08] ingest | Claude + Obsidian Ecosystem Research
 - Type: research ingest
-- Source: `.raw/claude-obsidian-ecosystem-research.md`
+- Source: `.raw/agent-second-brain-ecosystem-research.md`
 - Queries: 6 parallel web searches + 12 repo deep-reads
-- Pages created: [[claude-obsidian-ecosystem]], [[cherry-picks]], [[claude-obsidian-ecosystem-research]], [[Ar9av-obsidian-wiki]], [[Nexus-claudesidian-mcp]], [[ballred-obsidian-claude-pkm]], [[rvk7895-llm-knowledge-bases]], [[kepano-obsidian-skills]], [[Claudian-YishenTu]]
+- Pages created: [[agent-second-brain-ecosystem]], [[cherry-picks]], [[agent-second-brain-ecosystem-research]], [[Ar9av-obsidian-wiki]], [[Nexus-claudesidian-mcp]], [[ballred-obsidian-claude-pkm]], [[rvk7895-llm-knowledge-bases]], [[kepano-obsidian-skills]], [[Claudian-YishenTu]]
 - Key finding: 16+ active Claude+Obsidian projects; 13 cherry-pick features identified for v1.3.0+
 - Top gap confirmed: no delta tracking, no URL ingestion, no auto-commit
 
@@ -201,10 +239,10 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 - Location: wiki/meta/full-audit-and-system-setup-session.md
 - From: 12-area repo audit, 3 fixes, plugin installed to local system, folder renamed
 
-## [2026-04-07] session | claude-obsidian v1.2.0 Release Session
+## [2026-04-07] session | agent-second-brain v1.2.0 Release Session
 - Type: session
-- Location: wiki/meta/claude-obsidian-v1.2.0-release-session.md
-- From: full build session — v1.2.0 plan execution, cosmic-brain→claude-obsidian rename, legal/security audit, branded GIFs, PDF install guide, dual GitHub repos
+- Location: wiki/meta/agent-second-brain-v1.2.0-release-session.md
+- From: full build session — v1.2.0 plan execution, cosmic-brain→agent-second-brain rename, legal/security audit, branded GIFs, PDF install guide, dual GitHub repos
 
 
 - Source: `.raw/` (first ingest)
@@ -213,6 +251,6 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ## [2026-04-07] setup | Vault initialized
 
-- Plugin: claude-obsidian v1.1.0
+- Plugin: agent-second-brain v1.1.0
 - Structure: seed files + first ingest complete
 - Skills: wiki, wiki-ingest, wiki-query, wiki-lint, save, autoresearch

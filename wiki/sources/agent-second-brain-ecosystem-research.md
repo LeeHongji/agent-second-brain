@@ -9,10 +9,10 @@ tags:
   - competitive-analysis
 status: current
 related:
-  - "[[claude-obsidian-ecosystem]]"
+  - "[[agent-second-brain-ecosystem]]"
   - "[[cherry-picks]]"
   - "[[LLM Wiki Pattern]]"
-raw_file: ".raw/claude-obsidian-ecosystem-research.md"
+raw_file: ".raw/agent-second-brain-ecosystem-research.md"
 ---
 
 # Source: Claude + Obsidian Ecosystem Research
@@ -24,11 +24,11 @@ raw_file: ".raw/claude-obsidian-ecosystem-research.md"
 
 ## Summary
 
-Comprehensive internet sweep of all Claude + Obsidian projects. Found 16+ active projects across 4 categories. Identified 13 specific features to cherry-pick for claude-obsidian v1.3.0+.
+Comprehensive internet sweep of all Claude + Obsidian projects. Found 16+ active projects across 4 categories. Identified 13 specific features to cherry-pick for agent-second-brain v1.3.0+.
 
 ## Pages Created from This Source
 
-- [[claude-obsidian-ecosystem]] — feature matrix comparison
+- [[agent-second-brain-ecosystem]] — feature matrix comparison
 - [[cherry-picks]] — prioritized feature backlog
 - [[Ar9av-obsidian-wiki]] — entity page
 - [[Nexus-claudesidian-mcp]] — entity page
@@ -45,9 +45,9 @@ Comprehensive internet sweep of all Claude + Obsidian projects. Found 16+ active
 4. **Ar9av/obsidian-wiki** has best delta tracking (manifest.json)
 5. **rvk7895/llm-knowledge-bases** has best query depth system (3 tiers)
 6. Most popular traditional plugins: obsidian-copilot (5,776 ⭐), smart-connections (4,357 ⭐)
-7. **claude-obsidian unique advantages**: hot cache, canvas skill, /save conversation, marketplace polish
+7. **agent-second-brain unique advantages**: hot cache, canvas skill, /save conversation, marketplace polish
 8. **Top gap**: No URL ingestion — forces manual copy-paste from web
 
 ## Raw File
 
-`.raw/claude-obsidian-ecosystem-research.md` — full notes with all sources
+`.raw/agent-second-brain-ecosystem-research.md` — full notes with all sources

@@ -42,7 +42,7 @@
 		{
 			"id": "main-title",
 			"type": "text",
-			"text": "# 🧠 Claude Obsidian\n### Drop anything. I'll build your knowledge base.",
+			"text": "# 🧠 Agent Second Brain\n### Drop anything. I'll build your knowledge base.",
 			"x": -340,
 			"y": -620,
 			"width": 840,

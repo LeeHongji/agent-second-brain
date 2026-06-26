@@ -1,6 +1,7 @@
 ---
 type: meta
 title: "Claude SEO v1.9.0 Slides and GitHub Release Session"
+created: 2026-04-15
 updated: 2026-04-15
 tags:
   - meta
@@ -66,7 +67,7 @@ Date: 2026-04-15 | Outputs: `claude-seo-slides/v190.html`, GitHub release v1.9.0
 5. Tagged `v1.9.0` on HEAD, pushed tag.
 6. Created GitHub release via `gh release create v1.9.0` with PDF attached (`Claude-SEO-v1.9.0-Release-Report.pdf`). No HTML slides attached as release asset.
 
-**Release URL:** https://github.com/AgriciDaniel/claude-seo/releases/tag/v1.9.0
+**Release URL:** https://github.com/(original author)/claude-seo/releases/tag/v1.9.0
 
 **Commit stats:** 68 files, 9,662 insertions, 51 deletions.
 

@@ -1,6 +1,7 @@
 ---
 type: meta
 title: "Boundary Frontier Snapshot (2026-04-24)"
+created: 2026-04-24
 updated: 2026-04-24
 tags:
   - meta
@@ -31,7 +32,7 @@ No recency floor. Pages older than ~90 days approach zero weight by design, so a
 
 | # | score | out | in | age_d | title | path |
 |---|---|---|---|---|---|---|
-| 1 | 4.693 | 8 | 0 | 16 | Claude + Obsidian Ecosystem Research | wiki/sources/claude-obsidian-ecosystem-research.md |
+| 1 | 4.693 | 8 | 0 | 16 | Claude + Obsidian Ecosystem Research | wiki/sources/agent-second-brain-ecosystem-research.md |
 | 2 | 4.000 | 4 | 0 | 0 | DragonScale Memory | wiki/concepts/DragonScale Memory.md |
 | 3 | 1.702 | 3 | 0 | 17 | How does the LLM Wiki pattern work? | wiki/questions/How does the LLM Wiki pattern work.md |
 | 4 | 1.135 | 2 | 0 | 17 | Wiki vs RAG | wiki/comparisons/Wiki vs RAG.md |

@@ -11,10 +11,10 @@ status: current
 related:
   - "[[LLM Wiki Pattern]]"
   - "[[cherry-picks]]"
-  - "[[claude-obsidian-ecosystem]]"
+  - "[[agent-second-brain-ecosystem]]"
   - "[[Andrej Karpathy]]"
 sources:
-  - "[[claude-obsidian-ecosystem-research]]"
+  - "[[agent-second-brain-ecosystem-research]]"
 ---
 
 # rvk7895/llm-knowledge-bases
@@ -55,7 +55,7 @@ Via Smaug tool (`npm install -g @steipete/bird`). Ingests tweets, threads, bookm
 ## Attribution
 Built on Karpathy pattern + Weizhena's Deep Research skills adapted for the research pipeline.
 
-## Cherry-Picks for claude-obsidian
+## Cherry-Picks for agent-second-brain
 
 - [[cherry-picks#5. Multi-Depth Query Modes]]
 - [[cherry-picks#10. Marp Presentation Output]]

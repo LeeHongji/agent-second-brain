@@ -22,7 +22,7 @@ related:
 
 # Claude SEO
 
-A Tier 4 Claude Code skill for comprehensive SEO analysis across all industries. Repository: [AgriciDaniel/claude-seo](https://github.com/AgriciDaniel/claude-seo)
+A Tier 4 Claude Code skill for comprehensive SEO analysis across all industries. Repository: [(original author)/claude-seo](https://github.com/(original author)/claude-seo)
 
 ## Current State (v1.9.0 — released April 15, 2026)
 
@@ -31,7 +31,7 @@ A Tier 4 Claude Code skill for comprehensive SEO analysis across all industries.
 - **30 Python scripts** (28 tracked + 2 dev-only)
 - **Architecture**: 3-layer (directive, orchestration, execution)
 - **Entry point**: `/seo [command] [url]`
-- **GitHub release**: [v1.9.0](https://github.com/AgriciDaniel/claude-seo/releases/tag/v1.9.0) — PDF report attached
+- **GitHub release**: [v1.9.0](https://github.com/(original author)/claude-seo/releases/tag/v1.9.0) — PDF report attached
 - **Slides**: `claude-seo-slides/v190.html` — 15-slide community presentation deck
 - **Contributors**: 6 submissions, 5 integrated (Lutfiya Miller, Florian Schmitz, Dan Colta, Matej Marjanovic, Chris Muller)
 

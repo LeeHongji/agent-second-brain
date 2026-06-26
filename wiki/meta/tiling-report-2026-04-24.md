@@ -17,15 +17,15 @@
 
 - `0.8822` wiki/concepts/Compounding Knowledge.md -- wiki/concepts/LLM Wiki Pattern.md
 - `0.8729` wiki/concepts/LLM Wiki Pattern.md -- wiki/questions/How does the LLM Wiki pattern work.md
-- `0.8681` wiki/comparisons/claude-obsidian-ecosystem.md -- wiki/sources/claude-obsidian-ecosystem-research.md
+- `0.8681` wiki/comparisons/agent-second-brain-ecosystem.md -- wiki/sources/agent-second-brain-ecosystem-research.md
 - `0.8594` wiki/concepts/cherry-picks.md -- wiki/entities/Ar9av-obsidian-wiki.md
 - `0.8401` wiki/concepts/Compounding Knowledge.md -- wiki/questions/How does the LLM Wiki pattern work.md
 - `0.8400` wiki/entities/Claudian-YishenTu.md -- wiki/entities/Nexus-claudesidian-mcp.md
 - `0.8343` wiki/concepts/LLM Wiki Pattern.md -- wiki/entities/Andrej Karpathy.md
-- `0.8318` wiki/concepts/cherry-picks.md -- wiki/sources/claude-obsidian-ecosystem-research.md
-- `0.8244` wiki/comparisons/claude-obsidian-ecosystem.md -- wiki/concepts/cherry-picks.md
-- `0.8229` wiki/entities/kepano-obsidian-skills.md -- wiki/sources/claude-obsidian-ecosystem-research.md
-- `0.8171` wiki/entities/ballred-obsidian-claude-pkm.md -- wiki/sources/claude-obsidian-ecosystem-research.md
+- `0.8318` wiki/concepts/cherry-picks.md -- wiki/sources/agent-second-brain-ecosystem-research.md
+- `0.8244` wiki/comparisons/agent-second-brain-ecosystem.md -- wiki/concepts/cherry-picks.md
+- `0.8229` wiki/entities/kepano-obsidian-skills.md -- wiki/sources/agent-second-brain-ecosystem-research.md
+- `0.8171` wiki/entities/ballred-obsidian-claude-pkm.md -- wiki/sources/agent-second-brain-ecosystem-research.md
 - `0.8067` wiki/concepts/cherry-picks.md -- wiki/entities/kepano-obsidian-skills.md
 - `0.8064` wiki/entities/Ar9av-obsidian-wiki.md -- wiki/entities/kepano-obsidian-skills.md
 - `0.8052` wiki/concepts/LLM Wiki Pattern.md -- wiki/entities/rvk7895-llm-knowledge-bases.md

@@ -6,7 +6,7 @@ updated: 2026-04-08
 tags:
   - ecosystem
   - competitive-analysis
-  - claude-obsidian
+  - agent-second-brain
   - cherry-picks
 status: current
 related:
@@ -14,7 +14,7 @@ related:
   - "[[LLM Wiki Pattern]]"
   - "[[Andrej Karpathy]]"
 sources:
-  - "[[claude-obsidian-ecosystem-research]]"
+  - "[[agent-second-brain-ecosystem-research]]"
 ---
 
 # Claude + Obsidian Ecosystem: Feature Matrix
@@ -33,7 +33,7 @@ sources:
 
 ## LLM Wiki Pattern Projects (Claude Code Skills)
 
-| Feature | claude-obsidian | claudesidian | llm-knowledge-bases | llm-wiki | obsidian-wiki | obsidian-claude-pkm |
+| Feature | agent-second-brain | claudesidian | llm-knowledge-bases | llm-wiki | obsidian-wiki | obsidian-claude-pkm |
 |---------|:-:|:-:|:-:|:-:|:-:|:-:|
 | /wiki setup & scaffold | ✅ | 🟡 `/init-bootstrap` | 🟡 `/kb-init` | ✅ | ✅ setup.sh | 🟡 `/onboard` |
 | Source ingestion | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ |
@@ -124,7 +124,7 @@ Linus Kepano (Obsidian creator + Minimal theme) published official Agent Skills 
 
 ---
 
-## Where claude-obsidian Wins
+## Where agent-second-brain Wins
 
 1. **Hot cache** — session context mechanism is unique in the ecosystem
 2. **Canvas skill** — no other LLM Wiki project has a visual layer
@@ -133,7 +133,7 @@ Linus Kepano (Obsidian creator + Minimal theme) published official Agent Skills 
 5. **Pub quality docs** — README, install guide, demo GIFs
 6. **Dual repo** (public + community) — distribution model unique
 
-## Where claude-obsidian Has Gaps
+## Where agent-second-brain Has Gaps
 
 See [[cherry-picks]] for prioritized list with implementation notes.
 

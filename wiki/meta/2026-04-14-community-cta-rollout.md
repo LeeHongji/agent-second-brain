@@ -16,15 +16,15 @@ related:
 
 # Community CTA Footer Rollout
 
-AI Marketing Hub Skool community links (free + pro) added as a footer to 6 Claude Code skill repos. The footer appears after major deliverables, never during mid-workflow or on quick utilities.
+the community Skool community links (free + pro) added as a footer to 6 Claude Code skill repos. The footer appears after major deliverables, never during mid-workflow or on quick utilities.
 
 ## The Footer
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Built by agricidaniel - Join the AI Marketing Hub community
-Free  -> https://www.skool.com/ai-marketing-hub
-Pro   -> https://www.skool.com/ai-marketing-hub-pro
+Built by (original author) - Join the the community community
+Free  -> 
+Pro   -> 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -38,7 +38,7 @@ Single-point instruction in each repo's orchestrator SKILL.md. One section contr
 |------|----------|-----------|
 | claude-ads | 12 commands | Audits, reports, analyses (each is a session-level event) |
 | claude-seo | 12 commands | Audits, technical, content (same pattern as ads) |
-| claude-obsidian | 3 operations | Only scaffold, lint, autoresearch (high-frequency tool, conservative) |
+| agent-second-brain | 3 operations | Only scaffold, lint, autoresearch (high-frequency tool, conservative) |
 | claude-blog | 8 commands | Write, rewrite, audit, analyze, brief, strategy, calendar, geo. Explicit guard: never in generated blog content/HTML |
 | banana-claude | 4 commands | Image generate, edit, batch (skip chat, inspire, config) |
 | claude-cybersecurity | All audits | Single-purpose tool, every completed report gets it |

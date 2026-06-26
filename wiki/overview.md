@@ -24,7 +24,7 @@ Navigation: [[index]] | [[hot]] | [[log]] | [[dashboard]]
 
 ## Purpose
 
-This is the claude-obsidian demo vault. It demonstrates the [[LLM Wiki Pattern]] — a system for building persistent, compounding knowledge bases using Claude and Obsidian.
+This is the agent-second-brain demo vault. It demonstrates the [[LLM Wiki Pattern]] — a system for building persistent, compounding knowledge bases using Claude and Obsidian.
 
 Run `/wiki` to scaffold this vault for your own domain and replace this overview.
 
@@ -42,7 +42,7 @@ Run `/wiki` to scaffold this vault for your own domain and replace this overview
 - [[Andrej Karpathy]] — originated the pattern
 
 **Sources seeded:**
-- [[claude-obsidian-ecosystem-research]] — 16+ projects, 13 cherry-picks identified (2026-04-08)
+- [[agent-second-brain-ecosystem-research]] — 16+ projects, 13 cherry-picks identified (2026-04-08)
 
 ---
 
@@ -56,8 +56,8 @@ Run `/wiki` to scaffold this vault for your own domain and replace this overview
 
 ## Canvases
 
-- [[claude-obsidian-presentation]] — Full presentation: hero, overview, skills, architecture, Wiki vs RAG, visual demos (2026-04-07)
-- [[AI Marketing Hub Cover Images Canvas]] — Cover image library for AI Marketing Hub brand assets
+- [[agent-second-brain-presentation]] — Full presentation: hero, overview, skills, architecture, Wiki vs RAG, visual demos (2026-04-07)
+- [[the community Cover Images Canvas]] — Cover image library for the community brand assets
 
 ---
 

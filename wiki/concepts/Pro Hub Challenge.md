@@ -6,7 +6,7 @@ updated: 2026-04-14
 tags:
   - concept
   - community
-  - ai-marketing-hub
+  - the community
   - claude-seo
   - open-source
 status: evergreen
@@ -19,7 +19,7 @@ related:
 
 # Pro Hub Challenge
 
-A community challenge hosted in the [AI Marketing Hub Pro](https://www.skool.com/ai-marketing-hub-pro) Skool community where members build extensions for Claude SEO or Claude Blog, competing for $600 in Claude Credits.
+A community challenge hosted in the [the community]() Skool community where members build extensions for Claude SEO or Claude Blog, competing for $600 in Claude Credits.
 
 ## First Challenge (v1.9.0, April 2026)
 
@@ -48,7 +48,7 @@ Community submissions go through:
 1. SKILL.md under 500 lines, references under 200 lines
 2. All scripts must import `validate_url()` for SSRF protection
 3. Include `original_author` in SKILL.md frontmatter metadata
-4. Submit via PR or post in AI Marketing Hub community
+4. Submit via PR or post in the community community
 
 ## Second Challenge (April 2026)
 

@@ -7,7 +7,7 @@ updated: 2026-05-17
 
 # v1.7 Retrieval Benchmark — 50 Queries
 
-Used by the v1.7.0 audit (`docs/audits/v1.7.0-audit-2026-05-17.md`) to score
+Used by the v1.7.0 audit (`the v1.7.0 audit`) to score
 top-1 / top-5 accuracy of the hybrid retrieval pipeline (`scripts/retrieve.py`)
 vs. the simulated v1.6 baseline (`scripts/baseline-v16.py`).
 
@@ -77,21 +77,21 @@ Final scores reported as (top-1%, top-5%) per pipeline, broken down by category.
 - rationale: Mechanism 3 detailed treatment including banded thresholds and embeddings.
 
 ### D7
-- query: What are the cherry-picked features claude-obsidian should implement next?
+- query: What are the cherry-picked features agent-second-brain should implement next?
 - correct: wiki/concepts/cherry-picks.md
-- relevant: wiki/index.md, wiki/comparisons/claude-obsidian-ecosystem.md
+- relevant: wiki/index.md, wiki/comparisons/agent-second-brain-ecosystem.md
 - category: derived
 - rationale: Explicit prioritized backlog from ecosystem research across tiers.
 
 ### D8
-- query: What is the relationship between SVG diagrams and brand tokens in claude-obsidian assets?
+- query: What is the relationship between SVG diagrams and brand tokens in agent-second-brain assets?
 - correct: wiki/concepts/SVG Diagram Style Guide.md
 - relevant: wiki/log.md
 - category: derived
 - rationale: Canonical style reference with color palette, typography, and layout tokens.
 
 ### D9
-- query: How does a user ingest a source document into claude-obsidian and what happens next?
+- query: How does a user ingest a source document into agent-second-brain and what happens next?
 - correct: wiki/getting-started.md
 - relevant: wiki/concepts/LLM Wiki Pattern.md, wiki/overview.md
 - category: derived
@@ -142,14 +142,14 @@ Final scores reported as (top-1%, top-5%) per pipeline, broken down by category.
 ### D16
 - query: Does Ar9av's obsidian-wiki support multi-agent deployment and how?
 - correct: wiki/entities/Ar9av-obsidian-wiki.md
-- relevant: wiki/comparisons/claude-obsidian-ecosystem.md, wiki/concepts/cherry-picks.md
+- relevant: wiki/comparisons/agent-second-brain-ecosystem.md, wiki/concepts/cherry-picks.md
 - category: derived
 - rationale: setup.sh bootstrap matrix across multiple agents and delta tracking manifest.
 
 ### D17
 - query: What does the /adopt command in ballred's PKM system do?
 - correct: wiki/entities/ballred-obsidian-claude-pkm.md
-- relevant: wiki/concepts/cherry-picks.md, wiki/comparisons/claude-obsidian-ecosystem.md
+- relevant: wiki/concepts/cherry-picks.md, wiki/comparisons/agent-second-brain-ecosystem.md
 - category: derived
 - rationale: Vault analysis and pattern detection for PARA, Zettelkasten, LYT migration.
 
@@ -163,30 +163,30 @@ Final scores reported as (top-1%, top-5%) per pipeline, broken down by category.
 ### D19
 - query: What are the three query depths in rvk7895's LLM knowledge base system?
 - correct: wiki/entities/rvk7895-llm-knowledge-bases.md
-- relevant: wiki/concepts/cherry-picks.md, wiki/comparisons/claude-obsidian-ecosystem.md
+- relevant: wiki/concepts/cherry-picks.md, wiki/comparisons/agent-second-brain-ecosystem.md
 - category: derived
 - rationale: Quick, Standard, Deep modes with output formats.
 
 ### D20
 - query: How does Nexus MCP for Obsidian store workspace memory and is it Obsidian Sync compatible?
 - correct: wiki/entities/Nexus-claudesidian-mcp.md
-- relevant: wiki/comparisons/claude-obsidian-ecosystem.md
+- relevant: wiki/comparisons/agent-second-brain-ecosystem.md
 - category: derived
 - rationale: JSONL storage and Sync auto-inclusion.
 
 ### D21
 - query: What makes Claudian's inline edit feature best-in-class compared to other Obsidian AI plugins?
 - correct: wiki/entities/Claudian-YishenTu.md
-- relevant: wiki/comparisons/claude-obsidian-ecosystem.md
+- relevant: wiki/comparisons/agent-second-brain-ecosystem.md
 - category: derived
 - rationale: Word-level diff preview and one-click apply with Plan Mode support.
 
 ### D22
-- query: Between claude-obsidian and other projects, who has the hot cache mechanism?
-- correct: wiki/comparisons/claude-obsidian-ecosystem.md
+- query: Between agent-second-brain and other projects, who has the hot cache mechanism?
+- correct: wiki/comparisons/agent-second-brain-ecosystem.md
 - relevant: wiki/concepts/Hot Cache.md, wiki/index.md
 - category: derived
-- rationale: Feature matrix shows claude-obsidian is unique in session context caching.
+- rationale: Feature matrix shows agent-second-brain is unique in session context caching.
 
 ### D23
 - query: When was the first real fold committed to the vault and what was its fold_id?
@@ -272,7 +272,7 @@ Final scores reported as (top-1%, top-5%) per pipeline, broken down by category.
 ### H9
 - query: Which project has the best auto-commit hook and how did that feature get integrated into Claude SEO?
 - correct: wiki/entities/ballred-obsidian-claude-pkm.md, wiki/entities/Claude SEO.md, wiki/log.md
-- relevant: wiki/comparisons/claude-obsidian-ecosystem.md
+- relevant: wiki/comparisons/agent-second-brain-ecosystem.md
 - category: cross-page
 - rationale: ballred has PostToolUse auto-commit; Claude SEO v1.9.0 release cites integration patterns.
 
@@ -300,7 +300,7 @@ Final scores reported as (top-1%, top-5%) per pipeline, broken down by category.
 ### H13
 - query: What are two independent ways to embed the LLM Wiki pattern in different editor environments?
 - correct: wiki/entities/Ar9av-obsidian-wiki.md, wiki/entities/Claudian-YishenTu.md
-- relevant: wiki/comparisons/claude-obsidian-ecosystem.md
+- relevant: wiki/comparisons/agent-second-brain-ecosystem.md
 - category: cross-page
 - rationale: Ar9av setup.sh for multiple agents; Claudian native TypeScript plugin; both different deployment models.
 
@@ -312,7 +312,7 @@ Final scores reported as (top-1%, top-5%) per pipeline, broken down by category.
 - rationale: Delta tracking manifest solves re-ingest problem; integration pattern in Pro Hub workflow.
 
 ### H15
-- query: What is the most direct way to add defuddle to claude-obsidian's current ingest pipeline?
+- query: What is the most direct way to add defuddle to agent-second-brain's current ingest pipeline?
 - correct: wiki/entities/kepano-obsidian-skills.md, wiki/concepts/cherry-picks.md
 - relevant: wiki/getting-started.md
 - category: cross-page
@@ -347,8 +347,8 @@ Final scores reported as (top-1%, top-5%) per pipeline, broken down by category.
 - rationale: User remembers community challenge and winners but not the name.
 
 ### H20
-- query: How many projects does the wiki track as competitors or adjacent to claude-obsidian?
-- correct: wiki/comparisons/claude-obsidian-ecosystem.md
+- query: How many projects does the wiki track as competitors or adjacent to agent-second-brain?
+- correct: wiki/comparisons/agent-second-brain-ecosystem.md
 - relevant: wiki/concepts/cherry-picks.md
 - category: partial-recall
 - rationale: User remembers ecosystem matrix but not exact page; queries for count of projects.
