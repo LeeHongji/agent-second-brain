@@ -1,6 +1,6 @@
 # Attributions
 
-claude-obsidian is an original work. The following third-party patterns, tools, and creators informed its design.
+agent-second-brain is an original work. The following third-party patterns, tools, and creators informed its design.
 
 ---
 
@@ -8,7 +8,7 @@ claude-obsidian is an original work. The following third-party patterns, tools, 
 
 **Author:** Andrej Karpathy
 **Source:** https://github.com/karpathy
-**Use:** The core architecture of claude-obsidian — using an LLM to build and maintain a structured wiki from raw sources — is based on the LLM Wiki pattern Karpathy described publicly. claude-obsidian is an independent implementation; no code or content from Karpathy's repositories was copied.
+**Use:** The core architecture of agent-second-brain — using an LLM to build and maintain a structured wiki from raw sources — is based on the LLM Wiki pattern Karpathy described publicly. agent-second-brain is an independent implementation; no code or content from Karpathy's repositories was copied.
 
 ---
 
@@ -40,9 +40,8 @@ The following Obsidian community plugins ship with this vault as pre-installed b
 
 ---
 
-## claude-obsidian
+## agent-second-brain
 
-**Author:** AgriciDaniel / AI Marketing Hub
+**Author:** LeeHongji
 **License:** MIT (see [LICENSE](LICENSE))
-**Repository (public canonical):** https://github.com/AgriciDaniel/claude-obsidian
-**Community early-access mirror (Pro):** https://github.com/AI-Marketing-Hub
+**Repository:** https://github.com/LeeHongji/agent-second-brain

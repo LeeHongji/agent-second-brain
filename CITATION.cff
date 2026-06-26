@@ -1,12 +1,12 @@
 cff-version: 1.2.0
-title: claude-obsidian
+title: agent-second-brain
 message: >-
   If you use this software, please cite it using the metadata from this file.
 type: software
 authors:
-  - alias: AgriciDaniel
-repository-code: 'https://github.com/AgriciDaniel/claude-obsidian'
-url: 'https://github.com/AgriciDaniel/claude-obsidian'
+  - alias: LeeHongji
+repository-code: 'https://github.com/LeeHongji/agent-second-brain'
+url: 'https://github.com/LeeHongji/agent-second-brain'
 license: MIT
 version: 1.9.2
 date-released: '2026-05-28'
