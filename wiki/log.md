@@ -19,6 +19,16 @@ Navigation: [[index]] | [[hot]] | [[overview]]
 
 Append-only. New entries go at the TOP. Never edit past entries.
 
+## [2026-06-26] ingest | MinerU
+- Source: `.raw/articles/mineru-2026-06-26.md` · repo https://github.com/opendatalab/MinerU (v3.4)
+- Summary: [[MinerU]]
+- Pages created: [[MinerU]] (source), [[OpenDataLab]], [[OmniDocBench]], [[Document Parsing]], [[VLM-based Document Parsing]], [[Math Formula Recognition]]
+- Pages updated: [[index]], [[hot]], [[log]]
+- Key insight: MinerU is the canonical document→Markdown/JSON ingestion engine for the LLM/RAG/Agent stack. Its **three-backend design** (pipeline=fast/CPU/no-hallucination, vlm-engine=max-accuracy, hybrid=native-text+VLM) is the reference architecture for [[Document Parsing]] — pick per document, not per deployment.
+- Notable: born from InternLM pretraining; MinerU2.5-Pro-1.2B is a 1.2B **decoupled** ViT+LLM; MCP Server + LangChain/LlamaIndex/Dify/FastGPT integration; license opened AGPLv3→Apache-2.0-based in v3.1.0.
+- Collision fixed: dropped a redundant `entities/MinerU.md` so `[[MinerU]]` resolves unambiguously to the source page.
+- Env note: this ingest ran without `wiki-lock` / address allocation (flock gap on macOS); single-writer, direct filesystem writes — safe.
+
 Entry format: `## [YYYY-MM-DD] operation | Title`
 
 ## [2026-06-25] ingest | Ian Xiaohei Illustrations (blog 配图 tool)

@@ -23,7 +23,7 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-06-24 | Total pages: 48 | Sources ingested: 8
+Last updated: 2026-06-26 | Total pages: 55 | Sources ingested: 9
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 
@@ -60,6 +60,9 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[Agent Scope Control]] — one feature at a time; feature_list.json as machine-readable scope boundary; definition of done (status: developing, 2026-06-25)
 - [[Verification-Gated Completion]] — confidence ≠ correctness; only a full-pipeline run counts as done (status: developing, 2026-06-25)
 - [[Agent Observability]] — runtime logging inside the harness; if you can't see what it did, you can't fix what it broke (status: developing, 2026-06-25)
+- [[Document Parsing]] — documents (PDF/Office/images) → structured Markdown/JSON; the ingestion front-end for LLM/RAG pipelines (status: developing, 2026-06-26)
+- [[VLM-based Document Parsing]] — single VLM reads a page end-to-end vs traditional pipeline; pipeline/VLM/hybrid tradeoffs (status: developing, 2026-06-26)
+- [[Math Formula Recognition]] — detect formulas + transcribe image→LaTeX; the sub-task that makes scientific PDFs machine-readable (status: developing, 2026-06-26)
 
 ---
 
@@ -73,6 +76,8 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[kepano-obsidian-skills]] — official skills from Obsidian creator; defuddle, obsidian-bases (status: current)
 - [[Claudian-YishenTu]] — native Obsidian plugin embedding Claude Code; plan mode, @mention (status: current)
 - [[Claude SEO]] — Tier 4 Claude Code skill for SEO analysis; 23 skills, 17 agents, 30 scripts at v1.9.0 (status: evergreen)
+- [[OpenDataLab]] — Shanghai AI Lab's open data platform; org behind MinerU + OmniDocBench + PDF-Extract-Kit (status: developing, 2026-06-26)
+- [[OmniDocBench]] — OpenDataLab's end-to-end document-parsing benchmark; the yardstick MinerU et al. report against (status: developing, 2026-06-26)
 
 ---
 
@@ -88,6 +93,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[SkillOpt]] — 2026-06-25 | Microsoft Research text-space optimizer; trains skill.md like NN weights, +23.5pp on GPT-5.5; 3 concept pages spun off
 - [[Learn-Harness-Engineering]] — 2026-06-25 | WalkingLabs course (12 lectures + 6 projects); harness = env that makes agents reliable; Anthropic $9→$200 experiment; 6 concept pages spun off
 - [[Ian-Xiaohei-Illustrations]] — 2026-06-25 | 🎨 blog 配图 tool: Ian 的「小黑」中文文章配图 Codex Skill; 16:9 手绘白底怪诞风; 写 blog 时用作正文配图
+- [[MinerU]] — 2026-06-26 | OpenDataLab document parsing engine; PDF/Office→Markdown/JSON; 3 backends (pipeline 86 / vlm 95 / hybrid 95 on OmniDocBench); MCP + RAG integration; 3 concept + 2 entity pages spun off
 
 ---
 

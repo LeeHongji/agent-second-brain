@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-06-25T09:05:47Z
+updated: 2026-06-26
 tags:
   - meta
   - hot-cache
@@ -19,6 +19,8 @@ Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Last Updated
 
+2026-06-26. **Ingested [[MinerU]]** (opendatalab/MinerU v3.4) — the canonical document→Markdown/JSON parsing engine for LLM/RAG/Agent pipelines. Spawned [[Document Parsing]], [[VLM-based Document Parsing]], [[Math Formula Recognition]] + entities [[OpenDataLab]], [[OmniDocBench]]. This is the **ingestion-tooling** front-end: how PDFs/papers/books would enter this vault.
+
 2026-06-25. **Ingested WalkingLabs' `learn-harness-engineering`** — a 12-lecture + 6-project course on engineering AI coding agents. This is the **keystone ingest**: it introduced [[Harness Engineering]] as the umbrella discipline that reorganizes everything else in this vault.
 
 ## Key Recent Facts
@@ -32,6 +34,7 @@ Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Recent Changes
 
+- 2026-06-26: Created [[MinerU]] (source), [[OpenDataLab]], [[OmniDocBench]], [[Document Parsing]], [[VLM-based Document Parsing]], [[Math Formula Recognition]] — first pages in the document-parsing / data-ingestion topic.
 - Created: [[Learn-Harness-Engineering]] (source), [[Harness Engineering]] (★ keystone), [[Repository as System of Record]], [[Agent Session Lifecycle]], [[Agent Scope Control]], [[Verification-Gated Completion]], [[Agent Observability]]
 - Cross-referenced: [[Agentic Loop]], [[Context Engineering]], [[Agent Error Propagation]]
 - Earlier today: SkillOpt ingest (4 pages), lint pass (10 fixes).
