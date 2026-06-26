@@ -9,7 +9,6 @@
 		{"id":"text-install-1744041639","type":"text","text":"## Install\n\n```bash\nclaude plugin marketplace add \\\n  original-org/agent-second-brain\n\nclaude plugin install agent-second-brain\n```\n\nRepo: `github.com/original-org/agent-second-brain`","x":280,"y":-900,"width":480,"height":200,"color":"3"},
 		{"id":"text-canvas-label-1744041640","type":"text","text":"Canvas Demo","x":-960,"y":-630,"width":420,"height":40},
 		{"id":"title-hero-1744041601","type":"text","text":"# agent-second-brain\n\n**Claude Code × Obsidian** — Persistent, compounding knowledge base.\nEvery source you add makes the wiki smarter. No vector DB. No embeddings. Just markdown.\n\n*Skills: /wiki · /wiki-ingest · /wiki-query · /wiki-lint · /autoresearch · /canvas*","x":-960,"y":-3420,"width":600,"height":200,"color":"6"},
-		{"id":"img-cover-16x9-1744041602","type":"file","file":"wiki/meta/agent-second-brain-cover-16x9.png","x":-330,"y":-3420,"width":419,"height":216},
 		{"id":"img-gif-cover-1744041603","type":"file","file":"wiki/meta/agent-second-brain-gif-cover-16x9.gif","x":130,"y":-3420,"width":420,"height":216},
 		{"id":"img-gif-1x1-1744041604","type":"file","file":"wiki/meta/agent-second-brain-gif-1x1.gif","x":590,"y":-3420,"width":200,"height":200},
 		{"id":"img-wiki-vs-rag-1744041631","type":"file","file":"_attachments/images/canvas/wiki-vs-rag-chart.svg","x":-960,"y":-1470,"width":800,"height":420},

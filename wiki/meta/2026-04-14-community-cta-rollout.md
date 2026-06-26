@@ -7,7 +7,7 @@ decision_date: 2026-04-14
 status: active
 tags:
   - marketing
-  - skool
+  - community
   - community
   - growth
 related:
@@ -16,7 +16,7 @@ related:
 
 # Community CTA Footer Rollout
 
-the community Skool community links (free + pro) added as a footer to 6 Claude Code skill repos. The footer appears after major deliverables, never during mid-workflow or on quick utilities.
+the community community links (free + pro) added as a footer to 6 Claude Code skill repos. The footer appears after major deliverables, never during mid-workflow or on quick utilities.
 
 ## The Footer
 

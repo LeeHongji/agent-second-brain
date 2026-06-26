@@ -210,7 +210,7 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 ## [2026-04-14] save | Community CTA Footer Rollout
 - Type: decision
 - Location: wiki/meta/2026-04-14-community-cta-rollout.md
-- From: session adding Skool community footer to 6 skill repos (claude-ads, claude-seo, agent-second-brain, claude-blog, banana-claude, claude-cybersecurity)
+- From: session adding community footer to 6 skill repos (claude-ads, claude-seo, agent-second-brain, claude-blog, banana-claude, claude-cybersecurity)
 - Key insight: frequency calibration per tool type; single-point orchestrator instruction pattern
 
 ## [2026-04-10] save | Backlink Empire - Blog Posts, Karpathy Gist, GitHub Cross-Linking
@@ -218,7 +218,7 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 - Location: wiki/meta/2026-04-10-backlink-empire-session.md
 - From: full session covering blog creation (agent-second-brain + claude-canvas), Karpathy gist comment, 26 GitHub README updates with Author/community/backlink sections, homepage URLs on 10 repos, topics on 25 repos, rankenstein.pro backlinks on 5 SEO repos
 - Blog posts:  
-- Impact: ~87 new backlinks from DA 96 github.com, 6 rankenstein.pro backlinks, 25 Skool community links
+- Impact: ~87 new backlinks from DA 96 github.com, 6 rankenstein.pro backlinks, 25 community links
 
 ## [2026-04-08] save | agent-second-brain v1.4 Release Session
 - Type: session
