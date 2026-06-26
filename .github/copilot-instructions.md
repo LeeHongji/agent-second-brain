@@ -1,4 +1,4 @@
-# claude-obsidian: GitHub Copilot Instructions
+# agent-second-brain: GitHub Copilot Instructions
 
 This repository is a **Claude Code plugin and Obsidian vault** that builds persistent, compounding knowledge bases using Andrej Karpathy's LLM Wiki pattern. It is markdown-only. No build step, no compiled code, no runtime dependencies.
 
@@ -46,6 +46,6 @@ When suggesting edits:
 
 ## Cross-Reference
 
-- Plugin: https://github.com/AgriciDaniel/claude-obsidian
+- Plugin: https://github.com/LeeHongji/agent-second-brain
 - Pattern source: https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
 - Authoritative Obsidian-specific skills: https://github.com/kepano/obsidian-skills

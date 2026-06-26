@@ -1,28 +1,21 @@
 
-# claude-obsidian: Self-Organizing AI Second Brain for Obsidian + Claude Code
+# agent-second-brain: Self-Organizing AI Second Brain for Obsidian + Claude Code
 
 <p align="center">
-  <img src="wiki/meta/claude-obsidian-gif-cover-16x9.gif" alt="claude-obsidian: persistent compounding wiki vault for Claude Code and Obsidian" width="100%" />
+  <img src="wiki/meta/agent-second-brain-gif-cover-16x9.gif" alt="agent-second-brain: persistent compounding wiki vault for Claude Code and Obsidian" width="100%" />
 </p>
 
-[![GitHub stars](https://img.shields.io/github/stars/AgriciDaniel/claude-obsidian?style=flat&color=e8734a)](https://github.com/AgriciDaniel/claude-obsidian/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/LeeHongji/agent-second-brain?style=flat&color=e8734a)](https://github.com/LeeHongji/agent-second-brain/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Release](https://img.shields.io/github/v/release/AgriciDaniel/claude-obsidian?color=blue)](https://github.com/AgriciDaniel/claude-obsidian/releases/latest)
-[![CI](https://github.com/AgriciDaniel/claude-obsidian/actions/workflows/test.yml/badge.svg)](https://github.com/AgriciDaniel/claude-obsidian/actions/workflows/test.yml)
+[![Release](https://img.shields.io/github/v/release/LeeHongji/agent-second-brain?color=blue)](https://github.com/LeeHongji/agent-second-brain/releases/latest)
+[![CI](https://github.com/LeeHongji/agent-second-brain/actions/workflows/test.yml/badge.svg)](https://github.com/LeeHongji/agent-second-brain/actions/workflows/test.yml)
 [![Claude Code](https://img.shields.io/badge/Claude_Code-plugin-8B5CF6)](https://code.claude.com/docs/en/discover-plugins)
 [![Obsidian](https://img.shields.io/badge/Obsidian-v1.9.10%2B-7c3aed)](https://obsidian.md)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Compatible-blue)](https://agentskills.io)
-[![Community](https://img.shields.io/badge/AI%20Marketing%20Hub-Pro%20community-purple)](https://www.skool.com/ai-marketing-hub-pro)
-[![Blog Post](https://img.shields.io/badge/Deep_Dive-Blog_Post-22c55e)](https://agricidaniel.com/blog/claude-obsidian-ai-second-brain)
 
 Claude + Obsidian knowledge companion and self-organizing AI second brain. A running AI notetaker that builds and maintains a persistent, compounding wiki vault. Every source you add gets integrated. Every question you ask pulls from everything that has been read. Knowledge compounds like interest.
 
 Open-source Obsidian AI plugin for AI note-taking, personal knowledge management (PKM), second-brain workflows, and a private Notion alternative. **15 Claude Code skills**, multi-agent support, multi-writer safe (v1.7+), first-class methodology modes (LYT / PARA / Zettelkasten / Generic via v1.8), and the 10-principle thinking framework (v1.9). Based on [Andrej Karpathy's LLM Wiki pattern](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f).
-
-> **Two ways to get this skill.** Pick the one that fits how you work.
->
-> - 🌐 **Public open-source build** (latest: `v1.9.2`, recommended): the free, MIT-licensed release on [Daniel Agrici's GitHub](https://github.com/AgriciDaniel/claude-obsidian). Open to anyone, no membership required. Ships everything: v1.7 Compound Vault, v1.8 methodology modes, and the v1.9 thinking framework plus audit hardening.
-> - ⚡ **AI Marketing Hub Pro**: the same MIT-licensed core, plus earliest access to in-development features before they land here, direct collaboration, and the [Pro community](https://www.skool.com/ai-marketing-hub-pro). Pro members install from the [AI Marketing Hub](https://github.com/AI-Marketing-Hub) org mirror (swap note under Option 2 below).
 
 > ✨ **v1.7 "Compound Vault" refoundation**: Obsidian CLI as default transport, hybrid retrieval (contextual prefix + BM25 + cosine rerank per [Anthropic's Sept 2024 research](https://www.anthropic.com/news/contextual-retrieval)), per-file advisory locking that closes a latent multi-writer corruption hole, and substrate alignment with [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills). Full guide: [docs/compound-vault-guide.md](docs/compound-vault-guide.md). Optional [DragonScale Memory](docs/dragonscale-guide.md) extension (log folds, deterministic page addresses, semantic tiling lint, boundary-first autoresearch).
 
@@ -31,7 +24,7 @@ Open-source Obsidian AI plugin for AI note-taking, personal knowledge management
 ## Contents
 
 - [What It Does](#what-it-does)
-- [Why claude-obsidian?](#why-claude-obsidian)
+- [Why agent-second-brain?](#why-agent-second-brain)
 - [Quick Start](#quick-start)
 - [Commands](#commands)
   - [`/wiki`: setup, scaffold, continue](#wiki-setup-scaffold-continue)
@@ -50,7 +43,7 @@ Open-source Obsidian AI plugin for AI note-taking, personal knowledge management
 - [File Structure](#file-structure)
 - [AutoResearch Configuration](#autoresearch-programmd)
 - [Seed Vault](#seed-vault)
-- [Companion: claude-canvas](#companion-claude-canvas)
+- [Companion: visual canvas orchestration](#companion-visual-canvas-orchestration)
 - [FAQ](#faq)
 - [Requirements](#requirements)
 - [Uninstall](#uninstall)
@@ -63,10 +56,10 @@ Open-source Obsidian AI plugin for AI note-taking, personal knowledge management
 
 ## What It Does
 
-### [YouTube Demo](https://www.youtube.com/watch?v=a2hgayvr-H4)
+### Demo
 
 <p align="center">
-  <img src="wiki/meta/welcome-canvas.gif" alt="claude-obsidian welcome canvas: visual demo of the wiki vault workflow" width="96%" />
+  <img src="wiki/meta/welcome-canvas.gif" alt="agent-second-brain welcome canvas: visual demo of the wiki vault workflow" width="96%" />
 </p>
 
 You drop sources. Claude reads them, extracts entities and concepts, updates cross-references, and files everything into a structured Obsidian vault. The wiki gets richer with every ingest.
@@ -78,17 +71,17 @@ You lint. Claude finds orphans, dead links, stale claims, and missing cross-refe
 At the end of every session, Claude updates a hot cache. The next session starts with full recent context, no recap needed.
 
 <p align="center">
-  <img src="wiki/meta/image-example-graph-view.png" alt="Obsidian graph view showing the claude-obsidian knowledge graph with color-coded nodes for concepts, entities, and sources" width="48%" />
+  <img src="wiki/meta/image-example-graph-view.png" alt="Obsidian graph view showing the agent-second-brain knowledge graph with color-coded nodes for concepts, entities, and sources" width="48%" />
   <img src="wiki/meta/image-example-wiki-map-view.png" alt="Wiki Map canvas: visual hub linking domain pages, concepts, and entities" width="48%" />
 </p>
 
 ---
 
-## Why claude-obsidian?
+## Why agent-second-brain?
 
-Most Obsidian AI plugins are chat interfaces. They answer questions about your existing notes. claude-obsidian is a knowledge engine. It creates, organizes, maintains, and evolves your notes autonomously.
+Most Obsidian AI plugins are chat interfaces. They answer questions about your existing notes. agent-second-brain is a knowledge engine. It creates, organizes, maintains, and evolves your notes autonomously.
 
-| Capability | claude-obsidian | Smart Connections | Copilot |
+| Capability | agent-second-brain | Smart Connections | Copilot |
 |---|---|---|---|
 | **Auto-organize notes** | ✅ Creates entities, concepts, cross-references | ❌ | ❌ |
 | **Contradiction flagging** | ✅ `[!contradiction]` callouts with sources | ❌ | ❌ |
@@ -98,29 +91,25 @@ Most Obsidian AI plugins are chat interfaces. They answer questions about your e
 | **Methodology modes** | ✅ LYT / PARA / Zettelkasten / Generic (first-class) | ❌ | ❌ |
 | **Thinking framework** | ✅ 10-principle loop as invocable skill | ❌ | ❌ |
 | **Multi-model support** | ✅ Claude, Gemini, Codex, Cursor, Windsurf | ❌ Claude only | ✅ Multiple |
-| **Visual canvas** | ✅ Via [claude-canvas](https://github.com/AgriciDaniel/claude-canvas) | ❌ | ❌ |
+| **Visual canvas** | ✅ Via canvas skill | ❌ | ❌ |
 | **Multi-writer safe** | ✅ Per-file advisory locks (v1.7+) | ❌ | ❌ |
 | **Query with citations** | ✅ Cites specific wiki pages | ✅ Cites similar notes | ✅ Cites notes |
 | **Batch ingestion** | ✅ Parallel agents for multiple sources | ❌ | ❌ |
 | **Open source** | ✅ MIT | ✅ MIT | ⚠️ Freemium |
 
-> 📖 **Deep dive:** [I Turned Obsidian Into a Self-Organizing AI Brain](https://agricidaniel.com/blog/claude-obsidian-ai-second-brain). Full breakdown with data visualizations, market context, and workflow demos.
-
 ---
 
 ## Quick Start
 
-> ℹ️ The commands below install the **public open-source build** from `AgriciDaniel/claude-obsidian` (recommended, no membership needed). **AI Marketing Hub Pro members** who want early access to in-development features can swap `AgriciDaniel/claude-obsidian` for `AI-Marketing-Hub/claude-obsidian` (Option 2 also swaps the plugin slug; see the note under that option).
-
 ### Option 1: Clone as vault (recommended, full setup in 2 minutes)
 
 ```bash
-git clone https://github.com/AgriciDaniel/claude-obsidian
-cd claude-obsidian
+git clone https://github.com/LeeHongji/agent-second-brain
+cd agent-second-brain
 bash bin/setup-vault.sh
 ```
 
-Open the folder in Obsidian: **Manage Vaults → Open folder as vault → select `claude-obsidian/`**.
+Open the folder in Obsidian: **Manage Vaults → Open folder as vault → select `agent-second-brain/`**.
 
 Open Claude Code in the same folder. Type `/wiki`.
 
@@ -132,17 +121,12 @@ Open Claude Code in the same folder. Type `/wiki`.
 
 Plugin installation is a two-step process. First add the marketplace catalog, then install the plugin from it.
 
-> ℹ️ **Which version are you installing?**
->
-> - **Public (recommended, no membership):** the commands below install the free, MIT-licensed release from [`AgriciDaniel/claude-obsidian`](https://github.com/AgriciDaniel/claude-obsidian). Nothing to sign up for.
-> - **AI Marketing Hub Pro member?** For early access to in-development features, swap `AgriciDaniel/claude-obsidian` for `AI-Marketing-Hub/claude-obsidian` and the plugin slug `claude-obsidian@agricidaniel-claude-obsidian` for `claude-obsidian@ai-marketing-hub-claude-obsidian`. The org mirror requires an authenticated `gh auth login` (or GitHub PAT) with access to the `AI-Marketing-Hub` org. If `/plugin marketplace add` returns a 404, your account is not in the org yet. DM in the [Skool community](https://www.skool.com/ai-marketing-hub-pro) to get added.
-
 ```bash
 # Step 1: add the marketplace
-claude plugin marketplace add AgriciDaniel/claude-obsidian
+claude plugin marketplace add LeeHongji/agent-second-brain
 
 # Step 2: install the plugin
-claude plugin install claude-obsidian@agricidaniel-claude-obsidian
+claude plugin install agent-second-brain@leehongji-agent-second-brain
 ```
 
 In any Claude Code session: `/wiki`. Claude walks you through vault setup.
@@ -192,7 +176,7 @@ Then scaffold the full wiki structure.
 | `lint the wiki` | Health check: orphans, dead links, gaps, suggestions |
 | `update hot cache` | Refresh hot.md with latest context summary |
 
-> ✨ **Want more?** [claude-canvas](https://github.com/AgriciDaniel/claude-canvas) adds 12 templates, 6 layout algorithms, AI image generation, presentations, and full canvas orchestration. Install both, they complement each other.
+> ✨ **Want more?** A dedicated canvas-orchestration skill adds 12 templates, 6 layout algorithms, AI image generation, presentations, and full canvas orchestration. Install both, they complement each other.
 
 ### `/wiki`: setup, scaffold, continue
 
@@ -238,7 +222,7 @@ Add images, PDFs, notes, and AI-generated images to an Obsidian canvas. Zone man
 /canvas from banana           # capture recent banana-generated images
 ```
 
-JSON Canvas 1.0 spec compliant ([`skills/canvas/references/canvas-spec.md`](skills/canvas/references/canvas-spec.md)). Full orchestration (12 templates, 6 layout algorithms, presentations) in the companion [claude-canvas](https://github.com/AgriciDaniel/claude-canvas).
+JSON Canvas 1.0 spec compliant ([`skills/canvas/references/canvas-spec.md`](skills/canvas/references/canvas-spec.md)). Full orchestration (12 templates, 6 layout algorithms, presentations) is available in a dedicated canvas-orchestration skill.
 
 ### `/think`: 10-principle thinking loop
 
@@ -248,7 +232,7 @@ Apply the OBSERVE-OBSERVE-LISTEN-THINK-CONNECT-CONNECT-FEEL-ACCEPT-CREATE-GROW f
 /think <problem statement>
 ```
 
-The framework walks Claude through 10 stages with prompts at each. Use when problem novelty + irreversibility justify the discipline. See [`skills/think/SKILL.md`](skills/think/SKILL.md) for the full framework. Every other skill has a "How to think" appendix mapping the framework to its specific work. The [v1.8.0 pre-push audit](docs/audits/v1.8.0-pre-push-audit-2026-05-18.md) used this framework as its methodology spine.
+The framework walks Claude through 10 stages with prompts at each. Use when problem novelty + irreversibility justify the discipline. See [`skills/think/SKILL.md`](skills/think/SKILL.md) for the full framework. Every other skill has a "How to think" appendix mapping the framework to its specific work. The v1.8.0 pre-push audit used this framework as its methodology spine.
 
 ---
 
@@ -455,7 +439,7 @@ The page renders a full-width header image in Obsidian. Works great for hub page
 ## File Structure
 
 ```
-claude-obsidian/
+agent-second-brain/
 ├── .claude-plugin/
 │   ├── plugin.json              # manifest
 │   └── marketplace.json         # distribution
@@ -530,35 +514,31 @@ This repo ships with a seeded vault. Open it in Obsidian and you will see:
 The graph view will show a connected cluster of 5 pages. This is what the wiki looks like after one ingest. Add more sources and it grows from there.
 
 <p align="center">
-  <img src="wiki/meta/wiki-graph-grow.gif" alt="Animated GIF: claude-obsidian knowledge graph growing from a few seeded pages to a dense web of cross-referenced concepts after multiple ingests" width="48%" />
-  <img src="wiki/meta/workflow-loop.gif" alt="Animated GIF: claude-obsidian workflow loop showing ingest, query, lint, save, and hot-cache refresh cycle" width="48%" />
+  <img src="wiki/meta/wiki-graph-grow.gif" alt="Animated GIF: agent-second-brain knowledge graph growing from a few seeded pages to a dense web of cross-referenced concepts after multiple ingests" width="48%" />
+  <img src="wiki/meta/workflow-loop.gif" alt="Animated GIF: agent-second-brain workflow loop showing ingest, query, lint, save, and hot-cache refresh cycle" width="48%" />
 </p>
 
 ---
 
-## Companion: claude-canvas
+## Companion: visual canvas orchestration
 
-For the visual layer, [claude-canvas](https://github.com/AgriciDaniel/claude-canvas) adds AI-orchestrated canvas creation: knowledge graphs, presentations, flowcharts, mood boards with 12 templates and 6 layout algorithms. Auto-detects claude-obsidian vaults.
-
-```bash
-claude plugin install AgriciDaniel/claude-canvas
-```
+For the visual layer, a dedicated canvas-orchestration skill adds AI-orchestrated canvas creation: knowledge graphs, presentations, flowcharts, mood boards with 12 templates and 6 layout algorithms.
 
 ---
 
 ## FAQ
 
 **What is the best AI second brain app?**
-The best AI second brain keeps your data yours. claude-obsidian stores everything as plain Markdown files you own (no database, no lock-in, no subscription) and lets Claude read, link, and organize them into one connected knowledge graph. It is free and open source (MIT).
+The best AI second brain keeps your data yours. agent-second-brain stores everything as plain Markdown files you own (no database, no lock-in, no subscription) and lets Claude read, link, and organize them into one connected knowledge graph. It is free and open source (MIT).
 
 **How do I build a second brain with AI?**
 Drop any source into the vault. Claude reads it, extracts the entities and concepts, links them to what you already have, and files it into a structured Obsidian vault. You ask questions; it answers from everything it has read and cites the pages. The knowledge base gets richer and more connected with every session.
 
 **How do I connect Claude to Obsidian as a second brain?**
-Two lines: `git clone https://github.com/AgriciDaniel/claude-obsidian`, then `cd claude-obsidian && bash bin/setup-vault.sh`. Open the folder as an Obsidian vault, open Claude Code in the same folder, and type `/wiki`. Full steps in [Quick Start](#quick-start).
+Two lines: `git clone https://github.com/LeeHongji/agent-second-brain`, then `cd agent-second-brain && bash bin/setup-vault.sh`. Open the folder as an Obsidian vault, open Claude Code in the same folder, and type `/wiki`. Full steps in [Quick Start](#quick-start).
 
 **Is there a good Notion alternative for a private, AI-powered knowledge base?**
-Yes. claude-obsidian is an open-source, local-first alternative: your notes are plain Markdown on your own disk instead of a hosted database, and AI organizes them for you. No vendor lock-in and no monthly fee.
+Yes. agent-second-brain is an open-source, local-first alternative: your notes are plain Markdown on your own disk instead of a hosted database, and AI organizes them for you. No vendor lock-in and no monthly fee.
 
 **Does this auto-sync across devices?**
 Not on its own. The vault is a plain folder of Markdown files. Pair with Obsidian Sync, Obsidian Git, or any file-sync tool (Syncthing, iCloud, Dropbox) for cross-device sync.
@@ -580,9 +560,6 @@ Methodology Modes (v1.8+) control **how** pages are organized: folder structure 
 
 **Does this send my notes to Anthropic?**
 No by default. The optional `/wiki-retrieve` skill has API egress (`contextual-prefix.py`) gated behind the `--allow-egress` consent flag. Without that flag, retrieval is fully local (BM25 + optional ollama rerank). Web egress in `/autoresearch` follows the same opt-in principle.
-
-**What is the difference between the public build and AI Marketing Hub Pro?**
-Both share the same MIT-licensed core on [`AgriciDaniel/claude-obsidian`](https://github.com/AgriciDaniel/claude-obsidian), which is the recommended install for everyone. AI Marketing Hub Pro members get earliest access to in-development features before they ship here, plus direct collaboration and the community. There are no paid-only features in the core.
 
 **What is DragonScale Memory?**
 An optional opt-in extension (`bash bin/setup-dragonscale.sh`) that adds four memory mechanisms: log folds (rollup of past entries), deterministic page addresses (counter-based unique IDs), semantic tiling lint (chunk-boundary validation via ollama), and boundary-first autoresearch (research the vault's "frontier" first). Not required for normal use. Full guide: [`docs/dragonscale-guide.md`](docs/dragonscale-guide.md).
@@ -613,14 +590,14 @@ An optional opt-in extension (`bash bin/setup-dragonscale.sh`) that adds four me
 Plugin install:
 
 ```bash
-claude plugin uninstall claude-obsidian@agricidaniel-claude-obsidian
-claude plugin marketplace remove AgriciDaniel/claude-obsidian
+claude plugin uninstall agent-second-brain@leehongji-agent-second-brain
+claude plugin marketplace remove LeeHongji/agent-second-brain
 ```
 
 Clone install (delete the folder):
 
 ```bash
-rm -rf /path/to/claude-obsidian
+rm -rf /path/to/agent-second-brain
 ```
 
 Your vault content (under `wiki/`) is plain Markdown and survives uninstall. To clear the runtime state without uninstalling, run `make clean-test-state` from the repo root.
@@ -642,20 +619,15 @@ Issue + PR templates available under [`.github/`](.github/). CI runs `make test`
 
 ## Related Projects
 
-- 🎨 [**claude-canvas**](https://github.com/AgriciDaniel/claude-canvas): visual canvas orchestration (12 templates, 6 layout algorithms, AI image generation). Companion to this plugin.
-- 📊 [**claude-ads**](https://github.com/AgriciDaniel/claude-ads): multi-platform paid advertising audit (250+ checks across Google, Meta, LinkedIn, TikTok, Microsoft, Apple, Amazon Ads).
-- 🔍 [**claude-seo**](https://github.com/AgriciDaniel/claude-seo): technical SEO + GEO audit suite.
-- 🧠 [**best-practices**](https://github.com/AgriciDaniel/best-practices): composable engineering kernel. Source for the six-cut + agent kernel that `agents/verifier.md` enforces.
+- 🎨 **visual canvas orchestration**: a dedicated canvas skill (12 templates, 6 layout algorithms, AI image generation). Companion to this plugin.
+- 🧠 **best-practices**: composable engineering kernel. Source for the six-cut + agent kernel that `agents/verifier.md` enforces (external skill; load separately).
 
 ---
 
 ## Community
 
-- 📝 [**Blog post**](https://agricidaniel.com/blog/claude-obsidian-ai-second-brain): deep dive with competitor analysis, data charts, and workflow demos
-- 💬 [**AI Marketing Hub**](https://www.skool.com/ai-marketing-hub): 2,800+ members, free community
-- ⚡ [**AI Marketing Hub Pro**](https://www.skool.com/ai-marketing-hub-pro): early access to in-development features and direct collaboration
-- 🎬 [**YouTube**](https://www.youtube.com/@AgriciDaniel): tutorials and demos
-- 🔧 [**All open-source tools**](https://github.com/AgriciDaniel): claude-seo, claude-ads, claude-blog, and more
+- 💬 [**Discussions**](https://github.com/LeeHongji/agent-second-brain/discussions): questions, ideas, and show-and-tell
+- 🐛 [**Issues**](https://github.com/LeeHongji/agent-second-brain/issues): bug reports and feature requests
 
 ---
 
@@ -665,12 +637,4 @@ MIT License. See [LICENSE](LICENSE) for full text. Free for personal and commerc
 
 ---
 
-## Star History
-
-<a href="https://star-history.com/#AgriciDaniel/claude-obsidian&Date">
-  <img src="https://api.star-history.com/svg?repos=AgriciDaniel/claude-obsidian&type=Date" alt="Star history chart for AgriciDaniel/claude-obsidian on GitHub" width="640" />
-</a>
-
----
-
-*Based on [Andrej Karpathy's LLM Wiki pattern](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f). Built by [Agrici Daniel](https://agricidaniel.com/about). Compounding knowledge is the highest-leverage habit a thinking person can build.*
+*Based on [Andrej Karpathy's LLM Wiki pattern](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f). Maintained by [LeeHongji](https://github.com/LeeHongji). Compounding knowledge is the highest-leverage habit a thinking person can build.*

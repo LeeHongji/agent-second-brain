@@ -1,17 +1,15 @@
-# claude-obsidian: Install Guide
+# agent-second-brain: Install Guide
 
 **Claude + Obsidian Knowledge Companion**
-Version 1.9.2 · public canonical: [github.com/AgriciDaniel/claude-obsidian](https://github.com/AgriciDaniel/claude-obsidian) · community early-access mirror (Pro): [AI Marketing Hub org](https://github.com/AI-Marketing-Hub)
-
-> ℹ️ The install commands below use the **public open-source** URLs (`AgriciDaniel/claude-obsidian`), recommended for everyone and requiring no membership. [AI Marketing Hub Pro](https://www.skool.com/ai-marketing-hub-pro) members who want early access to in-development features can swap every `AgriciDaniel/claude-obsidian` for `AI-Marketing-Hub/claude-obsidian` and the plugin slug `claude-obsidian@agricidaniel-claude-obsidian` for `claude-obsidian@ai-marketing-hub-claude-obsidian`.
+Version 1.9.2 · repo: [github.com/LeeHongji/agent-second-brain](https://github.com/LeeHongji/agent-second-brain)
 
 > **Optional: DragonScale Memory extension.** If you want flat extractive log folds, deterministic page addresses, semantic tiling lint, and boundary-first autoresearch topic selection, run `bash bin/setup-dragonscale.sh` after the base install. Extra prerequisites beyond the base: `flock` (standard on Linux; available via `util-linux` on macOS) and `python3` (for the tiling and boundary helpers). Optional: `ollama` with `nomic-embed-text` pulled if you want the semantic tiling lint (Mechanism 3 only; it no-ops gracefully when ollama or the model is unavailable). The boundary-first scorer (Mechanism 4) needs only `python3`, no ollama. See [`docs/dragonscale-guide.md`](./dragonscale-guide.md) for the user-facing guide, `wiki/concepts/DragonScale Memory.md` for the full spec, and `CHANGELOG.md` for what shipped in 1.6.0.
 
 ---
 
-## What is claude-obsidian?
+## What is agent-second-brain?
 
-claude-obsidian is a Claude Code plugin + Obsidian vault that builds and maintains a persistent, compounding knowledge base. Every source you add gets processed into cross-referenced wiki pages. Every question you ask pulls from everything that has been read. Knowledge compounds like interest.
+agent-second-brain is a Claude Code plugin + Obsidian vault that builds and maintains a persistent, compounding knowledge base. Every source you add gets processed into cross-referenced wiki pages. Every question you ask pulls from everything that has been read. Knowledge compounds like interest.
 
 Built on Andrej Karpathy's LLM Wiki pattern.
 
@@ -34,12 +32,12 @@ Built on Andrej Karpathy's LLM Wiki pattern.
 Full setup in under 2 minutes.
 
 ```bash
-git clone https://github.com/AgriciDaniel/claude-obsidian
-cd claude-obsidian
+git clone https://github.com/LeeHongji/agent-second-brain
+cd agent-second-brain
 bash bin/setup-vault.sh
 ```
 
-Then in Obsidian: **Manage Vaults → Open folder as vault → select `claude-obsidian/`**
+Then in Obsidian: **Manage Vaults → Open folder as vault → select `agent-second-brain/`**
 
 Open Claude Code in the same folder and type `/wiki`.
 
@@ -49,10 +47,10 @@ Plugin installation in Claude Code is a two-step process. First add the marketpl
 
 ```bash
 # Step 1: add the marketplace
-claude plugin marketplace add AgriciDaniel/claude-obsidian
+claude plugin marketplace add LeeHongji/agent-second-brain
 
 # Step 2: install the plugin
-claude plugin install claude-obsidian@agricidaniel-claude-obsidian
+claude plugin install agent-second-brain@leehongji-agent-second-brain
 ```
 
 Verify the install:
@@ -214,7 +212,7 @@ claude mcp add-json obsidian-vault '{
 
 | Problem | Fix |
 |---------|-----|
-| `/wiki` says "not found" | Make sure `claude-obsidian` plugin is enabled: `claude plugin list` |
+| `/wiki` says "not found" | Make sure `agent-second-brain` plugin is enabled: `claude plugin list` |
 | Graph colors reset after closing Obsidian | Open Graph view → gear → Color groups → re-add once. Permanent after that. |
 | Excalidraw not loading | Run `bash bin/setup-vault.sh` to download `main.js` (8MB, not in git) |
 | Dashboard shows no results | Install the **Dataview** plugin from Community Plugins |
@@ -228,7 +226,7 @@ Point any Claude Code project at this vault. Add to that project's `CLAUDE.md`:
 
 ```markdown
 ## Wiki Knowledge Base
-Path: ~/path/to/claude-obsidian
+Path: ~/path/to/agent-second-brain
 
 When you need context not in this project:
 1. Read wiki/hot.md first (recent context cache)
@@ -244,11 +242,10 @@ Your executive assistant, coding projects, and content workflows all draw from t
 
 ## Support
 
-- **GitHub (public canonical)**: [github.com/AgriciDaniel/claude-obsidian](https://github.com/AgriciDaniel/claude-obsidian)
-- **Issues**: [github.com/AgriciDaniel/claude-obsidian/issues](https://github.com/AgriciDaniel/claude-obsidian/issues)
-- **Community early-access (Pro)**: [AI Marketing Hub org](https://github.com/AI-Marketing-Hub) · [Skool community](https://www.skool.com/ai-marketing-hub-pro)
+- **GitHub**: [github.com/LeeHongji/agent-second-brain](https://github.com/LeeHongji/agent-second-brain)
+- **Issues**: [github.com/LeeHongji/agent-second-brain/issues](https://github.com/LeeHongji/agent-second-brain/issues)
 
 ---
 
-*Built by [AgriciDaniel](https://github.com/AgriciDaniel) / AI Marketing Hub*
+*Maintained by [LeeHongji](https://github.com/LeeHongji)*
 *Based on Andrej Karpathy's LLM Wiki pattern*

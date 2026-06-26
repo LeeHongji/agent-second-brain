@@ -1,4 +1,4 @@
-# claude-obsidian Makefile
+# agent-second-brain Makefile
 # Test runner entry points for DragonScale and vault tooling.
 
 .PHONY: test test-address test-tiling test-boundary test-bm25 test-retrieve \
@@ -6,7 +6,7 @@
         setup-retrieve setup-mode clean-test-state help
 
 help:
-	@echo "claude-obsidian developer targets:"
+	@echo "agent-second-brain developer targets:"
 	@echo "  make test              Run all v1.7 tests (DragonScale + retrieval + concurrency)"
 	@echo "  make test-address     scripts/allocate-address.sh tests (shell)"
 	@echo "  make test-tiling      scripts/tiling-check.py tests (python, no ollama required)"

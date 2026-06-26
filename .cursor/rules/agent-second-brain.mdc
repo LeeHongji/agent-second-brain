@@ -1,5 +1,5 @@
 ---
-description: claude-obsidian: LLM Wiki Pattern for Obsidian vaults. Always-on context for any project pointed at this repo.
+description: agent-second-brain: LLM Wiki Pattern for Obsidian vaults. Always-on context for any project pointed at this repo.
 globs:
   - "wiki/**/*.md"
   - ".raw/**/*"
@@ -7,7 +7,7 @@ globs:
 alwaysApply: true
 ---
 
-# claude-obsidian
+# agent-second-brain
 
 A Claude Code plugin and Obsidian vault that builds persistent, compounding knowledge bases using Andrej Karpathy's LLM Wiki pattern. This repo works with Cursor's AI through the cross-platform Agent Skills format.
 
@@ -60,6 +60,6 @@ bash bin/setup-multi-agent.sh
 
 ## Cross-Reference
 
-- Plugin: https://github.com/AgriciDaniel/claude-obsidian
+- Plugin: https://github.com/LeeHongji/agent-second-brain
 - Pattern: https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
 - Related: https://github.com/kepano/obsidian-skills

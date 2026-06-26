@@ -1,6 +1,6 @@
-# Contributing to claude-obsidian
+# Contributing to agent-second-brain
 
-Thanks for your interest in improving this plugin. claude-obsidian is a small, focused project; contributions that match its philosophy land quickly.
+Thanks for your interest in improving this plugin. agent-second-brain is a small, focused project; contributions that match its philosophy land quickly.
 
 ## Philosophy
 
@@ -10,7 +10,7 @@ Three constraints shape every change:
 2. **Smallest unit that works.** No speculative abstraction. Complexity is earned, not anticipated. Three real callers minimum before an abstraction lands.
 3. **Failure is the spec.** Every new failure mode needs explicit handling. Untrusted input, network calls, and state changes need an explicit blast-radius answer.
 
-The full kernel lives in [`/best-practices`](https://github.com/AgriciDaniel/best-practices) (composable Claude Code skill). The pre-commit verifier agent at [`agents/verifier.md`](agents/verifier.md) enforces it for non-trivial changes.
+The full kernel lives in the external `/best-practices` skill (composable Claude Code skill; load separately). The pre-commit verifier agent at [`agents/verifier.md`](agents/verifier.md) enforces it for non-trivial changes.
 
 ## Workflow
 
@@ -24,15 +24,15 @@ For typo fixes, doc clarifications, or single-line changes, skip straight to a P
 
 ### 2. Fork + branch
 
-Contributions are accepted on the public canonical repo. Fork [`AgriciDaniel/claude-obsidian`](https://github.com/AgriciDaniel/claude-obsidian) on GitHub, then:
+Contributions are accepted on the public canonical repo. Fork [`LeeHongji/agent-second-brain`](https://github.com/LeeHongji/agent-second-brain) on GitHub, then:
 
 ```bash
-git clone https://github.com/<your-username>/claude-obsidian.git
-cd claude-obsidian
+git clone https://github.com/<your-username>/agent-second-brain.git
+cd agent-second-brain
 git checkout -b your-feature-name
 ```
 
-> ℹ️ The public repo (`AgriciDaniel/claude-obsidian`) is the canonical source of truth. Raise all PRs against it. AI Marketing Hub Pro members working from the early-access mirror (`AI-Marketing-Hub/claude-obsidian`) should target the public canonical too, so contributions land in one place.
+> ℹ️ The public repo is the canonical source of truth. Raise all PRs against it.
 
 Branch names: `fix/...`, `feat/...`, `docs/...`, `refactor/...`.
 

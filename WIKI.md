@@ -847,4 +847,4 @@ The human's job: curate sources, ask good questions, think about what it means. 
 
 ---
 
-*Based on Andrej Karpathy's LLM Wiki pattern. Plugin: claude-obsidian by AgriciDaniel / AI Marketing Hub.*
+*Based on Andrej Karpathy's LLM Wiki pattern. Plugin: agent-second-brain, maintained by LeeHongji.*

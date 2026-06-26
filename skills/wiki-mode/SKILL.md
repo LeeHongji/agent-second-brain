@@ -183,7 +183,7 @@ fi
 
 Per audit §9: methodology support is the cheapest axis to lead. Nobody else ships it. The implementation is mostly conventions + routing + templates; no new infrastructure, no new dependencies. It's the highest-ROI release in the roadmap before the bigger v2.0 (derive) + v2.5 (GUI) work.
 
-After v1.8: claude-obsidian leads on 5 of 7 axes per compass artifact. The remaining 2 (GUI ergonomics, derivative outputs) are major releases by themselves.
+After v1.8: agent-second-brain leads on 5 of 7 axes per compass artifact. The remaining 2 (GUI ergonomics, derivative outputs) are major releases by themselves.
 
 ---
 
@@ -192,7 +192,7 @@ After v1.8: claude-obsidian leads on 5 of 7 axes per compass artifact. The remai
 - [`docs/methodology-modes-guide.md`](../../docs/methodology-modes-guide.md) — narrative guide, when-to-use-which decision tree
 - [`wiki/references/methodology-modes.md`](../../wiki/references/methodology-modes.md) — short decision tree
 - [`docs/compound-vault-guide.md`](../../docs/compound-vault-guide.md) — v1.7 omnibus (v1.8 builds on this)
-- v1.7.0 audit §9 axis 6 (methodology TIE → LEAD): [`docs/audits/v1.7.0-audit-2026-05-17.md`](../../docs/audits/v1.7.0-audit-2026-05-17.md)
+- v1.7.0 audit §9 axis 6 (methodology TIE → LEAD): `the v1.7.0 audit`
 
 ---
 

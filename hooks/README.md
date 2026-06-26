@@ -1,6 +1,6 @@
-# claude-obsidian Hooks
+# agent-second-brain Hooks
 
-Plugin hooks for the claude-obsidian wiki vault. All hooks are defined in `hooks.json`.
+Plugin hooks for the agent-second-brain wiki vault. All hooks are defined in `hooks.json`.
 
 ## Events
 

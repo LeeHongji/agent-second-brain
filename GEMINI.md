@@ -1,4 +1,4 @@
-# claude-obsidian: Gemini CLI Instructions
+# agent-second-brain: Gemini CLI Instructions
 
 This repo is a knowledge base companion that builds persistent, compounding Obsidian wiki vaults using Andrej Karpathy's LLM Wiki pattern. The skills are written in the cross-platform Agent Skills format and work in Gemini CLI / Antigravity alongside Claude Code.
 
@@ -7,7 +7,7 @@ This repo is a knowledge base companion that builds persistent, compounding Obsi
 Skills live in `skills/<name>/SKILL.md`. To make them available to Gemini CLI:
 
 ```bash
-ln -s "$(pwd)/skills" ~/.gemini/skills/claude-obsidian
+ln -s "$(pwd)/skills" ~/.gemini/skills/agent-second-brain
 ```
 
 Or run the bundled installer:
@@ -58,6 +58,5 @@ On first session:
 
 ## Project Links
 
-- Plugin (public canonical): https://github.com/AgriciDaniel/claude-obsidian
-- Community early-access mirror (Pro): https://github.com/AI-Marketing-Hub
+- Plugin: https://github.com/LeeHongji/agent-second-brain
 - Pattern: https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f

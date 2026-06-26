@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to claude-obsidian. Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [SemVer](https://semver.org/).
+All notable changes to agent-second-brain. Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [SemVer](https://semver.org/).
 
 ## [1.9.2] - 2026-05-27 (prompt-cache hardening + path-handling robustness)
 
@@ -35,7 +35,7 @@ Ports Anthropic prompt-caching best practices into the **one** place the plugin 
 
 ## [1.9.1] - 2026-05-18 (v1.9.0 audit hardening)
 
-Patch release closing **6 of 6 remaining HIGH/MEDIUM** findings from the v1.9.0 pre-public-promotion audit ([`docs/audits/v1.9.0-pre-public-promotion-audit-2026-05-18.md`](docs/audits/v1.9.0-pre-public-promotion-audit-2026-05-18.md)) plus 3 LOW hardening items. Composite score moves from 91.6 to ~94 raw average. Public-promotion ship verdict remains GREEN.
+Patch release closing **6 of 6 remaining HIGH/MEDIUM** findings from the v1.9.0 pre-public-promotion audit (`the v1.9.0 audit`) plus 3 LOW hardening items. Composite score moves from 91.6 to ~94 raw average. Public-promotion ship verdict remains GREEN.
 
 ### Fixed (defensive hardening)
 
@@ -95,7 +95,7 @@ Minor release adding the **10-principle thinking framework** as a first-class la
 
 ### Why this release
 
-Per the v1.8.0 pre-push audit's GROW notes (`docs/audits/v1.8.0-pre-push-audit-2026-05-18.md` §10), the 10-principle framework proved its value as the AUDIT's mental spine — OBSERVE-internal forced explicit bias documentation; GROW forced a feedback-loop section. Shipping it as a first-class skill (and as appendices on all existing skills) makes the discipline available to every future invocation, not just to one-off audits. This is the GROW step of the audit itself, embodied in code.
+Per the v1.8.0 pre-push audit's GROW notes (`the v1.8.0 audit` §10), the 10-principle framework proved its value as the AUDIT's mental spine — OBSERVE-internal forced explicit bias documentation; GROW forced a feedback-loop section. Shipping it as a first-class skill (and as appendices on all existing skills) makes the discipline available to every future invocation, not just to one-off audits. This is the GROW step of the audit itself, embodied in code.
 
 ### Compass axis status after v1.9.0
 
@@ -109,7 +109,7 @@ Per the v1.8.0 pre-push audit's GROW notes (`docs/audits/v1.8.0-pre-push-audit-2
 | Derivative outputs | NO | NO (v2.0 scope) |
 | GUI / install ergonomics | NO | NO (v2.5+ scope) |
 
-5 of 7 axes #1 (unchanged count, but methodology axis deepens — claude-obsidian is now the only Claude+Obsidian plugin shipping methodology modes AND a first-class thinking-loop framework AND per-skill thinking guidance).
+5 of 7 axes #1 (unchanged count, but methodology axis deepens — agent-second-brain is now the only Claude+Obsidian plugin shipping methodology modes AND a first-class thinking-loop framework AND per-skill thinking guidance).
 
 ### Migration notes
 
@@ -125,7 +125,7 @@ Per the v1.8.0 pre-push audit's GROW notes (`docs/audits/v1.8.0-pre-push-audit-2
 
 ## [1.8.2] - 2026-05-18 (pre-push audit closure)
 
-Patch release closing **all 4 HIGH findings + 1 leaked BLOCKER-class hardening** from the v1.8.0 pre-push audit. Audit: [`docs/audits/v1.8.0-pre-push-audit-2026-05-18.md`](docs/audits/v1.8.0-pre-push-audit-2026-05-18.md). Per the audit's strict push gate (any BLOCKER halts), v1.8.2 takes the release from YELLOW (0 BLOCKER / 4 HIGH) to GREEN (0 BLOCKER / 0 HIGH).
+Patch release closing **all 4 HIGH findings + 1 leaked BLOCKER-class hardening** from the v1.8.0 pre-push audit. Audit: `the v1.8.0 audit`. Per the audit's strict push gate (any BLOCKER halts), v1.8.2 takes the release from YELLOW (0 BLOCKER / 4 HIGH) to GREEN (0 BLOCKER / 0 HIGH).
 
 ### Fixed
 
@@ -138,7 +138,7 @@ Patch release closing **all 4 HIGH findings + 1 leaked BLOCKER-class hardening**
 ### Changed
 
 - **`.claude-plugin/plugin.json` + `marketplace.json`:** version 1.8.0 → 1.8.2.
-- **`docs/audits/v1.8.0-pre-push-audit-2026-05-18.md`** (NEW): full pre-push audit report. 14 per-skill scores (average 84.6/100), per-tier finding ledger, v1.8.2 fix replay, hook safety, manifest accuracy, push-gate decision tree. Audit methodology used the 10-principle thinking spine (OBSERVE-OBSERVE-LISTEN-THINK-CONNECT-CONNECT-FEEL-ACCEPT-CREATE-GROW) as audit phases.
+- **`the v1.8.0 audit`** (NEW): full pre-push audit report. 14 per-skill scores (average 84.6/100), per-tier finding ledger, v1.8.2 fix replay, hook safety, manifest accuracy, push-gate decision tree. Audit methodology used the 10-principle thinking spine (OBSERVE-OBSERVE-LISTEN-THINK-CONNECT-CONNECT-FEEL-ACCEPT-CREATE-GROW) as audit phases.
 
 ### Verification
 
@@ -159,7 +159,7 @@ The pre-push audit also surfaced 14 MEDIUM and 45 LOW findings. None block relea
 
 ## [1.8.0] - 2026-05-17 (methodology modes — closes compass priority gap 5)
 
-Minor release closing the **5th and final priority gap** from the May 2026 compass artifact: methodology support. Adds the **`wiki-mode`** skill with first-class support for four organizational styles (LYT / PARA / Zettelkasten / Generic). After this release, claude-obsidian is **#1 on 5 of 7 axes per compass framework** — up from 4/7 in v1.7. Full guide: [`docs/methodology-modes-guide.md`](docs/methodology-modes-guide.md).
+Minor release closing the **5th and final priority gap** from the May 2026 compass artifact: methodology support. Adds the **`wiki-mode`** skill with first-class support for four organizational styles (LYT / PARA / Zettelkasten / Generic). After this release, agent-second-brain is **#1 on 5 of 7 axes per compass framework** — up from 4/7 in v1.7. Full guide: [`docs/methodology-modes-guide.md`](docs/methodology-modes-guide.md).
 
 ### Added
 
@@ -211,7 +211,7 @@ Minor release closing the **5th and final priority gap** from the May 2026 compa
 
 ## [1.7.2] - 2026-05-17 (SSS+ convergence — closes every audit finding)
 
-Patch release closing **every remaining MEDIUM (M1-M10) and LOW (L1-L7) finding** from the v1.7.0 audit. Combined with v1.7.1 (which closed the 1 BLOCKER + 6 HIGH), this means the v1.7.0 audit's full 24-finding ledger is now CLOSED or formally DEFERRED-with-rationale. Plan: [`docs/audits/v1.7.2-sss-plus-plan.md`](docs/audits/v1.7.2-sss-plus-plan.md).
+Patch release closing **every remaining MEDIUM (M1-M10) and LOW (L1-L7) finding** from the v1.7.0 audit. Combined with v1.7.1 (which closed the 1 BLOCKER + 6 HIGH), this means the v1.7.0 audit's full 24-finding ledger is now CLOSED or formally DEFERRED-with-rationale. Plan: `the v1.7.2 audit`.
 
 ### Added
 
@@ -241,7 +241,7 @@ Patch release closing **every remaining MEDIUM (M1-M10) and LOW (L1-L7) finding*
 
 ### Honest accounting
 
-- **Net LOC delta `main..HEAD` is `+6009 / -30`**, NOT meeting the plan §1 acceptance criterion (`≤+5000 OR ≥-200`). Per plan §4 failure clause: "Do not invent prunes to game the metric." Honest decomposition: ~5500 LOC across new files alone (4 new scripts + 4 new tests + 2 new skills + 1 new agent + 1 new bin + ~2200 LOC docs). The v1.7 line was net-new feature substrate, not a refactor; v1.6 had no equivalent of a retrieval pipeline, lock primitive, transport detector, or contextual prefix generator to delete. **Kernel-application axis ceilings at ~92-95** for the v1.7 line; the deduction is structural to building substrate, not negligence. Documented in `docs/audits/v1.7.0-audit-2026-05-17.md` §10.2.
+- **Net LOC delta `main..HEAD` is `+6009 / -30`**, NOT meeting the plan §1 acceptance criterion (`≤+5000 OR ≥-200`). Per plan §4 failure clause: "Do not invent prunes to game the metric." Honest decomposition: ~5500 LOC across new files alone (4 new scripts + 4 new tests + 2 new skills + 1 new agent + 1 new bin + ~2200 LOC docs). The v1.7 line was net-new feature substrate, not a refactor; v1.6 had no equivalent of a retrieval pipeline, lock primitive, transport detector, or contextual prefix generator to delete. **Kernel-application axis ceilings at ~92-95** for the v1.7 line; the deduction is structural to building substrate, not negligence. Documented in `the v1.7.0 audit` §10.2.
 - **M9 (bounded-slices: 4 skills touched by both §3.2 and §3.4)** is documented as a process note in audit §10.3; not a code-level fix.
 - **M11 (synonym category benchmark tied 60%/60%)** persists post-tokenizer-change; v1.7 hybrid neither helps nor hurts on this category. Filed for v1.7.x rerank threshold tuning.
 - **M12 (negative-query precision)** was tied at 40%/40% in v1.7.0; post-Unicode-tokenizer it's 40%/20% (+20pp). Empirically closed by the tokenizer change.
@@ -272,7 +272,7 @@ The +32pp/41% slightly beats the v1.7.0 audit's reported +30pp/+39.5%; the Unico
 
 ## [1.7.1] - 2026-05-17 (audit-driven patch)
 
-Patch release closing the 1 BLOCKER + 6 HIGH findings from the v1.7.0 audit ([`docs/audits/v1.7.0-audit-2026-05-17.md`](docs/audits/v1.7.0-audit-2026-05-17.md)). All v1.7.0 features remain available; the changes are guard-rails and one new agent.
+Patch release closing the 1 BLOCKER + 6 HIGH findings from the v1.7.0 audit (`the v1.7.0 audit`). All v1.7.0 features remain available; the changes are guard-rails and one new agent.
 
 ### Fixed
 
@@ -288,8 +288,8 @@ Patch release closing the 1 BLOCKER + 6 HIGH findings from the v1.7.0 audit ([`d
 
 - `agents/verifier.md` — pre-commit specialist; see H4 above.
 - `scripts/baseline-v16.py` + `scripts/benchmark-runner.py` — audit instrumentation that ran the 50-query retrieval benchmark documented in `wiki/meta/retrieval-benchmark-v1.7.md`. Result: v1.7 top-1 54.0% vs v1.6 baseline 24.0% (+30pp); error reduction +39.5% vs the ≥30% gate. Future audits can re-run with `python3 scripts/benchmark-runner.py`.
-- `docs/audits/v1.7.0-audit-2026-05-17.md` (481 lines) — the full audit report.
-- `docs/audits/v1.7.1-fixes-plan.md` — the sequenced 6-commit roadmap this release executes.
+- `the v1.7.0 audit` (481 lines) — the full audit report.
+- `the v1.7.1 audit` — the sequenced 6-commit roadmap this release executes.
 
 ### Changed
 
