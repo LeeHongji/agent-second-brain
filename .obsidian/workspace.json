@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "477f1cf965ca606e",
+        "id": "109c5eb2d3bc0c62",
         "type": "tabs",
         "children": [
           {
-            "id": "a31de1b302cdc5cf",
+            "id": "4e9c4d6ad69d0d92",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -183,9 +183,56 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "obsidian-memos:Thino": false,
+      "obsidian-memos:Thino Super": false
     }
   },
-  "active": "a31de1b302cdc5cf",
-  "lastOpenFiles": []
+  "active": "4e9c4d6ad69d0d92",
+  "lastOpenFiles": [
+    "scripts/__pycache__/contextual-prefix.cpython-313.pyc",
+    "scripts/__pycache__/wiki-mode.cpython-313.pyc",
+    "scripts/__pycache__/rerank.cpython-313.pyc",
+    "scripts/__pycache__/retrieve.cpython-313.pyc",
+    "scripts/__pycache__/bm25-index.cpython-313.pyc",
+    "scripts/__pycache__/boundary-score.cpython-313.pyc",
+    "scripts/__pycache__/tiling-check.cpython-313.pyc",
+    "scripts/__pycache__",
+    "wiki/index.md",
+    "wiki/sources/agent-second-brain-ecosystem-research.md",
+    "wiki/meta/agent-second-brain-v1.4-release-session.md",
+    "wiki/meta/agent-second-brain-v1.2.0-release-session.md",
+    "wiki/meta/agent-second-brain-gif-cover-16x9.gif",
+    "wiki/meta/agent-second-brain-gif-1x1.gif",
+    "wiki/meta/agent-second-brain-cover-square.png",
+    "wiki/meta/agent-second-brain-cover-16x9.png",
+    "wiki/comparisons/agent-second-brain-ecosystem.md",
+    "wiki/canvases/agent-second-brain-presentation.canvas",
+    "wiki/entities/Claude SEO.md",
+    "wiki/sources/Ian-Xiaohei-Illustrations.md",
+    "wiki/concepts/Compounding Knowledge.md",
+    "wiki/concepts/Agentic Workflow Patterns.md",
+    "wiki/concepts/Augmented LLM.md",
+    "wiki/concepts/cherry-picks.md",
+    "wiki/concepts/Agent Observability.md",
+    "wiki/concepts/Agent Scope Control.md",
+    "wiki/concepts/Agent Session Lifecycle.md",
+    "wiki/concepts/Textual Gradient.md",
+    "wiki/concepts/_index.md",
+    "wiki/concepts/Agent Error Propagation.md",
+    "wiki/concepts/Agentic Loop.md",
+    "wiki/concepts/Harness Engineering.md",
+    "wiki/concepts/LLM Wiki Pattern.md",
+    "wiki/concepts/Hot Cache.md",
+    "wiki/concepts/Persistent Wiki Artifact.md",
+    "wiki/concepts/Repository as System of Record.md",
+    "wiki/sources/Learn-Harness-Engineering.md",
+    "wiki/Wiki Map.canvas",
+    "wiki/canvases/main.canvas",
+    "wiki/concepts/Verification-Gated Completion.md",
+    "wiki/canvases/claude-obsidian-presentation.canvas",
+    "wiki/canvases/youtube-explainer.canvas",
+    "Untitled.canvas"
+  ]
 }
