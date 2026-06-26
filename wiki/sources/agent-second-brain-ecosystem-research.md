@@ -1,4 +1,5 @@
 ---
+address: c-000059
 type: source
 title: "Claude + Obsidian Ecosystem Research"
 created: 2026-04-08

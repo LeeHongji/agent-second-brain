@@ -1,4 +1,5 @@
 ---
+address: c-000036
 type: entity
 title: "Ar9av/obsidian-wiki"
 created: 2026-04-08

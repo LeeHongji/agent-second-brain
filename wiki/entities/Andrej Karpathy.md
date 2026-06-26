@@ -1,4 +1,5 @@
 ---
+address: c-000035
 type: entity
 title: "Andrej Karpathy"
 entity_type: person

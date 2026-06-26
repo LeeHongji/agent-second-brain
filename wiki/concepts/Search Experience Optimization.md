@@ -1,4 +1,5 @@
 ---
+address: c-000026
 type: concept
 title: "Search Experience Optimization (SXO)"
 created: 2026-04-14

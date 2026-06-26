@@ -1,4 +1,5 @@
 ---
+address: c-000025
 type: concept
 title: "SVG Diagram Style Guide"
 created: 2026-04-14

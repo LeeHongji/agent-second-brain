@@ -1,4 +1,5 @@
 ---
+address: c-000043
 type: entity
 title: "kepano/obsidian-skills"
 created: 2026-04-08

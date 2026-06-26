@@ -1,4 +1,5 @@
 ---
+address: c-000032
 type: concept
 title: "Validation-Gated Skill Update"
 complexity: intermediate

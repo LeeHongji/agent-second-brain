@@ -1,4 +1,5 @@
 ---
+address: c-000046
 type: synthesis
 title: "Research: Agentic Loop Engineering"
 created: 2026-06-24

@@ -1,4 +1,5 @@
 ---
+address: c-000023
 type: concept
 title: "Repository as System of Record"
 complexity: intermediate

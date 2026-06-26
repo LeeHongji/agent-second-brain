@@ -1,4 +1,5 @@
 ---
+address: c-000008
 type: concept
 title: "Agentic Loop"
 complexity: intermediate

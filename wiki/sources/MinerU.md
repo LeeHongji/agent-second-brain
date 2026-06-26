@@ -1,7 +1,9 @@
 ---
+address: c-000055
 type: source
 created: 2026-06-26
 updated: 2026-06-26
+status: developing
 title: "MinerU: High-accuracy document parsing engine for LLM/RAG/Agent"
 source_type: github_repo
 author: "OpenDataLab (Shanghai AI Lab)"

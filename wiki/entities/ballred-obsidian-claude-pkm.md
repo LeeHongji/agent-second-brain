@@ -1,4 +1,5 @@
 ---
+address: c-000042
 type: entity
 title: "ballred/obsidian-claude-pkm"
 created: 2026-04-08

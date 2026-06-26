@@ -57,7 +57,6 @@ Run `/wiki` to scaffold this vault for your own domain and replace this overview
 ## Canvases
 
 - [[agent-second-brain-presentation]] — Full presentation: hero, overview, skills, architecture, Wiki vs RAG, visual demos (2026-04-07)
-- [[the community Cover Images Canvas]] — Cover image library for the community brand assets
 
 ---
 

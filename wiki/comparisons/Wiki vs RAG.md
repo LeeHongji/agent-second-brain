@@ -1,4 +1,5 @@
 ---
+address: c-000002
 type: comparison
 title: "Wiki vs RAG"
 subjects:

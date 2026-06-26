@@ -1,4 +1,5 @@
 ---
+address: c-000016
 type: concept
 title: "LLM Wiki Pattern"
 complexity: intermediate

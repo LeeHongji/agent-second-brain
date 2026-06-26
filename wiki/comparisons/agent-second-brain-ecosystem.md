@@ -1,4 +1,5 @@
 ---
+address: c-000003
 type: comparison
 title: "Claude + Obsidian Ecosystem: Feature Matrix"
 created: 2026-04-08

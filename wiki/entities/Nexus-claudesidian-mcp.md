@@ -1,4 +1,5 @@
 ---
+address: c-000039
 type: entity
 title: "Nexus (ProfSynapse/claudesidian-mcp)"
 created: 2026-04-08

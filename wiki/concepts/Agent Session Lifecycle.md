@@ -1,4 +1,5 @@
 ---
+address: c-000007
 type: concept
 title: "Agent Session Lifecycle"
 complexity: intermediate

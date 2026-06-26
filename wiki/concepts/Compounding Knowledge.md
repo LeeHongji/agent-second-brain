@@ -1,4 +1,5 @@
 ---
+address: c-000011
 type: concept
 title: "Compounding Knowledge"
 complexity: basic

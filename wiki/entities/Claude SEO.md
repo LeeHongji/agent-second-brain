@@ -1,4 +1,5 @@
 ---
+address: c-000037
 type: entity
 title: "Claude SEO"
 created: 2026-04-14

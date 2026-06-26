@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Dashboard"
-updated: 2026-04-08
+updated: 2026-06-26
 tags:
   - meta
   - dashboard

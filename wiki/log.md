@@ -19,6 +19,13 @@ Navigation: [[index]] | [[hot]] | [[overview]]
 
 Append-only. New entries go at the TOP. Never edit past entries.
 
+## [2026-06-26] lint | full vault health check + DragonScale enabled
+- Report: [[lint-report-2026-06-26]]
+- Result: 0 orphans, 0 BLOCKER/HIGH. 4 MEDIUM auto-fixed (MinerU `status`, `?` dead-link in 3 concept pages, overview rebrand-artifact line).
+- **DragonScale enabled**: installed `flock` (Homebrew `util-linux`, symlinked to PATH); `allocate-address.sh` + `wiki-lock.sh` now functional. Backfilled **58 addresses** (c-000002…c-000059); counter=60, 0 dupes, 0 drift. Address map in `.raw/.manifest.json`.
+- Remaining (LOW, deferred): historical dead links in original-project marketing notes; `_index` basename x3.
+- Env: ollama still absent → semantic tiling skipped.
+
 ## [2026-06-26] ingest | MinerU
 - Source: `.raw/articles/mineru-2026-06-26.md` · repo https://github.com/opendatalab/MinerU (v3.4)
 - Summary: [[MinerU]]

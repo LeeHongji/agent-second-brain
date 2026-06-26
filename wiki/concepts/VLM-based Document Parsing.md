@@ -1,4 +1,5 @@
 ---
+address: c-000031
 type: concept
 title: "VLM-based Document Parsing"
 complexity: advanced

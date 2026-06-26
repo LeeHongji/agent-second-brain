@@ -1,4 +1,5 @@
 ---
+address: c-000033
 type: concept
 title: "Verification-Gated Completion"
 complexity: intermediate
