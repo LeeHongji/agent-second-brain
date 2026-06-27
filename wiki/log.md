@@ -19,6 +19,15 @@ Navigation: [[index]] | [[hot]] | [[overview]]
 
 Append-only. New entries go at the TOP. Never edit past entries.
 
+## [2026-06-27] upgrade | web-access 抽取学习闭环(失败重试记录 + 迭代)
+- 落地"按真实成败迭代 skill"的机制(web-access 用户级 skill,不入仓库):
+  - NEW `references/retry-playbook.md`:症状→恢复表(连接层 / 平台层 / 通用降级链)。
+  - NEW `references/extraction-log.md`:append-only 真实抽取记录,已用今天的小红书成功 + CDP 调试链播种。
+  - 迭代 `site-patterns/xiaohongshu.com.md`:实测验证选择器(带 token 直链可直接 CDP 开、正文限定 `#noteContainer`)。
+  - SKILL.md「站点经验」串成闭环:抽前读 log/pattern → 失败查 playbook → 抽后追加 log + 沉淀 pattern。
+- 本仓库:更新 [[site-patterns]](小红书验证选择器 + Learning loop 段)。
+- 目的:后续抽取复用已验证解法、失败快速恢复,加速成功。
+
 ## [2026-06-27] fix | CDP verified working (debug-Chrome profile + proxy patch)
 - **结论**:`chrome://inspect` 的 "Allow remote debugging" toggle 在 Chrome 149(默认 profile)上**不可用** —— M136+ 安全限制静默忽略默认 profile 的 remote debugging。`--remote-debugging-port` flag 同样被默认 profile 忽略(写 DevToolsActivePort 但不开端口)。
 - **可用方案**:**专用 debug Chrome profile**(`~/.web-access-chrome-profile`,9222),与主 Chrome 并存 → 既是可靠的 CDP 端口,又是天然的**小号**隔离(automation 账号不碰主号)。启动脚本:`bash bin/launch-debug-chrome.sh`。
