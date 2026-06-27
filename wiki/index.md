@@ -23,7 +23,7 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-06-26 | Total pages: 55 | Sources ingested: 9
+Last updated: 2026-06-28 | Total pages: 64 | Sources ingested: 10
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 
@@ -63,6 +63,11 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[Document Parsing]] — documents (PDF/Office/images) → structured Markdown/JSON; the ingestion front-end for LLM/RAG pipelines (status: developing, 2026-06-26)
 - [[VLM-based Document Parsing]] — single VLM reads a page end-to-end vs traditional pipeline; pipeline/VLM/hybrid tradeoffs (status: developing, 2026-06-26)
 - [[Math Formula Recognition]] — detect formulas + transcribe image→LaTeX; the sub-task that makes scientific PDFs machine-readable (status: developing, 2026-06-26)
+- [[Agent-Native Applications]] — apps where agent + UI are equal citizens sharing one DB/state; "click it or ask it" (Builder.io) (status: developing, 2026-06-28)
+- [[Unified Action Primitive]] — one definition = agent tool + HTTP endpoint + validation + UI-refresh signal (defineAction) (status: developing, 2026-06-28)
+- [[Agent-to-Agent Communication]] — A2A: agents discover/call agents across apps; same-origin → zero-config (status: developing, 2026-06-28)
+- [[Self-Modifying Applications]] — apps whose agent edits their own source (components/routes/styles); improve themselves (status: developing, 2026-06-28)
+- [[Agent Runtime Tools]] — sandboxed Alpine.js mini-apps the agent creates at runtime, no source changes/migrations (status: developing, 2026-06-28)
 
 ---
 
@@ -78,6 +83,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[Claude SEO]] — Tier 4 Claude Code skill for SEO analysis; 23 skills, 17 agents, 30 scripts at v1.9.0 (status: evergreen)
 - [[OpenDataLab]] — Shanghai AI Lab's open data platform; org behind MinerU + OmniDocBench + PDF-Extract-Kit (status: developing, 2026-06-26)
 - [[OmniDocBench]] — OpenDataLab's end-to-end document-parsing benchmark; the yardstick MinerU et al. report against (status: developing, 2026-06-26)
+- [[Builder.io]] — software co. behind Agent-Native, Qwik, Mitosis; frontend-pedigree agent framework (status: developing, 2026-06-28)
 
 ---
 
@@ -94,6 +100,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[Learn-Harness-Engineering]] — 2026-06-25 | WalkingLabs course (12 lectures + 6 projects); harness = env that makes agents reliable; Anthropic $9→$200 experiment; 6 concept pages spun off
 - [[Ian-Xiaohei-Illustrations]] — 2026-06-25 | 🎨 blog 配图 tool: Ian 的「小黑」中文文章配图 Codex Skill; 16:9 手绘白底怪诞风; 写 blog 时用作正文配图
 - [[MinerU]] — 2026-06-26 | OpenDataLab document parsing engine; PDF/Office→Markdown/JSON; 3 backends (pipeline 86 / vlm 95 / hybrid 95 on OmniDocBench); MCP + RAG integration; 3 concept + 2 entity pages spun off
+- [[Agent-Native]] — 2026-06-28 | Builder.io framework for agent-native apps (agent+UI equal citizens, shared SQL state); defineAction unified primitive; A2A; self-modifying; runtime tools; 5 concept + 1 entity pages spun off
 
 ---
 

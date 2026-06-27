@@ -19,6 +19,14 @@ Navigation: [[index]] | [[hot]] | [[overview]]
 
 Append-only. New entries go at the TOP. Never edit past entries.
 
+## [2026-06-28] ingest | BuilderIO/agent-native
+- Source: `.raw/articles/agent-native-2026-06-28.md` · https://github.com/BuilderIO/agent-native( studied via zread: README + AGENTS.md + `packages/core/src/action.ts` + package.json;全量 clone 跳过 ~121MB)
+- Summary: [[Agent-Native Applications|Agent-Native]]
+- Pages created: [[Agent-Native Applications|Agent-Native]](source), [[Builder.io]](entity), [[Agent-Native Applications]], [[Unified Action Primitive]], [[Agent-to-Agent Communication]], [[Self-Modifying Applications]], [[Agent Runtime Tools]](5 concepts)
+- Pages updated: [[index]], [[hot]], [[log]]
+- Key insight: Agent-native is the **application layer** for this vault's agent-layer patterns — agent+UI 共享 SQL/state、`defineAction` 一份定义同时是 agent tool + HTTP endpoint + 校验 + UI 刷新信号("click it or ask it"的字面实现)。还学到两条生产级教训(2026-04-21 改写 DB 清空线上数据、2026-04-28 缺 accessFilter 致跨用户数据泄露,均已被 CI guard 拦)。
+- ⚠️ 修复:`.vault-meta/address-counter.txt` 在历史改写/远端 reset 后被回退到旧值(bash 写不触发 auto-commit hook),导致本轮首次分配的 c-000003..09 与既有页冲突 → `allocate-address.sh --rebuild` 重建后用 c-000062..068。根因(counter 改动不进 commit)待修。
+
 ## [2026-06-27] upgrade | web-access 抽取学习闭环(失败重试记录 + 迭代)
 - 落地"按真实成败迭代 skill"的机制(web-access 用户级 skill,不入仓库):
   - NEW `references/retry-playbook.md`:症状→恢复表(连接层 / 平台层 / 通用降级链)。

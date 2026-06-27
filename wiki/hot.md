@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-06-26
+updated: 2026-06-28
 tags:
   - meta
   - hot-cache
@@ -18,6 +18,8 @@ related:
 Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Last Updated
+
+2026-06-28. **Ingested [[Agent-Native Applications|Agent-Native]]** (Builder.io) — framework for agent-native apps: **agent + UI as equal citizens** sharing one SQL DB/state; `defineAction` as the unified action primitive (one def = agent tool + HTTP endpoint + validation + UI-refresh); A2A; self-modifying apps; runtime tools. It's the **application-layer** realization of this vault's agent-layer patterns ([[Agentic Loop]], [[Augmented LLM]], [[Context Engineering]], [[Harness Engineering]]). 5 concept + 1 entity pages.
 
 2026-06-26. **Ingested [[MinerU]]** (opendatalab/MinerU v3.4) — the canonical document→Markdown/JSON parsing engine for LLM/RAG/Agent pipelines. Spawned [[Document Parsing]], [[VLM-based Document Parsing]], [[Math Formula Recognition]] + entities [[OpenDataLab]], [[OmniDocBench]]. This is the **ingestion-tooling** front-end: how PDFs/papers/books would enter this vault.
 
