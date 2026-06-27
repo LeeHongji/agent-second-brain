@@ -8,7 +8,7 @@ description: >
   Triggers on: "/autoresearch", "autoresearch", "research [topic]", "deep dive into [topic]",
   "investigate [topic]", "find everything about [topic]", "research and file",
   "go research", "build a wiki on".
-allowed-tools: Read Write Edit Glob Grep WebFetch WebSearch
+allowed-tools: Read Write Edit Glob Grep Bash WebFetch WebSearch
 ---
 
 # autoresearch: Autonomous Research Loop
@@ -66,6 +66,26 @@ The Claude Code `WebFetch` tool has built-in defenses against many of these. App
 **4. Failure mode.** If a fetch fails (timeout, 4xx/5xx, content too large, sanitization removed everything), log the URL + reason to `wiki/log.md` and continue the loop. Do NOT abort the whole run. Do NOT silently swallow — every skipped source is a fact the user needs in the synthesis page's "Open Questions" section.
 
 The router (`python3 scripts/wiki-mode.py route`) already sanitizes the topic-derived FILENAME via `safe_name()`. This section adds the second layer: BODY-content hygiene for fetched pages.
+
+---
+
+## Web access substrate (v1.9+: load `web-access`)
+
+The bare `WebSearch`/`WebFetch` tools are US-centric and cannot render JS or carry login state — they fail on Chinese anti-bot platforms (公众号 / 小红书 / 微博 / 知乎). For any fetch in the research loop, **first load the `web-access` skill** and follow its tool selection:
+
+| Need | Tool (per `web-access`) |
+|------|-------------------------|
+| Discover sources | `WebSearch`, curl-to-search-engine, or CDP-driven search |
+| Clean article body | Jina (`r.jina_ai/<url>`) or `defuddle` |
+| JS-rendered / login-gated platforms (`mp.weixin.qq.com`, `xiaohongshu.com`, `weibo.com`, `zhihu.com`) | **CDP** via the `web-access` proxy (`localhost:3456`) — it drives your real Chrome, so it carries your login state |
+| A platform with a shipped site-pattern | Read `~/.claude/skills/web-access/references/site-patterns/<domain>.md` first for known selectors/traps |
+
+Operate via the proxy's HTTP API: `/new` (open a background tab) → `/eval` (extract DOM) → `/scroll` (trigger lazy-load) → `/screenshot` (visual) → `/close` (cleanup). Work only in your own background tabs; never touch the user's existing tabs. Dispatch independent sub-targets to sub-agents (each opens its own tab) to save context.
+
+> [!warning] Write-side gate still applies
+> The **§Web egress hygiene** guards above apply **regardless of fetch method**. Whether content came from `WebFetch`, curl, Jina, or CDP, validate the URL and sanitize the body (strip `<script>`, escape `[[`, reject injected `---`, truncate ~50KB) **before writing to the vault**. CDP does **not** bypass the write-side gate.
+
+If `web-access` is not installed or Chrome remote-debugging is off, degrade gracefully to `WebSearch`/`WebFetch`/`defuddle`, log which sources were unreachable under "Open Questions", and continue.
 
 ---
 
@@ -128,6 +148,24 @@ The boundary score is a heuristic, not an objective measure of what SHOULD be re
 
 ### C. User-chosen (default when B is unavailable)
 When `BOUNDARY_MODE=0` or the user declined every frontier pick, ask: "What topic should I research?"
+
+---
+
+## Pre-research intent clarification (v1.9+)
+
+Before decomposing the topic into search angles, **model the user's intent**. This is the fix for "research that runs the wrong direction."
+
+1. **Restate the goal** in one sentence and define an explicit success criterion: "Done = …". State both back to the user.
+2. **Clarify if ambiguous.** If the topic is broad/ambiguous AND the user did **not** say "直接研究" / "just research" / "skip questions", ask **1-2** focused questions (pick the highest-leverage): scope, time window, stance/perspective, depth, must-include platforms or sources, exclusions. **Two questions max** — do not interrogate.
+3. **Write a Research Brief** (3-6 bullets) and print it:
+   - Goal (1 sentence) + success criterion
+   - 3-5 key angles to cover
+   - Preferred sources / platforms (e.g. "公众号 + 知乎; avoid marketing fluff")
+   - Exclusions / out-of-scope
+   - Depth + page budget
+4. **Use the brief to score sources** during the loop. When the brief conflicts with the default objectives in `references/program.md`, **the brief wins**.
+
+Only after the brief is set, proceed to Round 1 (decompose into angles guided by the brief).
 
 ---
 

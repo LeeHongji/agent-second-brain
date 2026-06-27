@@ -83,3 +83,7 @@ After staging changes for a non-trivial workstream but BEFORE running `git commi
 If you configured the MCP server, Claude can read and write vault notes directly.
 See `skills/wiki/references/mcp-setup.md` for setup instructions.
 
+## Web access substrate (v1.9+)
+
+`autoresearch` and `wiki-ingest` (URL ingestion) depend on the **`web-access`** skill (user-scope, `~/.claude/skills/web-access`, by 一泽Eze — https://github.com/eze-is/web-access). It provides auto tool selection (WebSearch / curl / Jina / **CDP browser**) and lets the research/ingest loops reach JS-rendered, login-gated Chinese platforms (公众号 / 小红书 / 微博 / 知乎) that bare `WebFetch` cannot. Setup + the CDP one-time toggle + 小号 warning: [wiki/references/web-access-setup.md](wiki/references/web-access-setup.md); per-platform selectors: [wiki/references/site-patterns.md](wiki/references/site-patterns.md). The autoresearch §Web egress hygiene write-side gate still applies to all fetched content regardless of method.
+

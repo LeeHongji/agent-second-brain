@@ -120,8 +120,10 @@ Trigger: user passes a URL starting with `https://`.
 
 Steps:
 
-1. **Fetch** the page using WebFetch.
-2. **Clean** (optional): if `defuddle` is available (`which defuddle 2>/dev/null`), run `defuddle [url]` to strip ads, nav, and clutter. Typically saves 40-60% tokens. Fall back to raw WebFetch output if not installed.
+1. **Route the fetch by platform.**
+   - **Default**: `WebFetch` the page.
+   - **Anti-bot / JS-rendered / login-gated platforms** — host ∈ {`mp.weixin.qq.com`, `xiaohongshu.com`, `weibo.com`, `zhihu.com`} — **OR** when `WebFetch` returns thin/empty content: **load the `web-access` skill** and fetch via **CDP** (the `localhost:3456` proxy: `/new` → `/scroll` → `/eval` to extract the article body). CDP drives the user's real Chrome, so it renders JS and carries login state. Read `~/.claude/skills/web-access/references/site-patterns/<domain>.md` first if it exists for known selectors/traps.
+2. **Clean** (optional): for article-style content, if `defuddle` is available (`which defuddle 2>/dev/null`), run `defuddle [url]` (or pipe the CDP-extracted HTML through it) to strip ads/nav/clutter — saves 40-60% tokens. For CDP-fetched platform content the step-1 DOM extraction usually already isolates the body; skip defuddle if it is already clean. Fall back to raw fetched output if defuddle is not installed.
 3. **Derive slug** from the URL path (last segment, lowercased, spaces→hyphens, strip query strings).
 4. **Save** to `.raw/articles/[slug]-[YYYY-MM-DD].md` with a frontmatter header:
    ```markdown

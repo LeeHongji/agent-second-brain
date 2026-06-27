@@ -17,6 +17,23 @@ Default objectives for every research session:
 
 ---
 
+## Intent Modeling
+
+Every run starts by building a **Research Brief** with the user (see the autoresearch skill's "Pre-research intent clarification"). Template:
+
+- **Goal**: [one sentence — what the user actually wants to know]
+- **Success criterion**: [Done = …]
+- **Key angles**: [3-5 distinct facets to cover]
+- **Preferred sources / platforms**: [e.g. 公众号, 知乎, arXiv, official docs; or "primary sources only"]
+- **Exclusions**: [what to ignore]
+- **Depth / budget**: [e.g. 2 rounds, ≤10 pages]
+
+The brief **overrides** the default Search Objectives above when they conflict. If the user says "直接研究" / "just research", skip the clarifying questions and infer the brief from the topic alone — but still write it down.
+
+For Chinese-platform topics (公众号 / 小红书 / 微博 / 知乎), note in the brief that the `web-access` CDP path is preferred for fetching (see the skill's "Web access substrate" section).
+
+---
+
 ## Confidence Scoring
 
 Label every claim with confidence when filing:

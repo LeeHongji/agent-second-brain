@@ -19,7 +19,13 @@ Navigation: [[index]] | [[hot]] | [[overview]]
 
 Append-only. New entries go at the TOP. Never edit past entries.
 
-## [2026-06-26] lint | full vault health check + DragonScale enabled
+## [2026-06-27] upgrade | full-platform web access (adopt web-access + rewire autoresearch/wiki-ingest)
+- Installed **`web-access`** (eze-is, MIT) user-scope (`~/.claude/skills/web-access`) — CDP browser substrate (drives real Chrome → login state + JS render). CDP proxy up at `localhost:3456`; Chrome remote-debugging detected (user仍需点「允许」完成首次授权)。
+- **autoresearch**: added `Bash` tool; new "Web access substrate" section (load web-access → WebSearch/curl/Jina/CDP, 反爬平台走 CDP); new "Pre-research intent clarification" (复述目标 + 模糊时问 1-2 问 + Research Brief 打分). `program.md` 加 Intent Modeling 段。
+- **wiki-ingest** URL path: anti-bot 平台(公众号/小红书/微博/知乎)或 WebFetch 空时走 CDP。
+- **site-patterns**: 写入 web-access 的 `references/site-patterns/`(公众号/小红书/微博/知乎活经验);vault 存精简副本 [[site-patterns]] + setup 文档 [[web-access-setup]]。
+- ⚠️ 风险:小红书/微博自动化有封号风险,建议小号。§Web egress hygiene 写前消毒护栏保留。
+- 下一步(用户):Chrome `chrome://inspect` 点「允许」完成 CDP 授权 → 跑一次 `/autoresearch <公众号/小红书主题>` 验收。
 - Report: [[lint-report-2026-06-26]]
 - Result: 0 orphans, 0 BLOCKER/HIGH. 4 MEDIUM auto-fixed (MinerU `status`, `?` dead-link in 3 concept pages, overview rebrand-artifact line).
 - **DragonScale enabled**: installed `flock` (Homebrew `util-linux`, symlinked to PATH); `allocate-address.sh` + `wiki-lock.sh` now functional. Backfilled **58 addresses** (c-000002…c-000059); counter=60, 0 dupes, 0 drift. Address map in `.raw/.manifest.json`.
