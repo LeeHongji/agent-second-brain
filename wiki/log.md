@@ -19,6 +19,13 @@ Navigation: [[index]] | [[hot]] | [[overview]]
 
 Append-only. New entries go at the TOP. Never edit past entries.
 
+## [2026-06-27] fix | CDP verified working (debug-Chrome profile + proxy patch)
+- **结论**:`chrome://inspect` 的 "Allow remote debugging" toggle 在 Chrome 149(默认 profile)上**不可用** —— M136+ 安全限制静默忽略默认 profile 的 remote debugging。`--remote-debugging-port` flag 同样被默认 profile 忽略(写 DevToolsActivePort 但不开端口)。
+- **可用方案**:**专用 debug Chrome profile**(`~/.web-access-chrome-profile`,9222),与主 Chrome 并存 → 既是可靠的 CDP 端口,又是天然的**小号**隔离(automation 账号不碰主号)。启动脚本:`bash bin/launch-debug-chrome.sh`。
+- **补丁**:web-access 的 cdp-proxy.mjs fallback 路径有 bug(WS URL 缺 `/<uuid>` → Chrome 404)。已本地 patch `getWebSocketUrl()` 改为从 `/json/version` 取真实 wsUrl。⚠️ web-access 更新会覆盖,需重打或上游。
+- **验证通过**:`curl localhost:3456/health` → `connected:true`;CDP 冒烟 `/new`→`/eval`(拿到 "Example Domain")→`/close` 全链路通。
+- 文档更新:[[web-access-setup]] 改为反映实际可用方案(debug profile,非 toggle)。
+
 ## [2026-06-27] upgrade | full-platform web access (adopt web-access + rewire autoresearch/wiki-ingest)
 - Installed **`web-access`** (eze-is, MIT) user-scope (`~/.claude/skills/web-access`) — CDP browser substrate (drives real Chrome → login state + JS render). CDP proxy up at `localhost:3456`; Chrome remote-debugging detected (user仍需点「允许」完成首次授权)。
 - **autoresearch**: added `Bash` tool; new "Web access substrate" section (load web-access → WebSearch/curl/Jina/CDP, 反爬平台走 CDP); new "Pre-research intent clarification" (复述目标 + 模糊时问 1-2 问 + Research Brief 打分). `program.md` 加 Intent Modeling 段。
