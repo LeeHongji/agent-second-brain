@@ -2,68 +2,55 @@
 type: overview
 title: "Wiki Overview"
 created: 2026-04-07
-updated: 2026-04-07
+updated: 2026-06-28
 tags:
   - meta
   - overview
-status: developing
+status: evergreen
 related:
   - "[[index]]"
   - "[[hot]]"
   - "[[log]]"
   - "[[dashboard]]"
   - "[[LLM Wiki Pattern]]"
-sources:
+  - "[[knowledge-gardening]]"
 ---
 
 # Wiki Overview
 
-Navigation: [[index]] | [[hot]] | [[log]] | [[dashboard]]
+Navigation: [[index]] | [[hot]] | [[log]] | [[dashboard]] | [[knowledge-gardening|🌿 garden]]
 
 ---
 
 ## Purpose
 
-This is the agent-second-brain demo vault. It demonstrates the [[LLM Wiki Pattern]] — a system for building persistent, compounding knowledge bases using Claude and Obsidian.
+This is the **agent-second-brain** vault — a persistent, compounding knowledge base built on the [[LLM Wiki Pattern]] (Claude + Obsidian). Drop any source, ask any question; the wiki grows richer with every session. Unlike RAG, the synthesis, cross-references, and contradiction-flagging are already done — knowledge compounds like interest (see [[Compounding Knowledge]]; verdict in [[Wiki vs RAG]]: wiki wins at <1000 pages).
 
-Run `/wiki` to scaffold this vault for your own domain and replace this overview.
+## State (2026-06-28)
 
----
+- **64 non-meta pages** across **12 ingested sources**, organized into **8 topic clusters (MOCs)**.
+- Last organized by `/wiki-garden organize` on 2026-06-28 (first garden).
 
-## Current Seed Content
+## Cluster map
 
+| Cluster | What it covers |
+|---|---|
+| [[Agent Loops]] | the canonical while-loop + reasoning patterns around it |
+| [[Agent Reliability]] | the harness/environment that makes a frozen LLM reliable (★ keystone) |
+| [[Text-Space Training]] | training a frozen LLM by editing skill/prompt text |
+| [[Agent-Native Architecture]] | apps where agent + UI are equal citizens (Builder.io) |
+| [[Document AI]] | documents → structured Markdown/JSON (MinerU / OpenDataLab) |
+| [[LLM Wiki Design]] | this vault's own knowledge architecture |
+| [[SEO & Search Engineering]] | engineering SEO, not guessing it (Claude SEO origin) |
+| [[Claude + Obsidian Ecosystem]] | neighbor/competitor research + tooling |
 
-**Concepts seeded:**
-- [[LLM Wiki Pattern]] — the core architecture
-- [[Hot Cache]] — session context mechanism
-- [[Compounding Knowledge]] — why the pattern works
+The load-bearing idea: **reliability is an environment property** ([[Agent Reliability]]). The model is smart; the harness makes it reliable. Everything agent-related in the vault radiates from that reframe.
 
-**Entities seeded:**
-- [[Andrej Karpathy]] — originated the pattern
+## How to use this vault
 
-**Sources seeded:**
-- [[agent-second-brain-ecosystem-research]] — 16+ projects, 13 cherry-picks identified (2026-04-08)
+- **Plant**: `ingest [source]` / `/autoresearch [topic]` / `/save` — daily.
+- **Harvest**: ask any question; `/wiki-query` reads the index then drills in.
+- **Tend** (weekly): `/wiki-garden review` (retrospective) + `organize` (regroup index) + `prune` (dedup).
+- **Probe** (when shallow): `/wiki-discuss [[page]]` — multi-agent depth panel.
 
----
-
-## Current State
-
-- Sources ingested: 2
-- Wiki pages: 26
-- Last activity: 2026-04-08 (v1.4.1 shipped, release session filed)
-
----
-
-## Canvases
-
-- [[agent-second-brain-presentation]] — Full presentation: hero, overview, skills, architecture, Wiki vs RAG, visual demos (2026-04-07)
-
----
-
-## Key Themes
-
-**Knowledge compounds.** Unlike RAG, the wiki pre-compiles synthesis. Cross-references are already there. Contradictions are flagged. Every ingest enriches existing pages rather than adding isolated chunks.
-
-**The hot cache is the force multiplier.** A ~500-word file captures recent context. New sessions start with full context at minimal token cost.
-
-**Obsidian is the IDE, Claude is the programmer.** The graph view shows what's connected. The human curates sources and asks questions. Claude writes and maintains everything else.
+Full mental model: [[knowledge-gardening]]. Setup/scaffold: `/wiki`.

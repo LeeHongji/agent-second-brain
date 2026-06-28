@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Sources Index"
-updated: 2026-04-07
+updated: 2026-06-28
 tags:
   - meta
   - index
@@ -11,32 +11,30 @@ related:
   - "[[index]]"
   - "[[log]]"
   - "[[entities/_index]]"
-  - "[[Andrej Karpathy]]"
 ---
 
 # Sources Index
 
 Navigation: [[index]] | [[concepts/_index|Concepts]] | [[entities/_index|Entities]]
 
-All source pages — summaries of ingested documents, transcripts, articles, and data.
+All ingested sources, grouped by the cluster they feed. 12 sources ingested.
 
 ---
 
-## Transcripts
+## Agent Loops
+- [[ReAct - Synergizing Reasoning and Acting]] · [[Braintrust - Canonical Agent Loop]] · [[Anthropic - Multi-Agent Research System]] · [[Anthropic - Building Effective Agents]] · [[The AI Engineer - Single-Agent Patterns]] · [[Galileo - Agent Failure Modes]]
 
+## Agent Reliability
+- [[Learn-Harness-Engineering]]
 
----
+## Text-Space Training
+- [[SkillOpt]]
 
-## Articles
+## Agent-Native Architecture
+- [[Agent-Native]]
 
-<!-- Add article source pages here -->
+## Document AI
+- [[MinerU]]
 
----
-
-## Papers
-
-<!-- Add paper source pages here -->
-
----
-
-## Add new sources here after each ingest.
+## Claude + Obsidian Ecosystem
+- [[agent-second-brain-ecosystem-research]]

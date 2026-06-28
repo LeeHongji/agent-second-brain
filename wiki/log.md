@@ -19,6 +19,16 @@ Navigation: [[index]] | [[hot]] | [[overview]]
 
 Append-only. New entries go at the TOP. Never edit past entries.
 
+## [2026-06-28] garden | organize (first garden)
+- Operation: organize (--commit)
+- Cluster detection: `related:` co-occurrence graph + `domain:` (tiling/ollama unavailable this run)
+- Clusters built: 8 MOCs covering all 64 non-meta pages (0 stragglers)
+  - [[Agent Loops]] (c-000069) · [[Agent Reliability]] (c-000070) · [[Text-Space Training]] (c-000071) · [[Agent-Native Architecture]] (c-000072) · [[Document AI]] (c-000073) · [[LLM Wiki Design]] (c-000074) · [[SEO & Search Engineering]] (c-000075) · [[Claude + Obsidian Ecosystem]] (c-000076)
+- Files written: 8 MOC pages (wiki/mocs/), index.md (regrouped by cluster), overview.md (regenerated), concepts/_index.md + entities/_index.md + sources/_index.md (refreshed)
+- Key change: index.md went from 71 flat bullets → 8 cluster sections with MOCs as hubs. Bidirectional links via MOC `members:` (Obsidian auto-backlinks) — no per-page edits needed.
+- Naming: 4 MOCs use broader hub names to avoid filename collisions with same-name concepts (Harness Engineering→Agent Reliability, Agent-Native Applications→Agent-Native Architecture, Document Parsing→Document AI, LLM Wiki Pattern→LLM Wiki Design).
+- Reversible: all additive; `git revert` restores prior index/overview/_index; MOC pages are new files.
+
 ## [2026-06-28] ingest | BuilderIO/agent-native
 - Source: `.raw/articles/agent-native-2026-06-28.md` · https://github.com/BuilderIO/agent-native( studied via zread: README + AGENTS.md + `packages/core/src/action.ts` + package.json;全量 clone 跳过 ~121MB)
 - Summary: [[Agent-Native Applications|Agent-Native]]
