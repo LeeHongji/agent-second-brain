@@ -108,6 +108,24 @@ Route to the correct operation based on what the user says:
 | "save this", "file this", "/save" | SAVE | `save` |
 | "/autoresearch [topic]", "research [topic]" | AUTORESEARCH | `autoresearch` |
 | "/canvas", "add to canvas", "open canvas" | CANVAS | `canvas` |
+| "garden the wiki", "tidy", "review the wiki", "reorganize", "复盘", "整理 wiki" | GARDEN | `wiki-garden` |
+| "discuss this page", "stress-test", "这页太浅", "深入讨论" | DISCUSS | `wiki-discuss` |
+
+---
+
+## Garden status (v1.10+: progressive disclosure)
+
+When the user invokes `/wiki` with no specific operation, surface garden staleness as a one-line nudge. Read `.vault-meta/garden-state.json` (absent → "never gardened"):
+
+```bash
+[ -f .vault-meta/garden-state.json ] && cat .vault-meta/garden-state.json || echo '{"never": true}'
+```
+
+If `last_review` (or `last_organize`) is older than 14 days, or the file is absent, print one line:
+
+> 🌿 Wiki hasn't been gardened in N days (or: ever). Run `/wiki-garden` to review + regroup the index.
+
+This is the only auto-surfaced nudge — it is how the user remembers to tend the vault without memorizing a cadence. Do not nudge if the user asked for a specific operation.
 
 ---
 

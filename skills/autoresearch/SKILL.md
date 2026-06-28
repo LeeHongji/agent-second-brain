@@ -194,6 +194,20 @@ Max rounds: 3 (as set in program.md). Stop when depth is reached or max rounds h
 
 ---
 
+## Depth panel (v1.10+: load `wiki-discuss`)
+
+When the user passes `--deep` (or the pre-research Research Brief marked depth = high), run a multi-agent panel on the synthesis BEFORE filing it. This catches shallow conclusions and unresolved contradictions a single synthesis pass misses.
+
+When triggered (`--deep`):
+1. After the Research Loop completes, before writing `wiki/questions/Research: <Topic>.md`, **load the `wiki-discuss` skill**.
+2. It dispatches read-only panelists (skeptic / depth-prober / connector — see [`skills/wiki-discuss/SKILL.md`](../wiki-discuss/SKILL.md) + [`agents/wiki-panelist.md`](../../agents/wiki-panelist.md)) against the synthesis's key findings.
+3. The Moderator's Discussion Digest is folded into the synthesis page: Key Findings get revised confidence; unresolved tensions become `> [!gap]` / `> [!contradiction]` sections; new cross-references are added.
+4. State the token cost up front (~3 sub-agents). The panel does NOT raise the `max_pages` budget in `references/program.md`.
+
+When NOT triggered (default): autoresearch is single-agent synthesis, unchanged. The panel is opt-in.
+
+---
+
 ## Filing Results
 
 After research is complete, create these pages:

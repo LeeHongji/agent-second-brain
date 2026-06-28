@@ -132,3 +132,6 @@ _attachments/
 # v1.8 methodology mode (host-specific by default; `git add -f` to commit if desired)
 .vault-meta/mode.json
 .vault-meta/mode.*.tmp
+
+# v1.10 wiki-garden runtime state (regenerable; bash-written so it would desync like counter.txt)
+.vault-meta/garden-state.json

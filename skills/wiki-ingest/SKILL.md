@@ -243,6 +243,22 @@ Do not silently overwrite old claims. Flag and let the user decide.
 
 ---
 
+## Depth panel (v1.10+: load `wiki-discuss`)
+
+When the user says `深入` / `deep` / `仔细` (or explicitly asks for depth), the ingest runs a multi-agent panel on the source's key claims BEFORE writing concept pages. This fixes shallow "transcription, not understanding" ingests.
+
+**Trigger detection**: the ingest request contains `深入`, `deep`, `仔细`, or the user says "stress-test / panel / 深挖".
+
+When triggered:
+1. After reading the source (Single Source Ingest step 1) and identifying its 2-4 load-bearing claims, **load the `wiki-discuss` skill**.
+2. It dispatches read-only panelists (skeptic / depth-prober / connector — see [`skills/wiki-discuss/SKILL.md`](../wiki-discuss/SKILL.md) + [`agents/wiki-panelist.md`](../../agents/wiki-panelist.md)) against those claims.
+3. The Moderator's Discussion Digest is appended to the **source page**; concept pages are written to reflect resolved depth (revised confidence, surfaced mechanism, new cross-references from the connector lens).
+4. State the token cost up front (~3 sub-agents). Do NOT run on trivial/short sources even if the flag is set — say "source too thin for a panel" and skip.
+
+When NOT triggered (default): ingest is single-agent and exactly as fast as before. The panel is opt-in.
+
+---
+
 ## What Not to Do
 
 - **Source files under `.raw/` are immutable.** Do not modify the files that users drop there (articles, transcripts, images). The `.raw/.manifest.json` delta tracker and its `address_map` (DragonScale Mechanism 2) are the only files under `.raw/` that `wiki-ingest` itself maintains. Treat every other file under `.raw/` as read-only source content.

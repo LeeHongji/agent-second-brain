@@ -3,7 +3,7 @@
 This folder is both a Claude Code plugin and an Obsidian vault.
 
 **Plugin name:** `agent-second-brain` (v1.7+ "Compound Vault" — see [docs/compound-vault-guide.md](docs/compound-vault-guide.md); v1.8+ adds methodology modes — see [docs/methodology-modes-guide.md](docs/methodology-modes-guide.md))
-**Skills:** `/wiki`, `/wiki-ingest`, `/wiki-query`, `/wiki-lint`, `/wiki-cli` (v1.7), `/wiki-retrieve` (v1.7, opt-in), `/wiki-mode` (v1.8)
+**Skills:** `/wiki`, `/wiki-ingest`, `/wiki-query`, `/wiki-lint`, `/wiki-cli` (v1.7), `/wiki-retrieve` (v1.7, opt-in), `/wiki-mode` (v1.8), `/wiki-garden`, `/wiki-discuss` (v1.10)
 **Vault path:** This directory (open in Obsidian directly)
 
 ## What This Vault Is For
@@ -61,6 +61,8 @@ Do NOT read the wiki for general coding questions or things already in this proj
 | `/wiki-retrieve` (v1.7) | Hybrid contextual + BM25 + cosine-rerank retrieval (opt-in via `bash bin/setup-retrieve.sh`) |
 | `/wiki-mode` (v1.8) | Methodology modes (LYT / PARA / Zettelkasten / Generic). Set via `bash bin/setup-mode.sh`; consumed by wiki-ingest / save / autoresearch for routing new pages |
 | `/think` (v1.9) | The 10-principle thinking loop (OBSERVE-OBSERVE-LISTEN-THINK-CONNECT-CONNECT-FEEL-ACCEPT-CREATE-GROW) as an invocable workflow. Apply to architectural decisions, audits, post-mortems, ambiguous user requests. Every other skill has a "How to think" appendix mapping this framework to its specific work |
+| `/wiki-garden` (v1.10) | Periodic structure + retrospective ("tend" verb). `organize` builds the MOC layer + regroups the flat index.md by topic cluster + refreshes stale overview/_index; `review` writes a time-windowed retrospective; `prune` acts on lint/tiling findings (merges, never auto-delete). Dry-run default. `/wiki` nudges after 14 days idle |
+| `/wiki-discuss` (v1.10) | Multi-agent depth panel ("probe" verb — fixes shallow notes). Dispatches 3 read-only panelists (Skeptic / Depth-prober / Connector) against a page or source, then a Moderator appends a Discussion Digest + `> [!gap]` / `> [!contradiction]` callouts. Also triggered by the `深入`/`--deep` flag on wiki-ingest / autoresearch. Panelists are `agents/wiki-panelist.md` |
 
 ## Transport (v1.7+)
 
