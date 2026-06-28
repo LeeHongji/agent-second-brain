@@ -2,21 +2,76 @@
 
 This folder is both a Claude Code plugin and an Obsidian vault.
 
-**Plugin name:** `agent-second-brain` (v1.7+ "Compound Vault" — see [docs/compound-vault-guide.md](docs/compound-vault-guide.md); v1.8+ adds methodology modes — see [docs/methodology-modes-guide.md](docs/methodology-modes-guide.md))
-**Skills:** `/wiki`, `/wiki-ingest`, `/wiki-query`, `/wiki-lint`, `/wiki-cli` (v1.7), `/wiki-retrieve` (v1.7, opt-in), `/wiki-mode` (v1.8), `/wiki-garden`, `/wiki-discuss` (v1.10)
+**Plugin name:** `agent-second-brain` (v1.10 — "Compound Vault" since v1.7; methodology modes v1.8; thinking loop v1.9; **garden + discuss v1.10**)
+**Skills:** `/wiki`, `/wiki-ingest`, `/wiki-query`, `/wiki-lint`, `/wiki-cli` (v1.7), `/wiki-retrieve` (v1.7, opt-in), `/wiki-mode` (v1.8), `/think` (v1.9), `/wiki-garden`, `/wiki-discuss` (v1.10) — **17 skills, 4 agents**
 **Vault path:** This directory (open in Obsidian directly)
 
 ## What This Vault Is For
 
 This vault demonstrates the LLM Wiki pattern — a persistent, compounding knowledge base for Claude + Obsidian. Drop any source, ask any question, and the wiki grows richer with every session.
 
+## Architecture (how the system fits together — read this first)
+
+This is **both a Claude Code plugin** (`skills/` + `agents/` + `scripts/` + `hooks/` + `bin/` + `commands/`) **and an Obsidian vault** (the `wiki/` knowledge base it maintains). A new agent needs five things:
+
+### Three-layer storage
+- **`.raw/`** — immutable sources (gitignored, local only). Read-only. `.raw/.manifest.json` (delta tracker + DragonScale `address_map`) is the only `.raw/` file skills maintain.
+- **`wiki/`** — the knowledge base (the product; tracked in git = your "complete brain").
+- **plugin code** — the machinery that maintains `wiki/`.
+
+### Five component kinds
+- **17 skills** — user-invoked verbs (see Plugin Skills table + 4-verb model below).
+- **4 agents** (`agents/`) — sub-agents dispatched BY skills: `verifier` (pre-commit read-only audit), `wiki-ingest` (batch worker), `wiki-lint` (health worker), `wiki-panelist` (read-only depth critic for `/wiki-discuss`).
+- **`scripts/`** — reusable primitives every skill composes with (don't reinvent):
+  - transport / concurrency / addressing / routing: `detect-transport.sh`, `wiki-lock.sh`, `allocate-address.sh`, `wiki-mode.py`
+  - retrieval: `retrieve.py`, `bm25-index.py`, `rerank.py`, `contextual-prefix.py`
+  - DragonScale scoring: `boundary-score.py`, `tiling-check.py`
+- **`bin/`** — one-time opt-in setup: `setup-vault.sh`, `setup-mode.sh`, `setup-retrieve.sh`, `setup-dragonscale.sh`, `setup-multi-agent.sh`, `launch-debug-chrome.sh`.
+- **`hooks/`** — `SessionStart` (restore hot cache + clear stale locks), `PostCompact` (re-read hot cache), `PostToolUse` (auto-commit `wiki/ .raw/ .vault-meta/` on Write|Edit, **deferred while wiki-locks are held** so multi-file writes produce clean commits).
+
+### Skill taxonomy + the 4-verb mental model
+
+| Functional layer | Verb | Skills |
+|---|---|---|
+| Entry / router | — | `wiki` |
+| Capture | 🌱 **plant** | `wiki-ingest` · `autoresearch` · `save` |
+| Query | 🧺 **harvest** | `wiki-query` |
+| Retrieval substrate | — | `wiki-retrieve` |
+| Organize | — | `wiki-mode` |
+| Maintain | ✂️ **tend** | `wiki-garden` · `wiki-lint` · `wiki-fold` |
+| Depth | 🔍 **probe** | `wiki-discuss` |
+| Transport | — | `wiki-cli` |
+| Syntax / visual substrate | — | `obsidian-markdown` · `obsidian-bases` · `canvas` · `defuddle` |
+| Meta-thinking | — | `think` (10-principle loop; every skill has a "How to think" appendix mapping to it) |
+
+### Data flows
+- 🌱 **Plant**: source → `.raw/` → `ingest`/`autoresearch`/`save` → source/entity/concept pages → update `index.md` + `log.md` + `hot.md`. Routed via `wiki-mode.py route`; writes guarded by `wiki-lock`; addresses via `allocate-address.sh`.
+- 🧺 **Harvest**: question → `hot.md` → `index.md` (grouped by MOC) → optional `retrieve.py` chunks → target pages → synthesized answer with citations.
+- ✂️ **Tend**: `wiki-garden` (`organize` MOC layer + regroup index / `review` retrospective / `prune` dedup) + `wiki-lint` (diagnose) + `wiki-fold` (log rollup). **`wiki-garden` is the only skill that rewrites structure**; it consumes lint+tiling output rather than re-diagnosing.
+- 🔍 **Probe**: `wiki-discuss` dispatches `wiki-panelist` (skeptic / depth-prober / connector) → Moderator → Discussion Digest + `> [!gap]` / `> [!contradiction]`.
+
+### Quick start for a new agent
+1. Read `wiki/hot.md` (recent context) → `wiki/index.md` (catalog, grouped by MOC) → relevant MOC → pages.
+2. Add knowledge: `ingest [source]` / `/autoresearch [topic]` / `/save`. For depth add `深入` (triggers `/wiki-discuss`).
+3. Answer: just ask (or `query:`).
+4. **Before every wiki write**: consult `.vault-meta/transport.json` → `wiki-lock acquire` → route via `python3 scripts/wiki-mode.py route <type>` → allocate `address:` for non-meta pages via `./scripts/allocate-address.sh`.
+5. Before committing non-trivial work: dispatch the `verifier` agent.
+
+Full mental model + when-to-use-which: [`wiki/references/knowledge-gardening.md`](wiki/references/knowledge-gardening.md).
+
 ## Vault Structure
 
 ```
-.raw/           source documents — immutable, Claude reads but never modifies
-wiki/           Claude-generated knowledge base
+.raw/           source documents — immutable, Claude reads but never modifies (gitignored)
+wiki/           Claude-generated knowledge base (the product; in git)
+  ├── index.md / log.md / hot.md / overview.md / getting-started.md   navigation + hot cache + log
+  ├── mocs/        topic-cluster hubs (the hierarchy layer; built by /wiki-garden)
+  ├── concepts/  entities/  sources/     the three core content types (+ _index.md each)
+  ├── meta/        lint/tiling/review reports + dashboard
+  ├── folds/       DragonScale log rollups
+  ├── comparisons/  questions/  references/  canvases/
 _templates/     Obsidian Templater templates
-_attachments/   images and PDFs referenced by wiki pages
+_attachments/   images and PDFs referenced by wiki pages (gitignored)
 ```
 
 ## How to Use
