@@ -19,6 +19,13 @@ Navigation: [[index]] | [[hot]] | [[overview]]
 
 Append-only. New entries go at the TOP. Never edit past entries.
 
+## [2026-06-30] teach | open course: voicebox
+- Course: `course/voicebox/` (first course, opened via `/wiki-teach`)
+- Mission: build a voicebox-style local AI voice app from scratch (Tauri shell + Python FastAPI sidecar + local TTS/cloning/STT models on Apple Silicon; deploy + principles, no training)
+- Created: MISSION.md, PATH.md (10 milestones, M1 active), RESOURCES.md, NOTES.md, lessons/0001-architecture-and-first-run.html, assets/style.css
+- User beachhead: React/TS. New layers: Tauri/Rust, Python backend, local model serving.
+- Not synced to wiki — course is in-progress; `/wiki-teach sync voicebox` runs at completion.
+
 ## [2026-06-28] garden | organize (first garden)
 - Operation: organize (--commit)
 - Cluster detection: `related:` co-occurrence graph + `domain:` (tiling/ollama unavailable this run)

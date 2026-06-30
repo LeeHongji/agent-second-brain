@@ -1,0 +1,82 @@
+/* Voicebox course — shared lesson stylesheet. The first component this workspace earns.
+   Tufte-flavoured: serif, narrow measure, generous leading. Every lesson links this. */
+:root {
+  --ink: #1a1a1a;
+  --soft: #555;
+  --rule: #e5e5e5;
+  --accent: #b04a2f;
+  --bg: #fdfdfb;
+  --code-bg: #f6f5f1;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body {
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  color: var(--ink);
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 6rem;
+  line-height: 1.65;
+  font-size: 18px;
+}
+.kicker {
+  font-family: system-ui, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.4rem;
+}
+h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 0.5rem; }
+h2 { font-size: 1.3rem; margin: 2.2rem 0 0.6rem; }
+h3 { font-size: 1.05rem; margin: 1.6rem 0 0.4rem; }
+p, li { font-size: 1.05rem; }
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+a:hover { border-bottom-color: var(--accent); }
+code, pre {
+  font-family: "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  font-size: 0.88rem;
+}
+code { background: var(--code-bg); padding: 0.1em 0.35em; border-radius: 3px; }
+pre {
+  background: var(--code-bg);
+  padding: 1rem 1.1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+pre code { background: none; padding: 0; }
+.win {
+  border-left: 3px solid var(--accent);
+  background: #faf7f4;
+  padding: 0.8rem 1.1rem;
+  margin: 1.4rem 0;
+  border-radius: 0 4px 4px 0;
+}
+.win .kicker { color: var(--accent); margin-bottom: 0.2rem; }
+.followup {
+  border-top: 1px solid var(--rule);
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  color: var(--soft);
+  font-size: 0.95rem;
+}
+.diagram {
+  font-family: "SF Mono", Menlo, monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  white-space: pre;
+  overflow-x: auto;
+}
+nav.lesson-nav {
+  font-family: system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: var(--soft);
+  margin: 0 0 2rem;
+}
+nav.lesson-nav a { color: var(--soft); }
+hr { border: none; border-top: 1px solid var(--rule); margin: 2rem 0; }
+@media print { body { max-width: none; padding: 1.5rem; } }

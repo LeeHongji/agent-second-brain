@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lesson 1 — The sidecar shape of voicebox</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <nav class="lesson-nav">voicebox course · M1 · <a href="../MISSION.md">mission</a> · <a href="../PATH.md">path</a></nav>
+  <p class="kicker">Lesson 1 · Milestone 1</p>
+  <h1>The sidecar shape of voicebox</h1>
+
+  <p>You already know React. Good — because voicebox's user interface <em>is</em> a React app. The thing that makes voicebox <strong>voicebox</strong> is everything <em>around</em> that UI: a desktop shell that bundles a Python server, and that server runs the AI voice models. This lesson fixes the single most important idea in the course — <strong>the sidecar architecture</strong> — and gets the app running on your Mac so every later lesson has a real thing to point at.</p>
+
+  <h2>The one diagram to memorize</h2>
+  <p>Three processes, one app. The front-end you'd write today; the other two are what you're here to learn.</p>
+
+  <div class="diagram">┌──────────────────────────────────────────────────────────┐
+│                    TAURI DESKTOP APP                      │
+│                                                            │
+│   ┌──────────────┐                  ┌───────────────────┐ │
+│   │  React UI    │   Tauri IPC      │  Rust (src-tauri)  │ │
+│   │  app/ + web/ │◄────────────────►│  window · tray ·   │ │
+│   │  (you know   │                  │  hotkey · spawns ──┼─┐
+│   │   this part) │                  │  sidecar           │ │
+│   └──────────────┘                  └───────────────────┘ │ │
+└──────────────────────────────────────────────────────────┘ │
+                                                              │ launch + manage
+                                                              ▼
+   ┌──────────────────────────────────────────────────────────┐
+   │        PYTHON SIDECAR  (FastAPI · uvicorn · :17493)       │
+   │   backend/  routes · services · backends · database       │
+   │                │                                          │
+   │                ▼  loads + runs                            │
+   │   torch · MLX  ──►  7 TTS engines · STT · cloning · LLM   │
+   └──────────────────────────────────────────────────────────┘
+                 (bundled as a binary via PyInstaller — M9)</div>
+
+  <p>Read it as a request flowing right-to-left for output: <strong>UI asks the Rust shell → Rust calls the Python sidecar over HTTP on port 17493 → Python runs the model → audio streams back to the UI.</strong> Input (dictation) is the reverse. Two languages (Rust, Python) plus the React you know — glued by a localhost HTTP boundary.</p>
+
+  <h2>The monorepo map</h2>
+  <p>voicebox is a Bun workspace. Match each folder to the diagram:</p>
+  <ul>
+    <li><code>app/</code> + <code>web/</code> — the React + Vite UI (your beachhead).</li>
+    <li><code>tauri/</code> (<code>src/</code> = Tauri-bound front-end, <code>src-tauri/</code> = Rust shell) — the desktop wrapper.</li>
+    <li><code>backend/</code> — the Python FastAPI sidecar (models, routes, services). <strong>This is where the AI lives.</strong></li>
+    <li><code>landing/</code> — marketing site. Out of scope for us.</li>
+    <li><code>scripts/</code> + <code>justfile</code> — build orchestration (sidecar build, dev, release).</li>
+  </ul>
+
+  <h2>Run it</h2>
+  <p>You already have the repo at <code>/Users/hongji/voicebox</code>. The project ships a <code>justfile</code> as its canonical orchestrator.</p>
+  <pre><code>cd /Users/hongji/voicebox
+just setup      # python venv + js deps (+ sidecar prereqs)
+just dev        # ensure venv + sidecar, then `tauri dev`</code></pre>
+  <p>If you don't have <a href="https://tauri.app/start/prerequisites/" target="_blank" rel="noopener">Tauri's prerequisites</a> or <code>just</code>/<code>bun</code> yet, that's expected — getting them installed is part of M1's setup, and exactly the kind of thing to ask me about. As a lighter first look (UI only, no shell/models):</p>
+  <pre><code>bun run dev:web   # just the React UI, in a browser</code></pre>
+
+  <div class="win">
+    <p class="kicker">Your tangible win</p>
+    <p><code>just dev</code> opens the voicebox window. You see the React UI you could have written, hosted by a Rust shell you couldn't — yet. Type some text, pick a voice, hear it speak. Then close your laptop and draw the sidecar diagram above from memory. If you can do both, M1 is done: you know <em>what</em> voicebox is and <em>where</em> each later lesson lives inside it.</p>
+  </div>
+
+  <h2>Primary source for this lesson</h2>
+  <p>Skim the <a href="https://docs.voicebox.sh" target="_blank" rel="noopener">voicebox overview docs</a> and the in-tree <code>backend/README.md</code>. You're not studying features yet — you're confirming the three-process shape against the real code.</p>
+
+  <p class="followup">This is a conversation, not a lecture. Ask me anything before we move on — e.g. <em>"why a sidecar instead of running Python inside Rust?"</em>, <em>"what's IPC vs HTTP and why are both here?"</em>, or <em>"it broke when I ran just dev"</em>. When you can draw the diagram and you've heard it speak, say <strong>ready</strong> and we'll start M2: the Tauri shell itself.</p>
+</body>
+</html>
