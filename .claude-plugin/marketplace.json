@@ -7,14 +7,14 @@
   },
   "metadata": {
     "description": "agent-second-brain: a self-organizing AI second brain for Obsidian + Claude Code. A persistent, compounding wiki vault of plain Markdown you own, based on Karpathy's LLM Wiki pattern.",
-    "version": "1.10.0"
+    "version": "1.11.0"
   },
   "plugins": [
     {
       "name": "agent-second-brain",
       "source": "./",
       "description": "Claude + Obsidian knowledge companion. Ships: default Obsidian CLI transport, hybrid retrieval (Anthropic Sept 2024 contextual retrieval pattern: BM25 + cosine rerank), per-file advisory locking for multi-writer safety, pre-commit verifier agent, and methodology modes (LYT / PARA / Zettelkasten / Generic). Optional DragonScale Memory extension. Pairs with kepano/obsidian-skills (recommended) for canonical Obsidian primitives.",
-      "version": "1.10.0",
+      "version": "1.11.0",
       "author": {
         "name": "LeeHongji",
         "url": "https://github.com/LeeHongji"

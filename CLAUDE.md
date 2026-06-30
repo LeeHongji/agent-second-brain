@@ -2,8 +2,8 @@
 
 This folder is both a Claude Code plugin and an Obsidian vault.
 
-**Plugin name:** `agent-second-brain` (v1.10 — "Compound Vault" since v1.7; methodology modes v1.8; thinking loop v1.9; **garden + discuss v1.10**)
-**Skills:** `/wiki`, `/wiki-ingest`, `/wiki-query`, `/wiki-lint`, `/wiki-cli` (v1.7), `/wiki-retrieve` (v1.7, opt-in), `/wiki-mode` (v1.8), `/think` (v1.9), `/wiki-garden`, `/wiki-discuss` (v1.10) — **17 skills, 4 agents**
+**Plugin name:** `agent-second-brain` (v1.11 — "Compound Vault" since v1.7; methodology modes v1.8; thinking loop v1.9; garden + discuss v1.10; **wiki-teach v1.11**)
+**Skills:** `/wiki`, `/wiki-ingest`, `/wiki-query`, `/wiki-lint`, `/wiki-cli` (v1.7), `/wiki-retrieve` (v1.7, opt-in), `/wiki-mode` (v1.8), `/think` (v1.9), `/wiki-garden`, `/wiki-discuss` (v1.10), `/wiki-teach` (v1.11) — **18 skills, 4 agents**
 **Vault path:** This directory (open in Obsidian directly)
 
 ## What This Vault Is For
@@ -20,7 +20,7 @@ This is **both a Claude Code plugin** (`skills/` + `agents/` + `scripts/` + `hoo
 - **plugin code** — the machinery that maintains `wiki/`.
 
 ### Five component kinds
-- **17 skills** — user-invoked verbs (see Plugin Skills table + 4-verb model below).
+- **18 skills** — user-invoked verbs (see Plugin Skills table + 4-verb model below).
 - **4 agents** (`agents/`) — sub-agents dispatched BY skills: `verifier` (pre-commit read-only audit), `wiki-ingest` (batch worker), `wiki-lint` (health worker), `wiki-panelist` (read-only depth critic for `/wiki-discuss`).
 - **`scripts/`** — reusable primitives every skill composes with (don't reinvent):
   - transport / concurrency / addressing / routing: `detect-transport.sh`, `wiki-lock.sh`, `allocate-address.sh`, `wiki-mode.py`
@@ -35,6 +35,7 @@ This is **both a Claude Code plugin** (`skills/` + `agents/` + `scripts/` + `hoo
 |---|---|---|
 | Entry / router | — | `wiki` |
 | Capture | 🌱 **plant** | `wiki-ingest` · `autoresearch` · `save` |
+| Learn (course) | 🌱 **plant** | `wiki-teach` (multi-session course → sync to wiki) |
 | Query | 🧺 **harvest** | `wiki-query` |
 | Retrieval substrate | — | `wiki-retrieve` |
 | Organize | — | `wiki-mode` |
@@ -45,7 +46,7 @@ This is **both a Claude Code plugin** (`skills/` + `agents/` + `scripts/` + `hoo
 | Meta-thinking | — | `think` (10-principle loop; every skill has a "How to think" appendix mapping to it) |
 
 ### Data flows
-- 🌱 **Plant**: source → `.raw/` → `ingest`/`autoresearch`/`save` → source/entity/concept pages → update `index.md` + `log.md` + `hot.md`. Routed via `wiki-mode.py route`; writes guarded by `wiki-lock`; addresses via `allocate-address.sh`.
+- 🌱 **Plant**: source → `.raw/` → `ingest`/`autoresearch`/`save` → source/entity/concept pages → update `index.md` + `log.md` + `hot.md`. Routed via `wiki-mode.py route`; writes guarded by `wiki-lock`; addresses via `allocate-address.sh`. **Learn variant**: `/wiki-teach <topic>` runs a multi-session course under `course/<slug>/` (MISSION/PATH/lessons/learning-records); `/wiki-teach sync` distills its decision-grade insights into wiki concept pages.
 - 🧺 **Harvest**: question → `hot.md` → `index.md` (grouped by MOC) → optional `retrieve.py` chunks → target pages → synthesized answer with citations.
 - ✂️ **Tend**: `wiki-garden` (`organize` MOC layer + regroup index / `review` retrospective / `prune` dedup) + `wiki-lint` (diagnose) + `wiki-fold` (log rollup). **`wiki-garden` is the only skill that rewrites structure**; it consumes lint+tiling output rather than re-diagnosing.
 - 🔍 **Probe**: `wiki-discuss` dispatches `wiki-panelist` (skeptic / depth-prober / connector) → Moderator → Discussion Digest + `> [!gap]` / `> [!contradiction]`.
@@ -63,6 +64,7 @@ Full mental model + when-to-use-which: [`wiki/references/knowledge-gardening.md`
 
 ```
 .raw/           source documents — immutable, Claude reads but never modifies (gitignored)
+course/         learning workspaces — one subdir per domain (wiki-teach); /wiki-teach sync distills insights into wiki/
 wiki/           Claude-generated knowledge base (the product; in git)
   ├── index.md / log.md / hot.md / overview.md / getting-started.md   navigation + hot cache + log
   ├── mocs/        topic-cluster hubs (the hierarchy layer; built by /wiki-garden)
@@ -118,6 +120,7 @@ Do NOT read the wiki for general coding questions or things already in this proj
 | `/think` (v1.9) | The 10-principle thinking loop (OBSERVE-OBSERVE-LISTEN-THINK-CONNECT-CONNECT-FEEL-ACCEPT-CREATE-GROW) as an invocable workflow. Apply to architectural decisions, audits, post-mortems, ambiguous user requests. Every other skill has a "How to think" appendix mapping this framework to its specific work |
 | `/wiki-garden` (v1.10) | Periodic structure + retrospective ("tend" verb). `organize` builds the MOC layer + regroups the flat index.md by topic cluster + refreshes stale overview/_index; `review` writes a time-windowed retrospective; `prune` acts on lint/tiling findings (merges, never auto-delete). Dry-run default. `/wiki` nudges after 14 days idle |
 | `/wiki-discuss` (v1.10) | Multi-agent depth panel ("probe" verb — fixes shallow notes). Dispatches 3 read-only panelists (Skeptic / Depth-prober / Connector) against a page or source, then a Moderator appends a Discussion Digest + `> [!gap]` / `> [!contradiction]` callouts. Also triggered by the `深入`/`--deep` flag on wiki-ingest / autoresearch. Panelists are `agents/wiki-panelist.md` |
+| `/wiki-teach` (v1.11) | Learn a domain as a structured multi-session course ("plant" learn variant). Project-scoped adoption of the global `teach` methodology (MISSION / RESOURCES / HTML lessons / learning-records / GLOSSARY / zone of proximal development). Workspace fixed to `course/<slug>/`; adds a PATH.md learning plan + progress tracking; `/wiki-teach sync` promotes decision-grade insights into the wiki (concept pages + a course source page). Does not touch the global `/teach` skill |
 
 ## Transport (v1.7+)
 

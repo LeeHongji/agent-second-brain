@@ -1,6 +1,6 @@
 {
   "name": "agent-second-brain",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "description": "Claude + Obsidian knowledge companion. Sets up a persistent, compounding wiki vault (Karpathy's LLM Wiki pattern). Ships: default Obsidian CLI transport, hybrid retrieval (contextual prefix + BM25 + cosine rerank per Anthropic's Sept 2024 research), per-file advisory locking for multi-writer safety, pre-commit verifier agent, and methodology modes (LYT / PARA / Zettelkasten / Generic). Optional DragonScale Memory extension (log folds, deterministic addresses, semantic tiling lint, boundary-first autoresearch).",
   "author": {
     "name": "LeeHongji",
