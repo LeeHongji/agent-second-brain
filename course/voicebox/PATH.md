@@ -1,36 +1,36 @@
-# Path: voicebox — build a local AI voice app from scratch
+# Path:voicebox —— 从零构建一个本地 AI 语音应用
 
-**Status**: in-progress
-**Mission**: [[MISSION.md]]
-**Last revised**: 2026-06-30
+**状态**:in-progress
+**Mission**:[[MISSION.md]]
+**最后修订**:2026-06-30
 
-## Direction
+## 方向
 
-You start from what you know (React/TS) and climb the stack one layer at a time: first **see the whole** and get voicebox running, then the **Tauri shell** (the new layer nearest the web you know), then the **Python FastAPI sidecar**, then **serving local models** on your Mac. Once the pipeline speaks (TTS), you go **horizontal into the voice domain** — TTS principles, cloning, dictation (STT), effects + the bundled LLM — and finally **vertical into shipping**: packaging the sidecar + Tauri into a distributable Mac app, capped by a from-scratch capstone. Each milestone ends with something you can run or explain; each new layer is adjacent to one you just earned.
+从你会的(React/TS)出发,一层层往上爬:先**看清全貌 + 把 voicebox 跑起来**,再上 **Tauri 外壳**(离 web 最近的新层),再 **Python FastAPI sidecar**,再**在 Mac 上 serve 本地模型**。等管道会说话了(TTS),就**横向吃语音领域** —— TTS 原理、克隆、听写(STT)、特效 + 内置 LLM —— 最后**纵向收口到发布**:sidecar + Tauri 打成可分发 Mac app,以从零毕业项目收尾。每个里程碑都以"能跑出来或能讲清楚"收束;每个新层都紧邻你刚拿下的那一层。
 
-## Milestones
+## 里程碑
 
-- [~] ▶ **M1 — Orient & run** · the sidecar architecture + get voicebox running in dev on your Mac
-      _Evidence needed_: you can draw the React→Tauri→FastAPI-sidecar→models map from memory, and the dev app launches on your machine.
-- [ ] ◇ **M2 — The Tauri shell** · Rust+web IPC, window/tray/hotkey, spawning a child process (the sidecar seed)
-      _Evidence needed_: a hello-Tauri app hosting a React UI that launches a child process and reads its stdout.
-- [ ] ◇ **M3 — The Python FastAPI sidecar** · FastAPI basics, `backend/` structure (routes/services/backends), HTTP Tauri→Python
-      _Evidence needed_: a Tauri button that calls a local FastAPI endpoint and renders the result in the UI.
-- [ ] ◇ **M4 — Serve your first local model (TTS)** · load Kokoro via torch/MLX on Apple Silicon, expose `/tts`, stream audio back
-      _Evidence needed_: type text in the UI → hear it speak, end-to-end, on your Mac.
-- [ ] ◇ **M5 — TTS principles + engine landscape** · how TTS works (stages; end-to-end vs pipeline; vocoders; streaming/chunking); the 7 voicebox engines + when to pick which
-      _Evidence needed_: you can explain TTS architecture to someone and justify an engine choice for a given requirement.
-- [ ] ◇ **M6 — Voice cloning** · zero-shot cloning from a reference sample; speaker embeddings; wire a clone endpoint
-      _Evidence needed_: clone a voice from a few seconds of audio and generate speech in it.
-- [ ] ◇ **M7 — Dictation input (STT)** · local speech-to-text, global hotkey capture, dictate-into-any-app (the WisprFlow half)
-      _Evidence needed_: dictate into another app via a hotkey, fully locally.
-- [ ] ◇ **M8 — Post-processing + bundled LLM** · audio FX chain (pitch/reverb/…); the bundled local LLM for transcript/delivery refinement + MCP agent voice
-      _Evidence needed_: chain an audio effect; route text through the LLM before TTS.
-- [ ] ◇ **M9 — Package & distribute** · PyInstaller sidecar build + `tauri build` → a Mac app bundling the models
-      _Evidence needed_: a `.dmg`/installer a friend can run on their Mac.
-- [ ] ◇ **M10 — Capstone** · build a minimal voice I/O app from scratch (clone + TTS + dictate) without voicebox open
-      _Evidence needed_: the app works; you wrote it yourself.
+- [~] ▶ **M1 — 定位 + 跑起来** · sidecar 架构 + 在 Mac 上把 voicebox 在 dev 模式跑起来
+      _达标证据_:能凭记忆画出 React→Tauri→FastAPI-sidecar→models 的图;dev 应用在你机器上能启动。
+- [ ] ◇ **M2 — Tauri 外壳** · Rust+web IPC、窗口/托盘/热键、拉起子进程(sidecar 的种子)
+      _达标证据_:一个 host React UI 的 hello-Tauri,能拉起子进程并读它的 stdout。
+- [ ] ◇ **M3 — Python FastAPI sidecar** · FastAPI 基础、`backend/` 结构(routes/services/backends)、Tauri→Python 的 HTTP
+      _达标证据_:Tauri 按钮调本地 FastAPI 端点、把结果显示在 UI。
+- [ ] ◇ **M4 — 跑通第一个本地模型(TTS)** · 在 Apple Silicon 上用 torch/MLX 加载 Kokoro、暴露 `/tts`、音频流回
+      _达标证据_:UI 打字 → 听到它说话,端到端,在你 Mac 上。
+- [ ] ◇ **M5 — TTS 原理 + 引擎版图** · TTS 怎么工作(各阶段;端到端 vs 流水线;声码器;流式/分块);voicebox 的 7 个引擎 + 怎么选
+      _达标证据_:能给别人讲清 TTS 架构、能为某需求给出引擎选型理由。
+- [ ] ◇ **M6 — 声音克隆** · 从参考样本零样本克隆;说话人嵌入;接克隆端点
+      _达标证据_:几秒音频克隆一个声音、用它出声。
+- [ ] ◇ **M7 — 听写输入(STT)** · 本地语音转写、全局热键捕获、听写到任意 app(WisprFlow 那一半)
+      _达标证据_:用热键把话听写到另一个 app,全本地。
+- [ ] ◇ **M8 — 后处理 + 内置 LLM** · 音频特效链(变调/混响/…);内置本地 LLM 做转写/演绎精修 + MCP agent 发声
+      _达标证据_:串一个音频特效;TTS 前先把文本过一遍 LLM。
+- [ ] ◇ **M9 — 打包分发** · PyInstaller 打 sidecar + `tauri build` → 一个捆绑模型的 Mac 应用
+      _达标证据_:一个朋友能在他自己 Mac 上跑的 `.dmg`/安装包。
+- [ ] ◇ **M10 — 毕业项目** · 不开 voicebox,从零搭一个最小语音 I/O 应用(克隆 + TTS + 听写)
+      _达标证据_:应用能跑,且是你自己写的。
 
-## Next
+## 下一步
 
-M1 — Lesson 1 is the architecture map + first run. Get the repo on your machine, start the dev environment, and confirm you can see the app window + draw the sidecar diagram. That fixes the "what am I even looking at" question for every later lesson.
+M1 —— 第 1 课是架构图 + 首次跑通。把仓库弄到机器上、起 dev 环境,确认能看到应用窗口 + 画出 sidecar 图。这会把"我到底在看什么"这个问题,为后面每一课提前解决。

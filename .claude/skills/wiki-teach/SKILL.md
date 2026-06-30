@@ -32,9 +32,20 @@ The global teach skill treats the current directory as the workspace. This versi
 | `/wiki-teach` (no arg) | Read `course/INDEX.md`, list all courses (status + lesson count + last touched), ask: continue which, or start new. |
 | `/wiki-teach sync [<course>]` | Promote the course's decision-grade learnings into the wiki (see §Sync below). |
 
-**New course flow**: interview the user to establish the MISSION (use [`references/MISSION-FORMAT.md`](./references/MISSION-FORMAT.md); push back on vagueness — concrete outcomes, not "to understand X") → create `course/<slug>/` + `MISSION.md` → seed `RESOURCES.md` (curate high-trust sources; load the `web-access` / `autoresearch` skills to find them — never trust parametric knowledge) → write `PATH.md` (the learning plan) → create the first lesson in `lessons/0001-*.html` (zone of proximal development) → register the course in `course/INDEX.md` + append a one-line open to `wiki/log.md`.
+**New course flow**: **first, ask the teaching language** (中文 / English / …) — see §Teaching language below; record it in `NOTES.md` before generating any content. Then interview the user to establish the MISSION (use [`references/MISSION-FORMAT.md`](./references/MISSION-FORMAT.md); push back on vagueness — concrete outcomes, not "to understand X") → create `course/<slug>/` + `MISSION.md` → seed `RESOURCES.md` (curate high-trust sources; load the `web-access` / `autoresearch` skills to find them — never trust parametric knowledge) → write `PATH.md` (the learning plan) → create the first lesson in `lessons/0001-*.html` (zone of proximal development, **in the chosen language**) → register the course in `course/INDEX.md` + append a one-line open to `wiki/log.md`.
 
-**Continue flow**: read `MISSION.md` + `learning-records/*` + `PATH.md` + the last lesson → compute the zone of proximal development → produce the next lesson. As the user demonstrates decision-grade understanding, write `learning-records/000N-*.md` (per [`references/LEARNING-RECORD-FORMAT.md`](./references/LEARNING-RECORD-FORMAT.md)). Update PATH progress.
+**Continue flow**: read `NOTES.md` first (for the teaching language + preferences), then `MISSION.md` + `learning-records/*` + `PATH.md` + the last lesson → compute the zone of proximal development → produce the next lesson (**in the recorded language**). As the user demonstrates decision-grade understanding, write `learning-records/000N-*.md` (per [`references/LEARNING-RECORD-FORMAT.md`](./references/LEARNING-RECORD-FORMAT.md)). Update PATH progress.
+
+### Teaching language (ask at course open — do NOT skip)
+
+Before generating **any** content for a new course, ask the user which language they want the course taught in (e.g. 中文 / English / 日本語). This is the single highest-leverage preference — getting it wrong produces a whole course in the wrong language.
+
+- Ask it as the **first question** of the new-course interview (before or alongside the MISSION interview).
+- Record the answer at the top of `NOTES.md` under a `## Teaching language` heading, e.g. `Teaching language: 中文 (zh)`.
+- **All learner-facing artifacts** — lessons (`lessons/*.html`), reference docs (`reference/*.html`), the glossary (`GLOSSARY.md`) — are authored in that language for the whole course. Technical proper nouns and code stay in their original form (e.g. "Tauri", "FastAPI", `just dev`); the surrounding prose is in the chosen language.
+- Workspace meta (`MISSION.md` / `PATH.md` / `RESOURCES.md`) may be written in the chosen language too; prefer it for consistency.
+- The **continue flow reads `NOTES.md` first** and keeps the language — never re-derive it, never silently switch.
+- If the user asks to change language mid-course, update `NOTES.md` + add a learning-record noting the switch; future lessons follow the new language (past lessons are not retroactively rewritten unless the user asks).
 
 ### PATH.md — the learning plan (new)
 
@@ -79,7 +90,7 @@ The state of the user's learning is captured in the course directory:
 - **`learning-records/*.md`**: ADR-style records of what was learned (the floor for what to teach next). Format: [`references/LEARNING-RECORD-FORMAT.md`](./references/LEARNING-RECORD-FORMAT.md).
 - **`reference/*.html`**: compressed reference materials — cheat sheets, algorithms, syntax, pose sequences. The raw units of learning; designed for quick reference and printing.
 - **`assets/*`**: reusable **components** shared across lessons (stylesheets, quiz widgets, simulators).
-- **`NOTES.md`**: scratchpad for user preferences and working notes.
+- **`NOTES.md`**: scratchpad for user preferences (incl. the **teaching language** — see §Teaching language) and working notes.
 
 Lazy-create `lessons/`, `learning-records/`, `reference/`, `assets/` only when the first file in each is written.
 
@@ -175,6 +186,7 @@ Multi-file syncs (several concept pages + source page + index/log/hot): acquire 
 - Do NOT promote mere lesson coverage into the wiki — only decision-grade learning-records / glossary terms that earned their place.
 - Do NOT trust parametric knowledge for the topic — ground everything in `RESOURCES.md`.
 - Do NOT skip the MISSION interview. A vague mission wrecks the whole course.
+- Do NOT start writing lessons before asking + recording the teaching language. A course in the wrong language is the most expensive mistake to fix.
 - Do NOT touch the global `/teach` skill or assume it is installed — this skill is self-contained.
 - Do NOT auto-sync on every session. Sync is user-initiated (typically at completion).
 

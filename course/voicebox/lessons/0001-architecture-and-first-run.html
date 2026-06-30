@@ -1,70 +1,69 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lesson 1 — The sidecar shape of voicebox</title>
+  <title>第 1 课 — voicebox 的 sidecar 形状</title>
   <link rel="stylesheet" href="../assets/style.css" />
 </head>
 <body>
-  <nav class="lesson-nav">voicebox course · M1 · <a href="../MISSION.md">mission</a> · <a href="../PATH.md">path</a></nav>
-  <p class="kicker">Lesson 1 · Milestone 1</p>
-  <h1>The sidecar shape of voicebox</h1>
+  <nav class="lesson-nav">voicebox 课程 · M1 · <a href="../MISSION.md">mission</a> · <a href="../PATH.md">path</a></nav>
+  <p class="kicker">第 1 课 · 里程碑 1</p>
+  <h1>voicebox 的 sidecar 形状</h1>
 
-  <p>You already know React. Good — because voicebox's user interface <em>is</em> a React app. The thing that makes voicebox <strong>voicebox</strong> is everything <em>around</em> that UI: a desktop shell that bundles a Python server, and that server runs the AI voice models. This lesson fixes the single most important idea in the course — <strong>the sidecar architecture</strong> — and gets the app running on your Mac so every later lesson has a real thing to point at.</p>
+  <p>你已经会 React 了 —— 很好,因为 voicebox 的界面<em>本身</em>就是一个 React 应用。让 voicebox 成为 <strong>voicebox</strong> 的,是这层 UI <em>周围</em>的所有东西:一个桌面外壳(它捆绑了一个 Python 服务),而这个服务负责跑 AI 语音模型。本课要钉死整门课最重要的一个概念 —— <strong>sidecar 架构</strong> —— 并把 voicebox 在你 Mac 上跑起来,这样后面每一课都有个真实的东西可指。</p>
 
-  <h2>The one diagram to memorize</h2>
-  <p>Three processes, one app. The front-end you'd write today; the other two are what you're here to learn.</p>
+  <h2>要背下来的那一张图</h2>
+  <p>三个进程,一个应用。前端是你今天就会写的那部分;另外两个是你来这门课要学的。</p>
 
   <div class="diagram">┌──────────────────────────────────────────────────────────┐
-│                    TAURI DESKTOP APP                      │
+│                    TAURI 桌面应用                          │
 │                                                            │
 │   ┌──────────────┐                  ┌───────────────────┐ │
 │   │  React UI    │   Tauri IPC      │  Rust (src-tauri)  │ │
-│   │  app/ + web/ │◄────────────────►│  window · tray ·   │ │
-│   │  (you know   │                  │  hotkey · spawns ──┼─┐
-│   │   this part) │                  │  sidecar           │ │
+│   │  app/ + web/ │◄────────────────►│  窗口 · 托盘 ·      │ │
+│   │ (这部分你    │                  │  热键 · 拉起 ───────┼─┐
+│   │  已经会)     │                  │  sidecar           │ │
 │   └──────────────┘                  └───────────────────┘ │ │
 └──────────────────────────────────────────────────────────┘ │
-                                                              │ launch + manage
+                                                启动并管理 ───┘ │
                                                               ▼
    ┌──────────────────────────────────────────────────────────┐
    │        PYTHON SIDECAR  (FastAPI · uvicorn · :17493)       │
    │   backend/  routes · services · backends · database       │
-   │                │                                          │
-   │                ▼  loads + runs                            │
-   │   torch · MLX  ──►  7 TTS engines · STT · cloning · LLM   │
+   │                │ 加载并运行                                │
+   │   torch · MLX  ──►  7 个 TTS 引擎 · STT · 克隆 · LLM       │
    └──────────────────────────────────────────────────────────┘
-                 (bundled as a binary via PyInstaller — M9)</div>
+                 (M9 时由 PyInstaller 打成单一二进制)</div>
 
-  <p>Read it as a request flowing right-to-left for output: <strong>UI asks the Rust shell → Rust calls the Python sidecar over HTTP on port 17493 → Python runs the model → audio streams back to the UI.</strong> Input (dictation) is the reverse. Two languages (Rust, Python) plus the React you know — glued by a localhost HTTP boundary.</p>
+  <p>按"出声"的请求方向从右往左读这张图:<strong>UI 发请求 → Rust 外壳 → HTTP(:17493)→ Python → 跑模型 → 音频流回 UI</strong>。听写(输入)方向反过来。两种语言(Rust、Python)加上你会的 React,靠 localhost HTTP 这条边界粘在一起。</p>
 
-  <h2>The monorepo map</h2>
-  <p>voicebox is a Bun workspace. Match each folder to the diagram:</p>
+  <h2>monorepo 目录地图</h2>
+  <p>voicebox 是一个 Bun workspace。把每个目录对到上图:</p>
   <ul>
-    <li><code>app/</code> + <code>web/</code> — the React + Vite UI (your beachhead).</li>
-    <li><code>tauri/</code> (<code>src/</code> = Tauri-bound front-end, <code>src-tauri/</code> = Rust shell) — the desktop wrapper.</li>
-    <li><code>backend/</code> — the Python FastAPI sidecar (models, routes, services). <strong>This is where the AI lives.</strong></li>
-    <li><code>landing/</code> — marketing site. Out of scope for us.</li>
-    <li><code>scripts/</code> + <code>justfile</code> — build orchestration (sidecar build, dev, release).</li>
+    <li><code>app/</code> + <code>web/</code> —— React + Vite 界面(你的舒适区)。</li>
+    <li><code>tauri/</code>(<code>src/</code> = Tauri 绑定的前端,<code>src-tauri/</code> = Rust 外壳)—— 桌面那一层壳。</li>
+    <li><code>backend/</code> —— Python FastAPI sidecar(模型、路由、服务)。<strong>AI 就住在这里。</strong></li>
+    <li><code>landing/</code> —— 营销站,我们不碰。</li>
+    <li><code>scripts/</code> + <code>justfile</code> —— 构建编排(sidecar 构建、dev、release)。</li>
   </ul>
 
-  <h2>Run it</h2>
-  <p>You already have the repo at <code>/Users/hongji/voicebox</code>. The project ships a <code>justfile</code> as its canonical orchestrator.</p>
+  <h2>跑起来</h2>
+  <p>仓库已经在 <code>/Users/hongji/voicebox</code>。项目用 <code>justfile</code> 作统一入口:</p>
   <pre><code>cd /Users/hongji/voicebox
-just setup      # python venv + js deps (+ sidecar prereqs)
-just dev        # ensure venv + sidecar, then `tauri dev`</code></pre>
-  <p>If you don't have <a href="https://tauri.app/start/prerequisites/" target="_blank" rel="noopener">Tauri's prerequisites</a> or <code>just</code>/<code>bun</code> yet, that's expected — getting them installed is part of M1's setup, and exactly the kind of thing to ask me about. As a lighter first look (UI only, no shell/models):</p>
-  <pre><code>bun run dev:web   # just the React UI, in a browser</code></pre>
+just setup      # python venv + js 依赖(+ sidecar 前置)
+just dev        # 确保 venv + sidecar,然后 `tauri dev`</code></pre>
+  <p>如果你还没装 <a href="https://tauri.app/start/prerequisites/" target="_blank" rel="noopener">Tauri 前置依赖</a>、<code>just</code> 或 <code>bun</code>,很正常 —— 装这些就是 M1 的一部分,也正是该来问我的地方。想先轻量看一眼(只看 UI、不碰外壳和模型):</p>
+  <pre><code>bun run dev:web   # 只起 React UI,在浏览器里</code></pre>
 
   <div class="win">
-    <p class="kicker">Your tangible win</p>
-    <p><code>just dev</code> opens the voicebox window. You see the React UI you could have written, hosted by a Rust shell you couldn't — yet. Type some text, pick a voice, hear it speak. Then close your laptop and draw the sidecar diagram above from memory. If you can do both, M1 is done: you know <em>what</em> voicebox is and <em>where</em> each later lesson lives inside it.</p>
+    <p class="kicker">本课的 tangible win</p>
+    <p><code>just dev</code> 打开 voicebox 窗口。你看到一个你本来也能写出来的 React UI,被一个你还不会写(暂时)的 Rust 外壳托着。打几个字、挑个声音、让它说话。然后合上电脑,凭记忆画出上面那张 sidecar 图。两件事都能做到 = M1 完成:你既知道 voicebox <em>是什么</em>,也知道后面每一课<em>落在</em>它的哪一层。</p>
   </div>
 
-  <h2>Primary source for this lesson</h2>
-  <p>Skim the <a href="https://docs.voicebox.sh" target="_blank" rel="noopener">voicebox overview docs</a> and the in-tree <code>backend/README.md</code>. You're not studying features yet — you're confirming the three-process shape against the real code.</p>
+  <h2>本课主源</h2>
+  <p>扫一遍 <a href="https://docs.voicebox.sh" target="_blank" rel="noopener">voicebox 概览文档</a> 和仓库里的 <code>backend/README.md</code>。现在不是研究功能,而是拿真实代码对照确认上面那个"三进程"形状。</p>
 
-  <p class="followup">This is a conversation, not a lecture. Ask me anything before we move on — e.g. <em>"why a sidecar instead of running Python inside Rust?"</em>, <em>"what's IPC vs HTTP and why are both here?"</em>, or <em>"it broke when I ran just dev"</em>. When you can draw the diagram and you've heard it speak, say <strong>ready</strong> and we'll start M2: the Tauri shell itself.</p>
+  <p class="followup">这是对话,不是单向讲课。往下走之前随便问 —— 比如<em>"为什么用 sidecar,而不是把 Python 直接嵌进 Rust?"</em>、<em>"IPC 和 HTTP 在这里各扮演什么角色、为什么两样都有?"</em>、或<em>"我跑 just dev 报错了"</em>。当你能画出那张图、也听到它说话了,回一句 <strong>ready</strong>,我们就进 M2:Tauri 外壳本身。</p>
 </body>
 </html>
