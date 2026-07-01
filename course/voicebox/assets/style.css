@@ -71,6 +71,24 @@ pre code { background: none; padding: 0; }
   white-space: pre;
   overflow-x: auto;
 }
+.diagram-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: #fff;
+  margin: 1.6rem 0;
+}
+figure { margin: 1.6rem 0; }
+figcaption {
+  font-family: system-ui, sans-serif;
+  font-size: 0.82rem;
+  color: var(--soft);
+  text-align: center;
+  margin-top: 0.4rem;
+  line-height: 1.5;
+}
 nav.lesson-nav {
   font-family: system-ui, sans-serif;
   font-size: 0.85rem;

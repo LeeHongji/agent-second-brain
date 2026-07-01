@@ -125,12 +125,47 @@ A lesson is the main thing you produce. Each is one self-contained HTML file in 
 - Link via HTML anchors to other lessons and reference documents.
 - Recommend **one primary source** to read/watch (the highest-trust resource on the topic).
 - End with a reminder to ask the agent follow-up questions.
+- Architecture / framework / flow **diagrams use Excalidraw SVG** (see §Diagrams below) — avoid ASCII art for non-trivial diagrams.
 
 If possible, open the lesson file for the user via a CLI command.
 
+## Diagrams (Excalidraw)
+
+When a lesson needs an **architecture / framework / flow diagram**, author it as a hand-drawn **Excalidraw** diagram and embed the rendered SVG — **not ASCII art**. (ASCII is fine only for tiny inline text sketches.) Excalidraw gives rigor + beauty, is editable in Obsidian, and the hand-drawn (roughjs + Virgil) look matches the "beautiful, returns-to-review" lesson ethos.
+
+### Pipeline
+1. **Master**: author `course/<slug>/reference/<name>.excalidraw` (Excalidraw JSON — box / arrow / text primitives; schema below).
+2. **Render** (once, then after every edit): `bash scripts/excalidraw-render.sh course/<slug>/reference/<name>.excalidraw course/<slug>/assets/<name>.svg` — pure roughjs, no browser. Needs `bash bin/setup-excalidraw.sh` run once on the machine.
+3. **Embed** in the lesson: `<img class="diagram-svg" src="../assets/<name>.svg" alt="...">`.
+4. **Commit both** the `.excalidraw` master (diffable JSON) and the rendered `.svg`.
+
+### Excalidraw element schema (minimal, validated)
+Every element carries these common fields:
+`type, version, versionNonce, isDeleted:false, id (unique), fillStyle ("hachure"|"solid"), strokeWidth (1), strokeStyle ("solid"), roughness (1 = hand-drawn; 0 = clean), opacity (100), angle (0), x, y, strokeColor ("#1e1e1e"), backgroundColor ("transparent" or hex), width, height, seed (int), groupIds ([]), boundElements ([]), updated (int), link (null), locked (false)`.
+
+Per type, add:
+- **rectangle**: `"roundness": {"type": 3}` (rounded corners; or `null`).
+- **text**: `"roundness": null, "fontSize": 20, "fontFamily": 1` (1 = Virgil hand-drawn; 2 = Helvetica; 3 = Cascadia), `"text", "textAlign": "center", "verticalAlign": "middle", "baseline": 18, "containerId": null, "originalText"`.
+- **arrow**: set `width`/`height` to the Δx/Δy; add `"points": [[0,0],[dx,dy]], "lastCommittedPoint": null, "startBinding": null, "endBinding": null, "startArrowhead": null, "endArrowhead": "arrow"`. (Bindings optional — they only matter for re-flowing in the Obsidian editor; a rendered SVG looks right without them.)
+
+File wrapper: `{ "type":"excalidraw", "version":2, "source":"wiki-teach", "elements":[...], "appState":{"viewBackgroundColor":"#ffffff"}, "files":{} }`.
+
+**Worked example** (validated — renders to a hand-drawn SVG): the 2-box smoke fixture inside `bin/setup-excalidraw.sh`, and the voicebox course's `course/voicebox/reference/voicebox-sidecar-architecture.excalidraw`.
+
+### Layout conventions
+- `roughness: 1` + `fontFamily: 1` (Virgil) — keep both consistent across the course.
+- Grid ≈ 80–120 px units; align boxes in rows/columns; leave headroom for labels.
+- **One diagram, one relationship type.** If a picture tries to show more than two axes of information, split it into two diagrams.
+- Color: restrained (1–2 accents); `backgroundColor` can tint a group.
+- Be rigorous: every arrow has an unambiguous start/end and a label where the relationship isn't obvious.
+- Re-render after any edit to the `.excalidraw`; the `.svg` is a rendered artifact, never hand-edited.
+
+### Fallback
+If `excalidraw-render.sh` exits non-zero (malformed JSON, exporter unavailable), fall back to `mmdc -i <name>.mmd -o <name>.svg` (mermaid-cli — clean style, not hand-drawn) so the lesson always has an image, and note in the lesson "clean fallback — re-render from excalidraw". Fix the `.excalidraw` and re-render when you can.
+
 ## Assets
 
-Lessons are built from reusable **components** in `assets/`. Reuse is the default: before authoring a lesson, read `assets/` and build from what is there. When something new and reusable is needed, write it as a component and link — never inline code a future lesson would duplicate. A shared stylesheet is the first component every course earns.
+Lessons are built from reusable **components** in `assets/`: stylesheets, quiz widgets, the shared `style.css`, **and the rendered diagram `.svg`s**. Reuse is the default: before authoring a lesson, read `assets/` and build from what is there. When something new and reusable is needed, write it as a component and link — never inline code a future lesson would duplicate. A shared stylesheet is the first component every course earns.
 
 ---
 
@@ -158,7 +193,7 @@ Wisdom comes from real-world interaction. When a question needs wisdom, attempt 
 
 ## Reference documents
 
-While creating lessons, also create reference documents (`reference/*.html`) — the compressed essence, designed for quick reference. Lessons are rarely revisited; reference docs are. Glossaries are essential — once created, adhere to them in every lesson.
+While creating lessons, also create reference documents (`reference/*.html`) — the compressed essence, designed for quick reference. Lessons are rarely revisited; reference docs are. Glossaries are essential — once created, adhere to them in every lesson. The `reference/` folder also holds the **`.excalidraw` diagram masters** (see §Diagrams).
 
 ## `NOTES.md`
 

@@ -16,25 +16,10 @@
   <h2>要背下来的那一张图</h2>
   <p>三个进程,一个应用。前端是你今天就会写的那部分;另外两个是你来这门课要学的。</p>
 
-  <div class="diagram">┌──────────────────────────────────────────────────────────┐
-│                    TAURI 桌面应用                          │
-│                                                            │
-│   ┌──────────────┐                  ┌───────────────────┐ │
-│   │  React UI    │   Tauri IPC      │  Rust (src-tauri)  │ │
-│   │  app/ + web/ │◄────────────────►│  窗口 · 托盘 ·      │ │
-│   │ (这部分你    │                  │  热键 · 拉起 ───────┼─┐
-│   │  已经会)     │                  │  sidecar           │ │
-│   └──────────────┘                  └───────────────────┘ │ │
-└──────────────────────────────────────────────────────────┘ │
-                                                启动并管理 ───┘ │
-                                                              ▼
-   ┌──────────────────────────────────────────────────────────┐
-   │        PYTHON SIDECAR  (FastAPI · uvicorn · :17493)       │
-   │   backend/  routes · services · backends · database       │
-   │                │ 加载并运行                                │
-   │   torch · MLX  ──►  7 个 TTS 引擎 · STT · 克隆 · LLM       │
-   └──────────────────────────────────────────────────────────┘
-                 (M9 时由 PyInstaller 打成单一二进制)</div>
+  <figure>
+    <img class="diagram-svg" src="../assets/voicebox-sidecar-architecture.svg" alt="voicebox sidecar 架构:Tauri 桌面应用(React UI + Rust 外壳)spawn Python sidecar(FastAPI :17493),sidecar 加载运行 torch/MLX 语音模型" />
+    <figcaption>三进程 sidecar 架构 —— Tauri 外壳拉起 Python 服务,Python 跑模型。<code class="language-plaintext">.excalidraw</code> 母版:<code>reference/voicebox-sidecar-architecture.excalidraw</code>(Obsidian 可编辑)</figcaption>
+  </figure>
 
   <p>按"出声"的请求方向从右往左读这张图:<strong>UI 发请求 → Rust 外壳 → HTTP(:17493)→ Python → 跑模型 → 音频流回 UI</strong>。听写(输入)方向反过来。两种语言(Rust、Python)加上你会的 React,靠 localhost HTTP 这条边界粘在一起。</p>
 
